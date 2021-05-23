@@ -9,7 +9,7 @@ mongoose
     .catch(err => console.log(err));
 
 app.get("/", (req, res) => {
-    res.send("Hello World!!");
+    res.send("Hello Flux! I'm alive!");
 })
 
 const port = process.env.PORT || 5000;

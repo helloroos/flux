@@ -3,11 +3,13 @@ import React from 'react';
 const Footer = () => {
     return (
         <footer>
-          <div>Done by:</div>
-          <li>Michelle</li>
-          <li>Jessica</li>
-          <li>Evan</li>
-          <li>Syldys</li>
+          <div></div>
+
+       
+          <li>Michelle Roos</li>
+          <li>Jessica Uphoff</li>
+          <li>Evan Leon</li>
+          <li>Syldys Khomushku</li>
         </footer>
     )
 };

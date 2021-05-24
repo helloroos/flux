@@ -5,7 +5,7 @@ const initialState = {
   user: {}
 };
 
-export default function(state = initialState, action) {
+const sessionReducer = (state = initialState, action) => {
   
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
@@ -22,9 +22,12 @@ export default function(state = initialState, action) {
     case RECEIVE_USER_SIGN_IN:
       return {
         ...state,
-        isSignedIn: true
+        isSignedIn: true,
+        user: action.user
       }
     default:
       return state;
   }
-}
+};
+
+export default sessionReducer;

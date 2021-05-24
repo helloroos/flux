@@ -23,24 +23,27 @@ class LoginForm extends React.Component {
             password: this.state.password,
         }
 
-        this.props.signup(user);
+        this.props.login(user).then(this.props.hideModal);
     }
 
     render() {
         return (
              <div className='input-con'>
-                <form onSubmit={this.handleSubmit}>
+                <form >
                     <input value={this.state.email}
                             onChange={this.update('email')}
                             type='text'
                             placeholder='Email *'
                     />
                     <input value={this.state.password}
-                            onChange={this.update('Password')}
-                            type='text'
+                            onChange={this.update('password')}
+                            type='password'
                             placeholder='Enter a password *'
                     />
-                    <button type='submit' value='Sign In'/>
+                    <button onClick={this.handleSubmit}
+                            value='Sign In'>
+                        Sign In
+                    </button>
                 </form>
             </div>
         )

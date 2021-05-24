@@ -3,10 +3,6 @@ import LoginFormContainer from '../session/login_form_container';
 import SignupContainer from '../session/signup_form_container';
 
 class Modal extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    
     render() {
         
         if (!this.props.modal) return null;

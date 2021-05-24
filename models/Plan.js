@@ -11,11 +11,12 @@ const PlanSchema = new Schema({
         required: true
     },
     members: {
-        type: Array,
+        type: [String], // default: []
         required: true
     }
 }, {
     timestamps: true
 })
 
+// Model creation & export
 module.exports = Plan = mongoose.model('Plan', PlanSchema);

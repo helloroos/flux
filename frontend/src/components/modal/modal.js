@@ -1,9 +1,10 @@
 import React from 'react';
+import LoginFormContainer from '../session/login_form_container';
+import SignupContainer from '../session/signup_form_container';
 
 class Modal extends React.Component {
     constructor(props) {
         super(props);
-        
     }
     
     render() {
@@ -14,10 +15,10 @@ class Modal extends React.Component {
 
         switch (this.props.modal) {
             case 'Sign In':
-                modalForm = ( <div>This is sign in</div> )
+                modalForm = <LoginFormContainer />
                 break
             case 'Sign Up':
-                modalForm = ( <div>This is sign un</div> )
+                modalForm = <SignupContainer />
                 break
             default:
                 return null

@@ -7,7 +7,6 @@ const path = require('path');
 const users = require('./routes/api/users');
 
 const bodyParser = require('body-parser');
-// const User = require("./model/User");
 const passport = require('passport');
 // require('./config/passport')(passport);
 
@@ -24,9 +23,6 @@ mongoose
     .then(() => console.log("Connected to MongoDB successfully")) // listen 
     .catch(err => console.log(err));
 
-// app.get("/", (req, res) => {
-//     res.send("Hello Flux! I'm alive!");
-// })
 
 app.use(passport.initialize());
 require('./config/passport')(passport);

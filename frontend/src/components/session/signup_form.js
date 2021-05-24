@@ -35,7 +35,7 @@ class SignupForm extends React.Component {
     render() {
         return (
             <div className='input-con'>
-                <form onSubmit={this.handleSubmit}>
+                <form >
                     <input value={this.state.firstName}
                             onChange={this.update('firstName')}
                             type='text'
@@ -52,7 +52,7 @@ class SignupForm extends React.Component {
                             placeholder='Email *'
                     />
                     <input value={this.state.password}
-                            onChange={this.update('Password')}
+                            onChange={this.update('password')}
                             type='text'
                             placeholder='Enter a password *'
                     />
@@ -61,7 +61,7 @@ class SignupForm extends React.Component {
                             type='text'
                             placeholder='Re-enter a password *'
                     />
-                    <button type='submit' value='Sign Up'/>
+                    <button value='Sign Up' onClick={this.handleSubmit}>Sign Up</ button>
                 </form>
             </div>
         )

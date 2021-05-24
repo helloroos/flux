@@ -11,9 +11,9 @@ class Header extends React.Component {
   }
 
   handleClick(e) {
-    e.preventDefault;
-    let field = e.target.innerHTML
-    this.props.openModel(field)
+    e.preventDefault();
+    let target = e.target
+    this.props.openModel(target)
   }
 
 
@@ -27,16 +27,11 @@ class Header extends React.Component {
           <img className='logo'></img>
         </div>
         <div className='right-head'>
-          <Link to=''>
+          {/* <Link to=''> */}
             <i className="fas fa-plus-circle"></i>
             {/* plus icon for add new trip */}
-          </Link>
-
-
-
-
+          {/* </Link> */}
           {/* {accountButton} */}
-
 
         </div>
 
@@ -49,16 +44,9 @@ class Header extends React.Component {
 
 }
 
-const Header = () => {
-
-
 
   // if (current_user) {
   //   accountButton = <i className="fas fa-user-circle"></i>
   // } // need to link to the login/signup modal
-
-
-  
-};
 
 export default Header;

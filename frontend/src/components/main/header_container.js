@@ -10,7 +10,7 @@ const mapSTP = (state) => {
 
 const mapDTP = dispatch => {
   return ({
-    openModal: (model) => dispatch(hideModal(model)),
+    openModal: (model) => dispatch(openModal(model)),
     hideModal: (model) => dispatch(hideModal(model))
   })
 };

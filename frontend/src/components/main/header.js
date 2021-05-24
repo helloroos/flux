@@ -18,7 +18,7 @@ class Header extends React.Component {
 
 
   render() {
-    let { user } = this.props.session;
+    let { currentUser } = this.props;
     let accountButton;
 
     return (
@@ -32,8 +32,7 @@ class Header extends React.Component {
             {/* plus icon for add new trip */}
           </Link>
 
-          <i className="fas fa-chevron-circle-down"></i>
-          {/* arrow dropdown for current trips */}
+
 
 
           {/* {accountButton} */}

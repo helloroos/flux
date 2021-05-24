@@ -1,4 +1,4 @@
-import MainPage from "./main/main_page";
+import MainPageContainer from "./main/main_page_container";
 import ModalContainer from "./modal/modal_container";
 import { Route } from 'react-router-dom';
 
@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom';
 const App = () => (
     <div>
         <ModalContainer />
-        <Route exact path='/' component={MainPage} />
+        <Route exact path='/' component={MainPageContainer} />
     </div>
 );
 

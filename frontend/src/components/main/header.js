@@ -55,7 +55,7 @@ class Header extends React.Component {
       <header>
         <div className='header-cont'>
           <div className='left-head'>
-            {/* <img className='logo'></img> */}
+            <h1 className='logo'>flux</h1>
           </div>
           <div className='right-head'>
             {/* <Link> */}

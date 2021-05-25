@@ -11,12 +11,12 @@ const Footer = () => {
           activities). Once you've decided on a trip you can stay organized with
           your logistics. 
         </p>
-        <ul className='teammates'>
-          <li>Michelle Roos</li>
-          <li>Jessica Uphoff</li>
-          <li>Evan Leon</li>
-          <li>Syldys Khomushku</li>
-        </ul>
+        <div className='teammates'>
+          <h5>Michelle Roos</h5>
+          <h5>Jessica Uphoff</h5>
+          <h5>Evan Leon</h5>
+          <h5>Syldys Khomushku</h5>
+        </div>
       </div>
     </footer>
   )

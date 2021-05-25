@@ -1,0 +1,12 @@
+.footer-cont {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(0, 183, 255);
+  justify-content: space-between;
+  align-items: center;
+
+  .foot-desc {
+    width: 500px;
+    margin: 5px;
+  }
+}

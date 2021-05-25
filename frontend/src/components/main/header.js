@@ -47,7 +47,7 @@ class Header extends React.Component {
                 {/* </Link> */}
               </li>
               <li>
-                <button onClick={this.handleLogout}>Log Out</button>
+                <button className='nav-button' onClick={this.handleLogout}>Log Out</button>
               </li>
             </ul>
           </div>

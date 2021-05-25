@@ -3,7 +3,6 @@ import React from 'react';
 class IfLoggedIn extends React.Component {
     constructor(props) {
         super(props)
-        debugger
         this.state = {
             title: props.plan.title,
             description: props.plan.description

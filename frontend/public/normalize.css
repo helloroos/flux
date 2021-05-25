@@ -22,6 +22,8 @@ html {
 
 body {
   margin: 0;
+  background-image: url('../assets/background1.jpg');
+  background-size: cover;
 }
 
 /**

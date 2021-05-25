@@ -1,12 +1,19 @@
-import MainPage from "./main/main_page";
+import MainPageContainer from "./main/main_page_container";
 import ModalContainer from "./modal/modal_container";
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import HeaderContainer from './main/header_container'
+import Footer from './main/footer'
+
 
 
 const App = () => (
     <div>
+        <Route path='/' component={HeaderContainer}/>
         <ModalContainer />
-        <Route exact path='/' component={MainPage} />
+        <Switch>
+            <Route exact path='/' component={MainPageContainer} />
+        </Switch>
+        <Footer />
     </div>
 );
 

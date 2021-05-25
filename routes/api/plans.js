@@ -25,6 +25,8 @@ router.post('/',
     }
 );
 
+
+
 router.get('/user/:user_id', (req, res) => {
     Plan.find({members: req.params.user_id})
         .then(plans => res.json(plans))

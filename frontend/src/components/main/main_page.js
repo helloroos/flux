@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from './footer';
 
 class MainPage extends React.Component {
     constructor(props) {
@@ -23,17 +22,7 @@ class MainPage extends React.Component {
     render() {
         return (
         <div>
-            <h1>Flux project</h1>
-            <button onClick={this.handleClick}>
-                Sign Up
-            </button>
-            <button onClick={this.handleClick}>
-                Sign In
-            </button>
-            <button onClick={this.handleLogout}>
-                Log Out
-            </button>
-            <Footer />
+
         </div>
         );
     }

@@ -7,7 +7,7 @@ const keys = require('../../config/keys');
 const passport = require('passport');
 const validatePlanInput = require('../../validation/plans')
 
-router.post('/plan',
+router.post('/',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const { errors, isValid } = validatePlanInput(req.body);
@@ -26,3 +26,5 @@ router.post('/plan',
 );
 
 module.exports = router;
+
+

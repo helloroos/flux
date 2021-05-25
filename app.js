@@ -33,7 +33,8 @@ app.use(bodyParser.json());
 
 // routes
 app.use("/api/users", users);
-app.use("/api/users/:userId", plans);
+app.use("/api/plans", plans);
+// app.use("/api/users/:userId", plans);
 
 // server port
 const port = process.env.PORT || 5000;

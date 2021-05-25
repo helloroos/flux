@@ -2,7 +2,7 @@ import { RECEIVE_PLAN, RECEIVE_USER_PLANS } from "../actions/plan_actions";
 
 
 const initialState = {
-    plans: {},
+    userPlans: undefined,
     new: undefined
 }
 
@@ -15,7 +15,7 @@ const plansReducer = (state = initialState, action) => {
             return newState;
         case RECEIVE_USER_PLANS:
             debugger
-            newState = action.plans.data;
+            newState.userPlans = action.plans.data;
             return newState;
         default:
             return state;

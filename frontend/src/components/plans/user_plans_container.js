@@ -3,10 +3,13 @@ import { fetchUserPlans } from "../../actions/plan_actions";
 import UserPlans from "./user_plans";
 
 
-const mapSTP = state => ({
-    userId: state.session.user.id,
-    plans: state.session.plans.user
-});
+const mapSTP = state => {
+    // if (!state.session.plans.user) return null
+    debugger
+    return ({
+        plans: state.plans
+    })
+};
 
 const mapDTP = dispatch => ({
     fetchUserPlans: id => dispatch(fetchUserPlans(id))

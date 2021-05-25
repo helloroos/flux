@@ -3,27 +3,23 @@ import React from 'react';
 class IfLoggedIn extends React.Component {
     constructor(props) {
         super(props)
-        debugger
         this.state = {
             title: props.plan.title,
             description: props.plan.description
         }
-
+         
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick(e) {
         e.preventDefault();
         let plan = {
-            title: this.state.title,
-            description: this.state.description
+            title: this.props.plan.title,
+            description: this.props.plan.description
         }
-
-        this.props.createPlan(plan)
-        this.setState({
-            title: '',
-            description: ''
-        })
+        
+        this.props.createPlan(plan);
+        this.props.clearInput();
     }
 
     render() {

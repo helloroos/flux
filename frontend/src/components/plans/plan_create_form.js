@@ -10,10 +10,19 @@ class PlanCreateForm extends React.Component {
             title: '',
             description: ''
         }
+
+        this.clearInput = this.clearInput.bind(this);
     }
 
     update(field) {
-        return e => this.setState({ [field]: e.currentTarget.value })
+        return e => this.setState({ [field]: e.target.value })
+    }
+
+    clearInput() {
+        this.setState({
+            title: '',
+            description: ''
+        })
     }
 
     render() {
@@ -24,9 +33,10 @@ class PlanCreateForm extends React.Component {
             createForm = <IfLoggedOut openModal={this.props.openModal} />
         } else {
             createForm = <IfLoggedIn plan={this.state}
-                    createPlan={this.props.createPlan} />
+                    createPlan={this.props.createPlan} 
+                    clearInput={this.clearInput}/>
         }
-
+       
         return (
             <div>
                 <form>

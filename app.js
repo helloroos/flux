@@ -6,6 +6,7 @@ const db = require('./config/keys').mongoURI;
 const path = require('path');
 const users = require('./routes/api/users');
 const plans = require('./routes/api/plans');
+const email = require('./routes/api/emails');
 
 const bodyParser = require('body-parser');
 
@@ -34,6 +35,7 @@ app.use(bodyParser.json());
 // routes
 app.use("/api/users", users);
 app.use("/api/plans", plans);
+app.use("/api/email", email);
 // app.use("/api/users/:userId", plans);
 
 // server port

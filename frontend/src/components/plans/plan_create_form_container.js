@@ -4,7 +4,6 @@ import { createPlan } from "../../actions/plan_actions";
 import PlanCreateForm from "./plan_create_form";
 
 const mapSTP = state => {
-    debugger
     return ({
         currentUser: state.session.user,
         plan: state.plans.new

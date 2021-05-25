@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -6,16 +7,14 @@ class LoginForm extends React.Component {
 
         this.state = {
             email: '',
-            password: '',
-            errors: {}
+            password: ''
         }
-
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleErrors = this.handleErrors.bind(this);
     }
 
-    handleErrors(field) {
-        return this.props.errors.filter(error => error.includes(field))
+    handleErrors() {
+        return this.props.errors.map(error => (<div>{error}</div>))
     }
 
     update(field) {
@@ -28,13 +27,13 @@ class LoginForm extends React.Component {
             email: this.state.email,
             password: this.state.password,
         }
-
+        
         this.props.login(user)
-            .then(this.props.hideModal);
-
+        this.props.hideModal()
     }
 
     render() {
+
         return (
              <div className='input-con'>
                 <form >
@@ -55,6 +54,7 @@ class LoginForm extends React.Component {
                         Sign In
                     </button>
                 </form>
+                {/* {this.handleErrors()} */}
             </div>
         )
     }

@@ -4,6 +4,9 @@ import MainPage from "./main_page";
 
 const { openModal } = require("../../actions/modal_actions");
 
+// const mapSTP = state => ({
+//     plans: state.plans
+// })
 
 const mapDTP = dispatch => ({
     openModal: (modal) => dispatch(openModal(modal)),

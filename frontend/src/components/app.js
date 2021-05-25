@@ -1,7 +1,8 @@
 import MainPageContainer from "./main/main_page_container";
 import ModalContainer from "./modal/modal_container";
 import { Route, Switch } from 'react-router-dom';
-import HeaderContainer from './main/header_container'
+import HeaderContainer from './main/header_container';
+import UserPlansContainer from './plans/user_plans_container';
 import Footer from './main/footer'
 
 
@@ -12,6 +13,7 @@ const App = () => (
         <ModalContainer />
         <Switch>
             <Route exact path='/' component={MainPageContainer} />
+            <Route exact path='/users/:userId' component={UserPlansContainer} />
         </Switch>
         <Footer />
     </div>

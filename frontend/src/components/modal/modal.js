@@ -1,6 +1,8 @@
 import React from 'react';
 import LoginFormContainer from '../session/login_form_container';
 import SignupContainer from '../session/signup_form_container';
+import '../css/modal.scss'
+
 
 class Modal extends React.Component {
     render() {

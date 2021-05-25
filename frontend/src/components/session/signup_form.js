@@ -34,28 +34,28 @@ class SignupForm extends React.Component {
 
     render() {
         return (
-            <div className='input-con'>
+            <div className='form-cont'>
                 <input value={this.state.firstName}
                         onChange={this.update('firstName')}
                         type='text'
                         placeholder='First Name *'
                 />
-                <input value={this.state.lastName}
+                <input className='form-inputs' value={this.state.lastName}
                         onChange={this.update('lastName')}
                         type='text'
                         placeholder='Last Name *'
                 />
-                <input value={this.state.email}
+                <input className='form-inputs' value={this.state.email}
                         onChange={this.update('email')}
                         type='text'
                         placeholder='Email *'
                 />
-                <input value={this.state.password}
+                <input className='form-inputs' value={this.state.password}
                         onChange={this.update('password')}
                         type='password'
                         placeholder='Enter a password *'
                 />
-                <input value={this.state.password2}
+                <input className='form-inputs' value={this.state.password2}
                         onChange={this.update('password2')}
                         type='password'
                         placeholder='Re-enter a password *'

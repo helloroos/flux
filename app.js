@@ -7,6 +7,7 @@ const path = require('path');
 const users = require('./routes/api/users');
 const plans = require('./routes/api/plans');
 const email = require('./routes/api/emails');
+const suggestions = require('./routes/api/suggestions');
 
 const bodyParser = require('body-parser');
 
@@ -36,7 +37,8 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/plans", plans);
 app.use("/api/email", email);
-// app.use("/api/users/:userId", plans);
+app.use("/api/suggestions", suggestions);
+
 
 // server port
 const port = process.env.PORT || 5000;

@@ -8,7 +8,6 @@ class MainPage extends React.Component {
         return (
             <div>
                 <CreatePlanFormContainer />
-                {/* <UserPlansContainer /> */}
             </div>
         );
     }

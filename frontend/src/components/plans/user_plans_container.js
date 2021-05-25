@@ -4,9 +4,10 @@ import UserPlans from "./user_plans";
 
 
 const mapSTP = state => {
+    // if (!state.session.plans.user) return null
+    debugger
     return ({
-        userId: state.session.user.id,
-        plans: state.session.plans
+        plans: state.plans
     })
 };
 

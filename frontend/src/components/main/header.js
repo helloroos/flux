@@ -13,7 +13,7 @@ class Header extends React.Component {
   }
 
   handleClick(e) {
-    debugger
+    
     // e.preventDefault();
     let target = e.currentTarget.innerHTML
     this.props.openModal(target)

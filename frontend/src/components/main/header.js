@@ -8,12 +8,19 @@ class Header extends React.Component {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   handleClick(e) {
+    debugger
+    // e.preventDefault();
+    let target = e.currentTarget.innerHTML
+    this.props.openModal(target)
+  }
+
+  handleLogout(e) {
     e.preventDefault();
-    let target = e.target
-    this.props.openModel(target)
+    this.props.logout();
   }
 
 
@@ -21,18 +28,48 @@ class Header extends React.Component {
     let { currentUser } = this.props;
     let accountButton;
 
+    if (!currentUser) {
+      accountButton = (
+        <div>
+          <button onClick={this.handleClick}>Sign Up</button>
+          <button onClick={this.handleClick}>Sign In</button>
+        </div>
+      )
+    } else {
+      accountButton = (
+        <div>
+          <i className="fas fa-user-circle"></i>
+          <div className='account-drop'>
+            <ul>
+              <li>
+                {/* <Link> */}
+                <button>Account</button>
+                {/* </Link> */}
+              </li>
+              <li>
+                <button onClick={this.handleLogout}>Log Out</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      )
+    }
+      
+
+            
+            
+
     return (
       <header>
         <div className='left-head'>
-          <img className='logo'></img>
+          {/* <img className='logo'></img> */}
         </div>
         <div className='right-head'>
-          {/* <Link to=''> */}
+          {/* <Link> */}
             <i className="fas fa-plus-circle"></i>
             {/* plus icon for add new trip */}
           {/* </Link> */}
-          {/* {accountButton} */}
-
+          {accountButton}
         </div>
 
 
@@ -44,9 +81,5 @@ class Header extends React.Component {
 
 }
 
-
-  // if (current_user) {
-  //   accountButton = <i className="fas fa-user-circle"></i>
-  // } // need to link to the login/signup modal
 
 export default Header;

@@ -1,6 +1,10 @@
 import { connect } from "react-redux";
 import { openModal, hideModal } from "../../actions/modal_actions";
 import Header from './header';
+import { logout } from "../../actions/session_actions";
+
+
+// const { openModal, hideModal } = require('../../actions/modal_actions')
 
 const mapSTP = (state) => {
   return ({
@@ -10,8 +14,9 @@ const mapSTP = (state) => {
 
 const mapDTP = dispatch => {
   return ({
-    openModal: (model) => dispatch(openModal(model)),
-    hideModal: (model) => dispatch(hideModal(model))
+    openModal: (modal) => dispatch(openModal(modal)),
+    hideModal: () => dispatch(hideModal()),
+    logout: () => dispatch(logout())
   })
 };
 

@@ -25,6 +25,30 @@ router.post('/',
     }
 );
 
+router.get('/user/:user_id', (req, res) => {
+    Plan.find({members: req.params.user_id})
+        .then(plans => res.json(plans))
+        .catch(err =>
+            res.status(404).json({ noplansfound: 'No plans can be found for this user' }
+        )
+    );
+});
+
+router.get('/:id', (req, res) => {
+    Plan.findById(req.params.id)
+        .then(plan => res.json(plan))
+        .catch(err =>
+            res.status(404).json({ noplanfound: 'No plan found with that id, please try again' })
+        );
+});
+
+// router.delete('/:id', (req, res) => {
+//     Plan.findById(req.params.id)
+      
+// })
+
+
+
 module.exports = router;
 
 

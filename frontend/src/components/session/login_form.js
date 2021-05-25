@@ -7,9 +7,15 @@ class LoginForm extends React.Component {
         this.state = {
             email: '',
             password: '',
+            errors: {}
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleErrors = this.handleErrors.bind(this);
+    }
+
+    handleErrors(field) {
+        return this.props.errors.filter(error => error.includes(field))
     }
 
     update(field) {
@@ -23,7 +29,9 @@ class LoginForm extends React.Component {
             password: this.state.password,
         }
 
-        this.props.login(user).then(this.props.hideModal);
+        this.props.login(user)
+            .then(this.props.hideModal);
+
     }
 
     render() {
@@ -34,12 +42,14 @@ class LoginForm extends React.Component {
                             onChange={this.update('email')}
                             type='text'
                             placeholder='Email *'
-                    />
+                        />
+                    {/* {this.handleErrors('Email')} */}
                     <input value={this.state.password}
                             onChange={this.update('password')}
                             type='password'
                             placeholder='Enter a password *'
-                    />
+                        />
+                    {/* {this.handleErrors('Password')} */}
                     <button onClick={this.handleSubmit}
                             value='Sign In'>
                         Sign In

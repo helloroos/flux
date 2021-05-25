@@ -4,10 +4,13 @@ import LoginForm from "./login_form";
 
 const { login } = require("../../actions/session_actions");
 
+const mapSTP = state => ({
+    errors: Object.values(state.errors.session)
+})
 
 const mapDTP = dispatch => ({
     login: user => dispatch(login(user)),
     hideModal: () => dispatch(hideModal())
 });
 
-export default connect(null, mapDTP)(LoginForm);
+export default connect(mapSTP, mapDTP)(LoginForm);

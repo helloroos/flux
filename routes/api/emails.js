@@ -16,7 +16,7 @@ const oAuth2Client = new google.auth.OAuth2(
  
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
-router.post('/send', (req, res) => {
+router.post('/:id/send', (req, res) => {
     async function sendMail() {
         try {
             const accessToken = await oAuth2Client.getAccessToken();
@@ -40,9 +40,7 @@ router.post('/send', (req, res) => {
                 from: 'FLUX <stateoffluxapp@gmail.com>',
                 to: to,
                 subject: "Let's get this trip organized!",
-                text: `Please join by following this link: `,
-                // text: `Please join by following this link: localhost:5000/api/plans/${planId}`,
-                // api/plans/:id
+                text: `Please join by following this link: localhost:5000/api/plans/${planId}`,
             };
     
             const result = await transport.sendMail(mailOptions);

@@ -1,9 +1,10 @@
 import React from 'react';
+import '../css/footer.scss'
 
 const Footer = () => {
   return (
     <footer>
-      <div>
+      <div className='footer-cont'>
         <p className='foot-desc'>
           Flux allows you to connect with your friends and upvote/downvote
           trip suggestions (complete with dates, destination, accommodation and 

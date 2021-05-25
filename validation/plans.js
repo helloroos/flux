@@ -11,9 +11,9 @@ module.exports = function validatePlanInput(data) {
     errors.title = 'title field is required';
   }
 
-  if (!Validator.isLength(data.description, { min: 2, max: 300 })) {
-    errors.description = 'A plans description must be longer than 2 characters';
-  }
+  // if (!Validator.isLength(data.description, { min: 2, max: 300 })) {
+  //   errors.description = 'A plans description must be longer than 2 characters';
+  // }
 
 //   if (Validator.isEmpty(data.description)) {
 //     errors.description = 'description field is required';

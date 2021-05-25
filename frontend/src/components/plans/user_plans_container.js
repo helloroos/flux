@@ -7,7 +7,7 @@ const mapSTP = state => {
     // if (!state.session.plans.user) return null
     debugger
     return ({
-        plans: state.plans
+        plans: state.plans.userPlans
     })
 };
 

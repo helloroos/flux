@@ -1,4 +1,4 @@
-import { RECEIVE_PLAN } from "../actions/plan_actions";
+import { RECEIVE_PLAN, RECEIVE_USER_PLANS } from "../actions/plan_actions";
 
 
 const initialState = {
@@ -14,6 +14,9 @@ const plansReducer = (state = initialState, action) => {
     switch (action.type) {
         case RECEIVE_PLAN:
             newState.new = action.plan.data;
+            return newState;
+        case RECEIVE_USER_PLANS:
+            newState.user = action.plans.data;
             return newState;
         default:
             return state;

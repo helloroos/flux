@@ -32,8 +32,8 @@ class Header extends React.Component {
     if (!currentUser) {
       accountButton = (
         <div>
-          <button className='buttons' onClick={this.handleClick}>Sign Up</button>
-          <button className='buttons' onClick={this.handleClick}>Sign In</button>
+          <button className='buttons' onClick={this.handleClick}>sign in</button>
+          <button className='buttons' onClick={this.handleClick}>sign up</button>
         </div>
       )
     } else {

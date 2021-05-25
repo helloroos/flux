@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const createPlan = (planData) => {
+    debugger
     return axios.post('/api/plans', planData);
 };
 
@@ -9,5 +10,6 @@ export const showPlan = (id) => {
 };
 
 export const showUserPlans = id => {
+    debugger
     return axios.get(`/api/plans/user/${id}`)
 };

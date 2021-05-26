@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import '../css/user_plans.scss'
+
 
 class UserPlans extends React.Component {
     constructor(props) {
@@ -16,16 +18,18 @@ class UserPlans extends React.Component {
         if (!this.props.plans) return null;
         
         const mapped = this.props.plans.map(plan => (
-                <div>
-                    <NavLink to={`/${plan._id}`}>{plan.title}</NavLink>
-                    <div>{plan.description}</div>
-                </div>
+            <div className='plan' id={plan._id}>
+                <NavLink to={`/${plan._id}`}>
+                    <h5>{plan.title}</h5>
+                </NavLink>
+                <div>{plan.description}</div>
+            </div>
             )
         )
         
         return (
-            <div>
-                <h1>My plans</h1>
+            <div className='plans-cont'>
+                <h2 className='plans-title'>My plans</h2>
                 {mapped}
             </div>
         )

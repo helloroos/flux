@@ -33,7 +33,8 @@ router.post('/plan/:id/create',
             })
             .catch((error) => {
                 res.status(500).json({ error });
-            })
+            }
+        )
     }
 );
 
@@ -70,14 +71,6 @@ router.patch('/:suggestion_id/upvote',
         const update = { upvotes: currUser }
 
         const plan = Plan.findById(suggestionId);
-        console.log(plan.toObject());
-
-        // Plan.findOneAndUpdate(
-        //     suggestionId, { $push: update }, { new: true })
-        //     .then(suggestion => res.json(suggestion))
-        //     .catch(err =>
-        //         res.status(404).json({ nosuggestionfound: 'No suggestion found with that id, please try again' })
-        //     );
     }
 );
 

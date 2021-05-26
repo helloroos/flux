@@ -32,9 +32,9 @@ class UserPlans extends React.Component {
         )
         
         return (
-            <div>
+            <div className='body-3'>
+                <div className='main-plan-cont'>
                 <h2 className='plans-title'>Future plans...</h2>
-                <div className='main-cont'>
                     <div className='plans-cont'>
                         {mapped}
                     </div>

@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import CreateSuggContainer from '../../suggestions/create_sugg_container';
+import PlanSuggestionsContainer from '../../suggestions/plan_suggs_container';
 
 class PlanItem extends React.Component {
     constructor(props) {
@@ -72,7 +74,7 @@ class PlanItem extends React.Component {
                 </button>
             )
         }
-        debugger
+        
 
         return (
             <div>
@@ -98,6 +100,8 @@ class PlanItem extends React.Component {
                 }}>
                     Edit Plan
                 </NavLink>
+                <CreateSuggContainer />
+                <PlanSuggestionsContainer />
             </div>
         )
     }

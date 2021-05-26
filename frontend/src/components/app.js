@@ -5,6 +5,7 @@ import HeaderContainer from './main/header_container';
 import UserPlansContainer from './plans/user_plans_container';
 import Footer from './main/footer';
 import PlanItemContainer from './plans/plan/plan_item_container';
+import PlanCreateFormContainer from './plans/plan_create_form_container';
 
 
 
@@ -16,6 +17,7 @@ const App = () => (
             <Route exact path='/' component={MainPageContainer} />
             <Route exact path='/:planId' component={PlanItemContainer} />
             <Route exact path='/users/:userId' component={UserPlansContainer} />
+            <Route exact path='/plans/create' component={PlanCreateFormContainer} />
         </Switch>
         <Footer />
     </div>

@@ -27,23 +27,23 @@ class Header extends React.Component {
 
   render() {
     let { currentUser } = this.props;
-    let accountButton;
+    let accountButtons;
 
     if (!currentUser) {
-      accountButton = (
+      accountButtons = (
         <div>
           <button className='buttons' onClick={this.handleClick}>Sign In</button>
           <button className='buttons' onClick={this.handleClick}>Sign Up</button>
         </div>
       )
     } else {
-      accountButton = (
-        <div>
-          {/* <i className="icons fas fa-user-circle"></i>
-          <div className='account-drop'> */}
+      accountButtons = (
+        <>
+          <Link to={`/users/${currentUser.id}`}>
+            <i className="icons fas fa-user-circle fa-2x"></i>
+          </Link>
             <button className='buttons' onClick={this.handleLogout}>Log Out</button>
-          {/* </div> */}
-        </div>
+        </>
       )
     }
       
@@ -58,23 +58,22 @@ class Header extends React.Component {
             <h1 className='logo'>flux</h1>
           </div>
           <div className='right-head'>
-            {/* <Link> */}
-              <i className="icons fas fa-plus-circle fa-2x"></i>
+            <Link to='/plans/create'>
               {/* plus icon for add new trip */}
-            {/* </Link> */}
-            <div className='dropdown'>
+              <i className="icons fas fa-plus-circle fa-2x"></i>
+            </Link>
+            {/* <div className='dropdown'> */}
             {/* <Link> */}
-              <i className="drop-icon icons fas fa-chevron-circle-down fa-2x"></i>
+              {/* <i className="drop-icon icons fas fa-chevron-circle-down fa-2x"></i> */}
               {/* arrow icon to see trips */}
             {/* </Link> */}
-              <div className='drop-cont'>
-                <p>Example1</p>
-                <p>really long example</p>
-                <p>Example3</p>
-              </div>
-            </div>
+              {/* <div className='drop-cont'> */}
+                {/* <p>Example1</p> */}
+                {/* <p>really long example</p> */}
+              {/* </div> */}
+            {/* </div> */}
 
-            {accountButton}
+            {accountButtons}
           </div>
 
         </div>

@@ -27,7 +27,7 @@ router.post('/plan/:id/create',
                     if (plan) {
                         plan.suggestions.push(newSuggestion);
                         plan.save();
-                        res.json({ message: 'Suggestion created!' });
+                        res.json(newSuggestion);
                     }
                 });
             })

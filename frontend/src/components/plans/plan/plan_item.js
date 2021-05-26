@@ -1,18 +1,16 @@
 import React from 'react';
-import EditPlan from './edit_item';
+import { NavLink } from 'react-router-dom';
 
 class PlanItem extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             email: '',
-            visible: false,
             joined: false,
             errors: {},
             loggedIn: true
         }
         this.handleClick = this.handleClick.bind(this);
-        this.openEdit = this.openEdit.bind(this);
         this.addMember = this.addMember.bind(this);
         this.refreshPage = this.refreshPage.bind(this);
     }
@@ -28,7 +26,7 @@ class PlanItem extends React.Component {
     addMember(e) {
         e.preventDefault();
         
-        this.props.joinParty(this.props.match.params.planId, this.props.currentUser)
+        this.props.joinParty(this.props.match.params.planId, this.props.currentUser.id)
             .then((res) => {
                 if (res.type === 'RECEIVE_PLAN_ERRORS') {
                     return this.setState({ errors: res.errors })
@@ -36,10 +34,6 @@ class PlanItem extends React.Component {
                     return this.setState({ joined: true })
                 }
         })
-    }
-
-    openEdit() {
-        this.setState({ visible: !this.state.visible })
     }
 
     componentDidMount() {
@@ -61,9 +55,12 @@ class PlanItem extends React.Component {
 
         if (!this.props.plan) return null;
         let joinButton;
-        debugger
-        if (this.props.plan.members.includes(this.props.currentUser.id)) { 
-           joinButton = (
+
+        const mapped = this.props.plan.members
+            .filter(plan => plan.id === this.props.currentUser.id)
+
+        if (mapped.length > 0) {
+            joinButton = (
                 <div>
                     Congrats! You are part of our group!
                 </div>
@@ -75,6 +72,7 @@ class PlanItem extends React.Component {
                 </button>
             )
         }
+        debugger
 
         return (
             <div>
@@ -90,19 +88,16 @@ class PlanItem extends React.Component {
                         Send Invite
                     </button>
                 </form>
-                <button onClick={this.openEdit}>
-                    Edit plan
-                </button>
                 {joinButton}
-                {this.state.visible ? (
-                    <EditPlan plan={this.props.plan}
-                        editPlan={this.props.editPlan}/>
-                    ) : null
-                }
-                {Object.values(this.state.errors).length > 1 ? (
-                        <div>Something went wrong</div>
-                    ) : null
-                }
+                <NavLink to={{
+                    pathname: `/${this.props.plan._id}/edit`,
+                    aboutProps: {
+                        plan: this.props.plan,
+                        editPlan: this.props.editPlan
+                    }
+                }}>
+                    Edit Plan
+                </NavLink>
             </div>
         )
     }

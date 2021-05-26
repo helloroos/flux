@@ -35,27 +35,28 @@ class LoginForm extends React.Component {
     render() {
 
         return (
-             <div className='form-cont'>
-                <form >
-                    <input className='form-inputs' value={this.state.email}
-                            onChange={this.update('email')}
-                            type='text'
-                            placeholder='Email *'
-                        />
-                    {/* {this.handleErrors('Email')} */}
-                    <input className='form-inputs' value={this.state.password}
-                            onChange={this.update('password')}
-                            type='password'
-                            placeholder='Enter a password *'
-                        />
-                    {/* {this.handleErrors('Password')} */}
-                    <button onClick={this.handleSubmit}
-                            value='Sign In'>
-                        Sign In
-                    </button>
-                </form>
-                {/* {this.handleErrors()} */}
-            </div>
+
+                <div id='login'>
+                    <form >
+                        <input className='form-inputs' value={this.state.email}
+                                onChange={this.update('email')}
+                                type='text'
+                                placeholder='Email *'
+                            />
+                        {/* {this.handleErrors('Email')} */}
+                        <input className='form-inputs' value={this.state.password}
+                                onChange={this.update('password')}
+                                type='password'
+                                placeholder='Enter a password *'
+                            />
+                        {/* {this.handleErrors('Password')} */}
+                        <button className='buttons' onClick={this.handleSubmit}
+                                value='Sign In'>
+                            Sign In
+                        </button>
+                    </form>
+                    {/* {this.handleErrors()} */}
+                </div>
         )
     }
 };

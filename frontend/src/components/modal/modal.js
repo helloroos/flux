@@ -23,13 +23,13 @@ class Modal extends React.Component {
         }
         
         return (
-            <div>
-                <div onClick={this.props.hideModal}>
-                    <div onClick={e => e.stopPropagation()}>
+            <>
+                <div className='modal-window' onClick={this.props.hideModal}>
+                    <div className='form-cont' onClick={e => e.stopPropagation()}>
                         { modalForm }
                     </div>
                 </div>
-            </div>
+            </>
         )
     }
 };

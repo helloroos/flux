@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const User = require("./User");
+const Suggestion = require("./Suggestion");
+
 
 const PlanSchema = new Schema({
     title: {
@@ -11,15 +13,14 @@ const PlanSchema = new Schema({
     description: {
         type: String
     },
-    members: {
-        type: [String], 
-        default: [],
-        required: true
-    },
     members: [{
         type: Schema.Types.ObjectID,
         ref: User
-    }]
+    }],
+    suggestions: [{
+        type: Schema.Types.ObjectID,
+        ref: Suggestion
+    }],
 }, {
     timestamps: true
 })

@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Plan = require("./Plan")
+const User = require("./User")
 
 const SuggestionSchema = new Schema({
     title: {
@@ -18,14 +20,16 @@ const SuggestionSchema = new Schema({
     },
     plan: [{
         type: Schema.Types.ObjectID,
-        ref: Plan
+        ref: Plan,
+        required: true
     }],
     user: [{
         type: Schema.Types.ObjectID,
-        ref: User
+        ref: User,
+        required: true
     }]
 }, {
     timestamps: true
 })
 
-module.exports = Plan = mongoose.model('Suggestion', SuggestionSchema);
+module.exports = Suggestion = mongoose.model('Suggestion', SuggestionSchema);

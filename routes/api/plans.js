@@ -2,10 +2,12 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const Plan = require('../../models/Plan');
+const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
 const validatePlanInput = require('../../validation/plans')
+const Suggestion = require('../../models/Suggestion')
 
 router.post('/',
     passport.authenticate('jwt', { session: false }),
@@ -19,9 +21,18 @@ router.post('/',
         const newPlan = new Plan({
             title: req.body.title,
             description: req.body.description,
-            members: req.user
+            members: req.user,
         });
-        newPlan.save().then(plan => res.json(plan));
+        newPlan.save().then(plan => res.json(plan))
+        
+        const update = {plans: newPlan._id}
+        console.log(req.user)
+        const userId = req.user._id
+        // User.findOneAndUpdate(
+        //     userId, { $push: update }, { new: true })
+        //         // .then(plan => res.json(plan))
+                
+        // ;
     }
 );
 

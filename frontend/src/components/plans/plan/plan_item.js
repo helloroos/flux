@@ -17,9 +17,7 @@ class PlanItem extends React.Component {
         this.refreshPage = this.refreshPage.bind(this);
     }
 
-    refreshPage(e) {
-        debugger
-        e.preventDefault();
+    refreshPage() {
         if (Object.values(this.props.currentUser).length === 0) {
             this.props.openModal('Sign In')
         } else {

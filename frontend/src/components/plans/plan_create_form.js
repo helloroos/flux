@@ -33,6 +33,7 @@ class PlanCreateForm extends React.Component {
             createForm = <IfLoggedOut openModal={this.props.openModal} />
         } else {
             createForm = <IfLoggedIn plan={this.state}
+                    newPlan={this.props.plan}
                     createPlan={this.props.createPlan} 
                     clearInput={this.clearInput}/>
         }

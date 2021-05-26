@@ -17,14 +17,17 @@ router.post('/suggestion/:id/create',
         });
         const update = { comments: newComment._id }
         newComment.save()
-            .then(() => {
-            // Successfully creates comment + Links to suggestion
-            // but does not update the suggestion
-            // Returns the first suggestion in the list 
-                Suggestion.findOneAndUpdate(suggestionId,
-                    { $push: update }, { new: true })
-            .then(response => res.json(response))
-            .catch((err) => res.status(404).json(err))
+            .then((result) => {
+                Suggestion.findOne({ _id: suggestionId }, (err, suggestion) => {
+                    if (suggestion) {
+                        suggestion.comments.push(newComment);
+                        suggestion.save();
+                        res.json({ message: 'Comment created!' });
+                    }
+                });
+            })
+            .catch((error) => {
+                res.status(500).json({ error });
             }
         )
         // Add comment to plan

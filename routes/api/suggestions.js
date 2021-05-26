@@ -27,13 +27,14 @@ router.post('/plan/:id/create',
                     if (plan) {
                         plan.suggestions.push(newSuggestion);
                         plan.save();
-                        res.json({ message: 'Suggestion created!' });
+                        res.json([newSuggestion, req.user]);
                     }
                 });
             })
             .catch((error) => {
                 res.status(500).json({ error });
-            })
+            }
+        )
     }
 );
 
@@ -70,15 +71,68 @@ router.patch('/:suggestion_id/upvote',
         const update = { upvotes: currUser }
 
         const plan = Plan.findById(suggestionId);
-        console.log(plan.toObject());
-
-        // Plan.findOneAndUpdate(
-        //     suggestionId, { $push: update }, { new: true })
-        //     .then(suggestion => res.json(suggestion))
-        //     .catch(err =>
-        //         res.status(404).json({ nosuggestionfound: 'No suggestion found with that id, please try again' })
-        //     );
     }
 );
+
+router.patch('/:id',
+    (req, res) => {
+
+        const title = req.body.title;
+        const description = req.body.description;
+        const budget = req.body.budget;
+        
+        const suggId = { _id: req.params.id };
+        let update = { 
+            title: title,
+            description: description,
+            budget: budget
+        }
+        
+        if (!title && !budget) {
+            update = {
+                description: description
+            }
+        } else if (!description && !budget) {
+            update = {
+                title: title
+            }
+        } else if (!description && !title) {
+            update = {
+                budget: budget
+            }
+        } else if (!description) {
+            update = {
+                title: title,
+                budget: budget
+            }
+        } else if (!title) {
+            update = {
+                description: description,
+                budget: budget
+            }
+        } else if (!budget) {
+            update = {
+                description: description,
+                title: title
+            }
+        }
+        
+        Suggestion.findOneAndUpdate(
+            suggId, update, { new: true })
+                .then(sugg => res.json(sugg))
+                .catch(err =>
+                    res.status(404).json({ nosuggfound: 'No suggestion found with that id, please try again' })
+                );
+    }
+);
+
+router.delete('/:id', (req, res) => {
+    const suggId = req.params.id;
+    Suggestion.deleteOne({ _id: suggId })
+        .then(() => res.status(200).json({ suggestiondeleted: 'suggestion successfully deleted' }))
+        .catch(err =>
+            res.status(404).json({ nosuggestionfound: 'No suggestion found with that id, please try again' })
+        );
+})
 
 module.exports = router;

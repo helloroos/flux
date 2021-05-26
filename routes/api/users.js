@@ -89,14 +89,15 @@ router.get('/:id', (req, res) => {
       .catch( err => res.json("no user matches that id"))
   });
 
-// router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
-//     res.json({
-//         id: req.user.id,
-//         firstName: req.user.firstName,
-//         lastName: req.user.lastName,
-//         email: req.user.email
-//     });
-// })
+  router.delete('/:id', (req, res) => {
+    const userId = req.params.id;
+    User.deleteOne({ _id: userId })
+        .then(() => res.status(200).json({ userdeleted: 'user successfully deleted' }))
+        .catch(err =>
+            res.status(404).json({ nouserfound: 'No user found with that id, please try again' })
+        );
+})
+
 
 module.exports = router;
 

@@ -15,10 +15,6 @@ const SuggestionSchema = new Schema({
     budget: {
         type: [String],
     },
-    dates: {
-        type: [Date],
-        
-    },
     plan: [{
         type: Schema.Types.ObjectID,
         ref: Plan,
@@ -29,7 +25,7 @@ const SuggestionSchema = new Schema({
         ref: User,
         required: true
     }],
-    comment: [{
+    comments: [{
         type: Schema.Types.ObjectID,
         ref: Comment,
     }],

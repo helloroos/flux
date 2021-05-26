@@ -1,6 +1,5 @@
 import React from 'react';
-import IfLoggedIn from './if_logged_in';
-import IfLoggedOut from './if_logged_out';
+import { withRouter } from 'react-router';
 import '../css/create_plan.scss'
 
 
@@ -10,21 +9,40 @@ class PlanCreateForm extends React.Component {
 
         this.state = {
             title: '',
-            description: ''
+            description: '',
+            created: false
         }
 
-        this.clearInput = this.clearInput.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.handleAuth = this.handleAuth.bind(this);
+    }
+
+    handleAuth(e) {
+        e.preventDefault();
+        this.props.openModal('Sign In')
     }
 
     update(field) {
         return e => this.setState({ [field]: e.target.value })
     }
 
-    clearInput() {
+    handleClick(e) {
+        e.preventDefault();
+        let plan = {
+            title: this.state.title,
+            description: this.state.description
+        }
+
+        this.props.createPlan(plan)
         this.setState({
-            title: '',
-            description: ''
+            created: true
         })
+    }
+
+    refreshPage() {
+        debugger
+        if (!this.props.plan) return null;
+        this.props.history.push(`/${this.props.plan._id}`)
     }
 
     render() {
@@ -32,12 +50,18 @@ class PlanCreateForm extends React.Component {
         let createForm;
 
         if (!this.props.currentUser) {
-            createForm = <IfLoggedOut openModal={this.props.openModal} />
+            createForm = (
+                <button onClick={this.handleAuth}>
+                    Create
+                </button>
+            )
         } else {
-            createForm = <IfLoggedIn plan={this.state}
-                    newPlan={this.props.plan}
-                    createPlan={this.props.createPlan} 
-                    clearInput={this.clearInput}/>
+            createForm = (
+                <button className='buttons'
+                    onClick={this.handleClick}>
+                    Create
+                </button>
+            )
         }
        
         return (
@@ -62,6 +86,7 @@ class PlanCreateForm extends React.Component {
                     </div>
                 { createForm }
                 </form>
+                {this.state.created ? this.refreshPage() : null }
             </div>
         )
     }
@@ -69,4 +94,4 @@ class PlanCreateForm extends React.Component {
 
 
 
-export default PlanCreateForm;
+export default withRouter(PlanCreateForm);

@@ -28,14 +28,6 @@ router.post('/',
         });
         newPlan.save().then(plan => res.json(plan))
         
-        // const update = {plans: newPlan._id}
-        // console.log(req.user)
-        // const userId = req.user._id
-        // User.findOneAndUpdate(
-        //     userId, { $push: update }, { new: true })
-        //         // .then(plan => res.json(plan))
-                
-        // ;
     }
 );
 
@@ -73,24 +65,20 @@ router.patch('/:id/addmember',
 
         const currUser = req.user;
         const planId = { _id: req.params.id };
-        const update = { members: currUser }
-        const plan = Plan.findById(req.params.id)
-        const user = User.findOne({plans: planId});
-        // console.log(plan)
-        // console.log(plan.members)
-        if (!User.findOne({plans: planId})){
-            Plan.findOneAndUpdate(
-                planId, { $push: update }, { new: true })
-                    .then(plan => res.json(plan))
-                    .catch(err =>
-                        res.status(404).json({ noplanfound: 'No plan found with that id, please try again' })
-                    );
-        } else {
-            res.status(422).json({ userinplan: 'This user is already a part of this plan!' })
-        }
-    }
-);
-
+        
+        Plan.findOne({ _id: planId }, (err, plan) => {
+            if (plan) {
+                if (!plan.members.includes(currUser.id)){
+                    plan.members.push(currUser);
+                    plan.save();
+                    res.json(req.user)
+                } else {
+                    res.json({alreadythere: 'User is already in the trip!'})
+                };
+            }
+        }).catch(err => res.json({noplan: 'Sorry, no plan with that id'}));
+    });
+  
 router.patch('/:id',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
@@ -123,40 +111,20 @@ router.patch('/:id',
 );
 
 router.patch('/:id/date',
-    async (req, res) => {
-        let get = Plan.findById(req.params.id)
-        console.log(get);
-        const title = plan.title;
-        const description = plan.description;
-        const startDate = req.body.startDate;
-        const endDate = req.body.endDate;
+    (req, res) => {
+        const startDate = new Date(req.body.startDate);
+        const endDate = new Date(req.body.endDate);
         const planId = { _id: req.params.id };
-        let update = {
-            title,
-            description, 
-            startDate: startDate,
-            endDate: endDate
-        }
         console.log(req.body)
-        if (!startDate) {
-            update = {
+        Plan.update(
+            { _id: planId },
+            {
+              $set: {
+                startDate: startDate,
                 endDate: endDate
+              }
             }
-        } else if (!endDate) {
-            update = {
-                startDate: startDate
-            }
-        }
-        
-        
-        Plan.findOneAndUpdate(
-            planId, update, { new: true })
-                .then(plan => res.json(plan))
-                .catch(err =>
-                    res.status(404).json({ noplanfound: 'No plan found with that id, please try again' })
-                );
-
-        Promise.all([get, edit])
+         ).then(plan => res.json({message: `Dates updates to start: ${startDate} and end ${endDate}`}));
           
     }   
 );

@@ -3,6 +3,11 @@ const router = express.Router();
 var nodemailer = require('nodemailer');
 var { google } = require('googleapis');
 
+const CLIENT_ID = require('../../config/keys').google.client_id;
+const CLIENT_SECRET = require('../../config/keys').google.client_secret;
+const REDIRECT_URI = require('../../config/keys').google.redirect_uri;
+const REFRESH_TOKEN = require('../../config/keys').google.refresh_token;
+
 const oAuth2Client = new google.auth.OAuth2(
     CLIENT_ID,
     CLIENT_SECRET,
@@ -29,16 +34,10 @@ router.post('/:id/send', (req, res) => {
             });
             
             const planId = req.params.id;
-            // console.log(planId);
-            // console.log(req.body)
-            // console.log(req)
-            // const [email] = req.body.email;
-            const to  = req.body.email;
-            // {to} = to.email;
-            // console.log({to});
+            const email  = req.body.email;
             const mailOptions = {
                 from: 'FLUX <stateoffluxapp@gmail.com>',
-                to: to,
+                to: email,
                 subject: "Let's get this trip organized!",
                 text: `Please join by following this link: localhost:5000/api/plans/${planId}`,
             };

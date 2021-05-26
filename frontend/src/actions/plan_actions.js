@@ -23,15 +23,7 @@ export const receiveEmail = email => {
     })
 };
 
-export const receiveMembers = members => {
-    return ({
-        type: RECEIVE_MEMBERS,
-        members
-    })
-};
-
 export const receiveErrors = (errors) => {
-    
     return ({
         type: RECEIVE_PLAN_ERRORS,
         errors
@@ -39,9 +31,8 @@ export const receiveErrors = (errors) => {
 };
 
 export const joinParty = (planId, userId) => dispatch => {
-    
     return PlanApiUtil.joinPlan(planId, userId)
-        .then(members => dispatch(receiveMembers(members)))
+        .then(plan => dispatch(receivePlan(plan)))
         .catch(err => dispatch(receiveErrors(err)))
 };
 

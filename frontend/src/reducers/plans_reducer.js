@@ -5,7 +5,7 @@ const initialState = {
     userPlans: undefined,
     new: undefined,
     email: undefined,
-    memebers: undefined
+    members: undefined
 }
 
 const plansReducer = (state = initialState, action) => {
@@ -21,10 +21,10 @@ const plansReducer = (state = initialState, action) => {
         case RECEIVE_EMAIL:
             newState.email = action.email.data;
             return newState;
-        case RECEIVE_MEMBERS:
-            
-            newState.members = action.memebers.data;
-            return newState;
+        // case RECEIVE_MEMBERS:
+        //     newState.members = action.members.data.members;
+        //     debugger
+        //     return newState;
         default:
             return state;
     }

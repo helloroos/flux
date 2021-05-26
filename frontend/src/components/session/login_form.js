@@ -67,6 +67,10 @@ class LoginForm extends React.Component {
                             Sign In
                         </button>
                     </form>
+                    <div>Don'have an account?</div>
+                    <div onClick={() => this.props.openModal('Sign Up')}> 
+                        Create an account
+                    </div>
                 </div>
         )
     }

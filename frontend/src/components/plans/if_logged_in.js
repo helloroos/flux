@@ -1,11 +1,15 @@
 import React from 'react';
+import { withRouter } from 'react-router';
+// import PlantItemContainer from './plan/plan_item_container';
 
 class IfLoggedIn extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             title: props.plan.title,
-            description: props.plan.description
+            description: props.plan.description,
+            created: false,
+            planId: ''
         }
          
         this.handleClick = this.handleClick.bind(this);
@@ -17,18 +21,29 @@ class IfLoggedIn extends React.Component {
             title: this.props.plan.title,
             description: this.props.plan.description
         }
-        
-        this.props.createPlan(plan);
-        this.props.clearInput();
+        this.props.createPlan(plan)
+        this.setState({
+            created: true
+        })
+    }
+
+    refreshPage() {
+        if (!this.props.newPlan) return null;
+        this.props.history.push(`/${this.props.newPlan._id}`)
     }
 
     render() {
+
         return (
-            <button onClick={this.handleClick}>
-                Create a plan
-            </button>
+            <div>
+                <button onClick={this.handleClick}>
+                    Create a plan
+                </button>
+                {this.state.created ? this.refreshPage() : null }
+            </div>
+            
         )
     }
 };
 
-export default IfLoggedIn;
+export default withRouter(IfLoggedIn);

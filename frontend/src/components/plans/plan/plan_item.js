@@ -8,11 +8,21 @@ class PlanItem extends React.Component {
             email: '',
             visible: false,
             joined: false,
-            errors: {}
+            errors: {},
+            loggedIn: true
         }
         this.handleClick = this.handleClick.bind(this);
         this.openEdit = this.openEdit.bind(this);
         this.addMember = this.addMember.bind(this);
+        this.refreshPage = this.refreshPage.bind(this);
+    }
+
+    refreshPage() {
+        if (Object.values(this.props.currentUser).length === 0) {
+            this.props.openModal('Sign In')
+        } else {
+            this.setState({ loggedIn: false })
+        }
     }
 
     addMember(e) {
@@ -50,12 +60,26 @@ class PlanItem extends React.Component {
     render() {
 
         if (!this.props.plan) return null;
+        let joinButton;
+        if (this.props.plan.members.includes(this.props.currentUser)) { 
+           joinButton = (
+                <div>
+                    Congrats! You are part of our group!
+                </div>
+            )
+        } else {
+            joinButton = (
+                <button onClick={this.addMember}>
+                    Join
+                </button>
+            )
+        }
 
         return (
             <div>
                 {this.props.plan.title}
                 {this.props.plan.description}
-
+                {this.state.loggedIn ? this.refreshPage() : null}
                 <form>
                     <div>Invite people:</div>
                     <input onChange={this.update('email')}
@@ -68,15 +92,7 @@ class PlanItem extends React.Component {
                 <button onClick={this.openEdit}>
                     Edit plan
                 </button>
-                {this.state.joined ? (
-                     <div>
-                        You joind us!
-                    </div>
-                ) : (
-                    <button onClick={this.addMember}>
-                        Join
-                    </button>
-                )}
+                {joinButton}
                 {this.state.visible ? (
                     <EditPlan plan={this.props.plan}
                         editPlan={this.props.editPlan}/>

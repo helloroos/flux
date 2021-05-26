@@ -106,6 +106,9 @@ class SignupForm extends React.Component {
                     }
                 <button className='buttons' value='Sign Up' onClick={this.handleSubmit}>Sign Up</ button>
                 </form>
+                <div onClick={() => this.props.openModal('Sign In')}> 
+                    Logi In
+                </div>
             </div>
         )
     }

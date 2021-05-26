@@ -15,7 +15,7 @@ export const receiveUserPlans = plans => ({
 });
 
 export const receiveEmail = email => {
-    debugger
+    
     return ({
         type: RECEIVE_EMAIL,
         email
@@ -23,7 +23,7 @@ export const receiveEmail = email => {
 };
 
 export const sendInvite = (email, id) => dispatch => {
-    debugger
+    
     return PlanApiUtil.createInvite(email, id)
         .then(email => dispatch(receiveEmail(email)))
 };

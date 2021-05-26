@@ -13,6 +13,5 @@ export const showUserPlans = id => {
 };
 
 export const createInvite = (emailData, id) => {
-    debugger
-    return axios.post(`/api/email/${id}/send`, emailData)
+    return axios.post(`/api/email/${id}/send`, { email: emailData })
 }

@@ -78,6 +78,10 @@ class SignupForm extends React.Component {
                         <div>{this.handleErrors('Email')}</div>
                         ) : null
                     }
+                {this.state.errored ? (
+                        <div>{this.handleErrors('A')}</div>
+                        ) : null
+                    }
                 <input className='form-inputs' value={this.state.password}
                         onChange={this.update('password')}
                         type='password'

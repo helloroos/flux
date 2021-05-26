@@ -31,6 +31,7 @@ export const receiveErrors = (errors) => {
 };
 
 export const joinParty = (planId, userId) => dispatch => {
+    debugger
     return PlanApiUtil.joinPlan(planId, userId)
         .then(plan => dispatch(receivePlan(plan)))
         .catch(err => dispatch(receiveErrors(err)))

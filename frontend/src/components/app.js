@@ -6,6 +6,7 @@ import UserPlansContainer from './plans/user_plans_container';
 import Footer from './main/footer';
 import PlanItemContainer from './plans/plan/plan_item_container';
 import PlanCreateFormContainer from './plans/plan_create_form_container';
+import EditPlan from './plans/plan/edit_item';
 
 
 
@@ -18,6 +19,7 @@ const App = () => (
             <Route exact path='/:planId' component={PlanItemContainer} />
             <Route exact path='/users/:userId' component={UserPlansContainer} />
             <Route exact path='/plans/create' component={PlanCreateFormContainer} />
+            <Route exact path='/:planId/edit' component={EditPlan} />
         </Switch>
         <Footer />
     </div>

@@ -3,10 +3,10 @@ const router = express.Router();
 var nodemailer = require('nodemailer');
 var { google } = require('googleapis');
 
-const CLIENT_ID = require('../../config/keys').google.client_id;
-const CLIENT_SECRET = require('../../config/keys').google.client_secret;
-const REDIRECT_URI = require('../../config/keys').google.redirect_uri;
-const REFRESH_TOKEN = require('../../config/keys').google.refresh_token;
+const CLIENT_ID = require('../../config/keys').google_client_id;
+const CLIENT_SECRET = require('../../config/keys').google_client_secret;
+const REDIRECT_URI = require('../../config/keys').google_redirect_uri;
+const REFRESH_TOKEN = require('../../config/keys').google_refresh_token;
 
 const oAuth2Client = new google.auth.OAuth2(
     CLIENT_ID,

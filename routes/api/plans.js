@@ -100,7 +100,8 @@ router.patch('/:id',
                 title: title
             }
         }
-
+        console.log(req.body)
+        
         Plan.findOneAndUpdate(
             planId, update, { new: true })
                 .then(plan => res.json(plan))

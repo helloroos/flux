@@ -58,21 +58,26 @@ class PlanItem extends React.Component {
         if (!this.props.plan) return null;
         let joinButton;
 
-        const mapped = this.props.plan.members
-            .filter(plan => plan.id === this.props.currentUser.id)
+        let mapped;
 
-        if (mapped.length > 0) {
-            joinButton = (
-                <div>
-                    Congrats! You are part of our group!
-                </div>
-            )
-        } else {
-            joinButton = (
-                <button onClick={this.addMember}>
-                    Join
-                </button>
-            )
+        if (this.props.plan.members) {
+            debugger
+            mapped = this.props.plan.members
+                .filter(plan => plan._id === this.props.currentUser.id)
+
+            if (mapped.length > 0) {
+                joinButton = (
+                    <div>
+                        Congrats! You are part of our group!
+                    </div>
+                )
+            } else {
+                joinButton = (
+                    <button onClick={this.addMember}>
+                        Join
+                    </button>
+                )
+            }
         }
         
 

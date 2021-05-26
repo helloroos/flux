@@ -5,7 +5,7 @@ import PlanItem from "./plan_item";
 
 
 const mapSTP = (state) => {
-    
+    debugger
     return ({
         plan: state.plans.new,
         currentUser: state.session.user

@@ -18,6 +18,7 @@ router.post('/',
             return res.status(400).json(errors);
         }
         console.log(req.user);
+        
         const newPlan = new Plan({
             title: req.body.title,
             description: req.body.description,
@@ -46,14 +47,12 @@ router.get('/user/:user_id', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    const plan = Plan.findById(req.params.id)
-        // console.log(plan)
-        // console.log(plan.members)
-        .then(plan => res.json(plan))
-        .catch(err =>
-            res.status(404).json({ noplanfound: 'No plan found with that id, please try again' })
-        );
-});
+    Plan.findById(req.params.id)
+        .populate({path: 'members', model: 'User'})
+        .exec((error, plan) => {
+            res.json(plan)
+        })
+  });
 
 router.delete('/:id', (req, res) => {
     const planId = req.params.id;
@@ -71,13 +70,20 @@ router.patch('/:id/addmember',
         const currUser = req.user;
         const planId = { _id: req.params.id };
         const update = { members: currUser }
-
-        Plan.findOneAndUpdate(
-            planId, { $push: update }, { new: true })
-                .then(plan => res.json(plan))
-                .catch(err =>
-                    res.status(404).json({ noplanfound: 'No plan found with that id, please try again' })
-                );
+        const plan = Plan.findById(req.params.id)
+        const user = User.findOne({plans: planId});
+        // console.log(plan)
+        // console.log(plan.members)
+        if (!User.findOne({plans: planId})){
+            Plan.findOneAndUpdate(
+                planId, { $push: update }, { new: true })
+                    .then(plan => res.json(plan))
+                    .catch(err =>
+                        res.status(404).json({ noplanfound: 'No plan found with that id, please try again' })
+                    );
+        } else {
+            res.status(422).json({ userinplan: 'This user is already a part of this plan!' })
+        }
     }
 );
 
@@ -112,8 +118,6 @@ router.patch('/:id',
                 );
     }
 );
-
-
 
 module.exports = router;
 

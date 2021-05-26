@@ -20,7 +20,7 @@ class UserPlans extends React.Component {
         const mapped = this.props.plans.map(plan => (
             <div className='plan' id={plan._id}>
                 <NavLink to={`/${plan._id}`}>
-                    <h5>{plan.title}</h5>
+                    <h5 className>{plan.title}</h5>
                 </NavLink>
                 <div>{plan.description}</div>
             </div>

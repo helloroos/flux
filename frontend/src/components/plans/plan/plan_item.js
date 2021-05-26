@@ -61,7 +61,8 @@ class PlanItem extends React.Component {
 
         if (!this.props.plan) return null;
         let joinButton;
-        if (this.props.plan.members.includes(this.props.currentUser)) { 
+        debugger
+        if (this.props.plan.members.includes(this.props.currentUser.id)) { 
            joinButton = (
                 <div>
                     Congrats! You are part of our group!

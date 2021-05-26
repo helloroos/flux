@@ -29,7 +29,7 @@ const SuggestionSchema = new Schema({
         ref: User,
         required: true
     }],
-    comment: [{
+    comments: [{
         type: Schema.Types.ObjectID,
         ref: Comment,
     }],

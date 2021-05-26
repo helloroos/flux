@@ -1,6 +1,8 @@
 import React from 'react';
 import IfLoggedIn from './if_logged_in';
 import IfLoggedOut from './if_logged_out';
+import '../css/create_plan.scss'
+
 
 class PlanCreateForm extends React.Component {
     constructor(props) {
@@ -39,21 +41,32 @@ class PlanCreateForm extends React.Component {
         }
        
         return (
-            <div>
-                <form>
+            <div className='main-cont'>
+                <form className='form-cont'>
+                    <h2>Create a plan...</h2>
                     <input type='text'
+                        className='form-inputs'
                         value={this.state.title}
                         onChange={this.update('title')}
+                        placeholder='Name'
                         />
                     <textarea
+                        className='form-inputs'
                         value={this.state.description}
                         onChange={this.update('description')}
+                        placeholder='tell us about the plan...'
                         />
-                </form>
+                    <p>Select a date range:</p>
+                    <div className='calendar-cont'>
+                        {/* CALENDAR INSERTED HERE */}
+                    </div>
                 { createForm }
+                </form>
             </div>
         )
     }
 };
+
+
 
 export default PlanCreateForm;

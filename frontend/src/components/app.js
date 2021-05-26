@@ -21,7 +21,7 @@ const App = () => (
             <Route exact path='/plans/create' component={PlanCreateFormContainer} />
             <Route exact path='/:planId/edit' component={EditPlan} />
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
     </div>
 );
 

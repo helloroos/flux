@@ -47,7 +47,7 @@ class LoginForm extends React.Component {
                         <input className='form-inputs' value={this.state.email}
                                 onChange={this.update('email')}
                                 type='text'
-                                placeholder='Email *'
+                                placeholder='Email'
                             />
                         {this.state.errored ? (
                             <div>{this.handleErrors('Email')}</div>
@@ -56,7 +56,7 @@ class LoginForm extends React.Component {
                         <input className='form-inputs' value={this.state.password}
                                 onChange={this.update('password')}
                                 type='password'
-                                placeholder='Enter a password *'
+                                placeholder='Password'
                             />
                         {this.state.errored ? (
                             <div>{this.handleErrors('password')}</div>
@@ -66,11 +66,11 @@ class LoginForm extends React.Component {
                                 value='Sign In'>
                             Sign In
                         </button>
-                    </form>
-                    <div>Don'have an account?</div>
+                    <h5>Don't have an account?</h5>
                     <div onClick={() => this.props.openModal('Sign Up')}> 
-                        Create an account
+                        <h3>Create an account</h3>
                     </div>
+                    </form>
                 </div>
         )
     }

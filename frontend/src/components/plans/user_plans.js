@@ -18,19 +18,27 @@ class UserPlans extends React.Component {
         if (!this.props.plans) return null;
         
         const mapped = this.props.plans.map(plan => (
-            <div className='plan' id={plan._id}>
+            <div className='each-plan-cont' id={plan._id}>
                 <NavLink to={`/${plan._id}`}>
-                    <h5 className>{plan.title}</h5>
+                    <h3 className='plan-title' >{plan.title}</h3>
                 </NavLink>
-                <div>{plan.description}</div>
+                <div className='plan-info'>
+                    <h6>{plan.description}</h6>
+                    <h5>DATES</h5>
+                    <p>plan members</p>
+                </div>
             </div>
             )
         )
         
         return (
-            <div className='plans-cont'>
-                <h2 className='plans-title'>My plans</h2>
-                {mapped}
+            <div>
+                <h2 className='plans-title'>Future plans...</h2>
+                <div className='main-cont'>
+                    <div className='plans-cont'>
+                        {mapped}
+                    </div>
+                </div>
             </div>
         )
     }

@@ -1,0 +1,37 @@
+.main-cont {
+
+  overflow: scroll;
+  overflow-y: hidden;
+
+  .plans-cont {
+    display: flex;
+    flex-direction: row;  
+    
+    
+    
+    .each-plan-cont {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 400px;
+      height: 400px;
+      background-color: rgb(8, 159, 123);
+      border-radius: 100%;
+      object-fit: none;
+
+      .plan-title {
+        font-family: Lato;
+        font-size: 40px;
+        color: white;
+        text-decoration: none;
+      }
+
+      p {
+        width: 350px;
+      }
+
+    }
+  }
+
+}

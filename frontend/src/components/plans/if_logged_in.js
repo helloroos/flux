@@ -36,8 +36,8 @@ class IfLoggedIn extends React.Component {
 
         return (
             <div>
-                <button onClick={this.handleClick}>
-                    Create a plan
+                <button className='buttons' onClick={this.handleClick}>
+                    Continue
                 </button>
                 {this.state.created ? this.refreshPage() : null }
             </div>

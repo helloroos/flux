@@ -83,6 +83,12 @@ router.post('/login', (req, res) => {
         })
 })
 
+router.get('/:id', (req, res) => {
+    User.findById(req.params.id)
+      .then(user => res.json(user))
+      .catch( err => res.json("no user matches that id"))
+  });
+
 // router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
 //     res.json({
 //         id: req.user.id,

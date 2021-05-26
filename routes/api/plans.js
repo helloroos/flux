@@ -28,9 +28,9 @@ router.post('/',
         });
         newPlan.save().then(plan => res.json(plan))
         
-        const update = {plans: newPlan._id}
-        console.log(req.user)
-        const userId = req.user._id
+        // const update = {plans: newPlan._id}
+        // console.log(req.user)
+        // const userId = req.user._id
         // User.findOneAndUpdate(
         //     userId, { $push: update }, { new: true })
         //         // .then(plan => res.json(plan))
@@ -51,7 +51,9 @@ router.get('/user/:user_id', (req, res) => {
 router.get('/:id', (req, res) => {
     Plan.findById(req.params.id)
         .populate({path: 'members', model: 'User'})
+        .populate({ path: 'suggestions', model: 'Suggestion'})
         .exec((error, plan) => {
+            console.log(plan)
             res.json(plan)
         })
   });
@@ -98,7 +100,7 @@ router.patch('/:id',
         const planId = { _id: req.params.id };
         let update = { 
             title: title,
-            description: description
+            description: description,
         }
         
         if (!title) {
@@ -110,7 +112,6 @@ router.patch('/:id',
                 title: title
             }
         }
-        console.log(req.body)
         
         Plan.findOneAndUpdate(
             planId, update, { new: true })
@@ -119,6 +120,45 @@ router.patch('/:id',
                     res.status(404).json({ noplanfound: 'No plan found with that id, please try again' })
                 );
     }
+);
+
+router.patch('/:id/date',
+    async (req, res) => {
+        let get = Plan.findById(req.params.id)
+        console.log(get);
+        const title = plan.title;
+        const description = plan.description;
+        const startDate = req.body.startDate;
+        const endDate = req.body.endDate;
+        const planId = { _id: req.params.id };
+        let update = {
+            title,
+            description, 
+            startDate: startDate,
+            endDate: endDate
+        }
+        console.log(req.body)
+        if (!startDate) {
+            update = {
+                endDate: endDate
+            }
+        } else if (!endDate) {
+            update = {
+                startDate: startDate
+            }
+        }
+        
+        
+        Plan.findOneAndUpdate(
+            planId, update, { new: true })
+                .then(plan => res.json(plan))
+                .catch(err =>
+                    res.status(404).json({ noplanfound: 'No plan found with that id, please try again' })
+                );
+
+        Promise.all([get, edit])
+          
+    }   
 );
 
 module.exports = router;

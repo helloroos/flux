@@ -28,14 +28,6 @@ router.post('/',
         });
         newPlan.save().then(plan => res.json(plan))
         
-        // const update = {plans: newPlan._id}
-        // console.log(req.user)
-        // const userId = req.user._id
-        // User.findOneAndUpdate(
-        //     userId, { $push: update }, { new: true })
-        //         // .then(plan => res.json(plan))
-                
-        // ;
     }
 );
 
@@ -67,37 +59,12 @@ router.delete('/:id', (req, res) => {
         );
 })
 
-// router.patch('/:id/addmember',
-//     passport.authenticate('jwt', { session: false }),
-//     (req, res) => {
-
-//         const currUser = req.user;
-//         const planId = { _id: req.params.id };
-//         const update = { members: currUser }
-//         const plan = Plan.findById(req.params.id)
-//         const user = User.findOne({plans: planId});
-//         // console.log(plan)
-//         // console.log(plan.members)
-//         if (!User.findOne({plans: planId})){
-//             Plan.findOneAndUpdate(
-//                 planId, { $push: update }, { new: true })
-//                     .then(plan => res.json(plan))
-//                     .catch(err =>
-//                         res.status(404).json({ noplanfound: 'No plan found with that id, please try again' })
-//                     );
-//         } else {
-//             res.status(422).json({ userinplan: 'This user is already a part of this plan!' })
-//         }
-//     }
-// );
 router.patch('/:id/addmember',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
 
         const currUser = req.user;
         const planId = { _id: req.params.id };
-        // const update = { members: currUser }
-        // const user = User.findOne({plans: planId});
         
         Plan.findOne({ _id: planId }, (err, plan) => {
             if (plan) {

@@ -2,6 +2,12 @@ const express = require("express");
 const router = express.Router();
 var nodemailer = require('nodemailer');
 var { google } = require('googleapis');
+const keys = require('./config/keys').mongoURI;
+
+const CLIENT_ID = keys.client_id;
+const CLIENT_SECRET = keys.client_secret;
+const REDIRECT_URI = keys.redirect_uri;
+const REFRESH_TOKEN = keys.refresh_token;
 
 const oAuth2Client = new google.auth.OAuth2(
     CLIENT_ID,

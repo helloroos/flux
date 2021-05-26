@@ -7,14 +7,16 @@ class LoginForm extends React.Component {
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            errored: false
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleErrors = this.handleErrors.bind(this);
     }
 
-    handleErrors() {
-        return this.props.errors.map(error => (<div>{error}</div>))
+    handleErrors(field) {
+        
+        return this.props.errors.filter(error => error.includes(field))
     }
 
     update(field) {
@@ -29,13 +31,17 @@ class LoginForm extends React.Component {
         }
         
         this.props.login(user)
-        this.props.hideModal()
-    }
+            .then((res) => {
+                if (typeof res !== 'undefined') {
+                    return this.setState({ errored: true })
+                } else {
+                    this.props.hideModal()
+                }
+            })
+        }
 
     render() {
-
         return (
-
                 <div id='login'>
                     <form >
                         <input className='form-inputs' value={this.state.email}
@@ -43,19 +49,24 @@ class LoginForm extends React.Component {
                                 type='text'
                                 placeholder='Email *'
                             />
-                        {/* {this.handleErrors('Email')} */}
+                        {this.state.errored ? (
+                            <div>{this.handleErrors('Email')}</div>
+                            ) : null
+                        }
                         <input className='form-inputs' value={this.state.password}
                                 onChange={this.update('password')}
                                 type='password'
                                 placeholder='Enter a password *'
                             />
-                        {/* {this.handleErrors('Password')} */}
+                        {this.state.errored ? (
+                            <div>{this.handleErrors('password')}</div>
+                            ) : null
+                        }
                         <button className='buttons' onClick={this.handleSubmit}
                                 value='Sign In'>
                             Sign In
                         </button>
                     </form>
-                    {/* {this.handleErrors()} */}
                 </div>
         )
     }

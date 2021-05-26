@@ -5,7 +5,6 @@ import LoginForm from "./login_form";
 const { login } = require("../../actions/session_actions");
 
 const mapSTP = state => {
-    debugger
     return ({
         errors: Object.values(state.errors.session),
         user: state.session.user

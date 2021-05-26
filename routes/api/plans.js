@@ -46,7 +46,9 @@ router.get('/user/:user_id', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    Plan.findById(req.params.id)
+    const plan = Plan.findById(req.params.id)
+        // console.log(plan)
+        // console.log(plan.members)
         .then(plan => res.json(plan))
         .catch(err =>
             res.status(404).json({ noplanfound: 'No plan found with that id, please try again' })

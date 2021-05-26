@@ -46,6 +46,28 @@ router.post('/plan/:id/create',
     }
 );
 
+router.get('/user/:user_id', (req, res) => {
+    Suggestion.find({user: req.params.user_id})
+        .then(plans => res.json(plans))
+        .catch(err =>
+            res.status(404).json({ noplansfound: 'No plans can be found for this user' }
+        )
+    );
+});
+
+router.post('/plan/:plan_id',
+    // passport.authenticate('jwt', { session: false }),
+    (req, res) =>  {
+    Suggestion.find({plan: req.params.plan_id})
+        .then(sugg => res.json(sugg))
+        .catch(err =>
+            res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }
+        )
+    );
+});
+
+
+
 
 
 module.exports = router;

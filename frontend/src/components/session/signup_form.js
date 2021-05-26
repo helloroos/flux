@@ -34,34 +34,38 @@ class SignupForm extends React.Component {
 
     render() {
         return (
-            <div className='form-cont'>
-                <input value={this.state.firstName}
-                        onChange={this.update('firstName')}
-                        type='text'
-                        placeholder='First Name *'
-                />
-                <input className='form-inputs' value={this.state.lastName}
-                        onChange={this.update('lastName')}
-                        type='text'
-                        placeholder='Last Name *'
-                />
-                <input className='form-inputs' value={this.state.email}
-                        onChange={this.update('email')}
-                        type='text'
-                        placeholder='Email *'
-                />
-                <input className='form-inputs' value={this.state.password}
-                        onChange={this.update('password')}
-                        type='password'
-                        placeholder='Enter a password *'
-                />
-                <input className='form-inputs' value={this.state.password2}
-                        onChange={this.update('password2')}
-                        type='password'
-                        placeholder='Re-enter a password *'
-                />
-                <button value='Sign Up' onClick={this.handleSubmit}>Sign Up</ button>
-            </div>
+
+                <div id='signup'>
+                    <form>
+                    <input className='form-inputs'value={this.state.firstName}
+                            onChange={this.update('firstName')}
+                            type='text'
+                            placeholder='First Name *'
+                    />
+                    <input className='form-inputs' value={this.state.lastName}
+                            onChange={this.update('lastName')}
+                            type='text'
+                            placeholder='Last Name *'
+                    />
+                    <input className='form-inputs' value={this.state.email}
+                            onChange={this.update('email')}
+                            type='text'
+                            placeholder='Email *'
+                    />
+                    <input className='form-inputs' value={this.state.password}
+                            onChange={this.update('password')}
+                            type='password'
+                            placeholder='Enter a password *'
+                    />
+                    <input className='form-inputs' value={this.state.password2}
+                            onChange={this.update('password2')}
+                            type='password'
+                            placeholder='Re-enter a password *'
+                    />
+                    <button className='buttons' value='Sign Up' onClick={this.handleSubmit}>Sign Up</ button>
+                    </form>
+                </div>
+
         )
     }
 };

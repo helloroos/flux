@@ -15,10 +15,6 @@ const SuggestionSchema = new Schema({
     budget: {
         type: [String],
     },
-    dates: {
-        type: [Date],
-        
-    },
     plan: [{
         type: Schema.Types.ObjectID,
         ref: Plan,

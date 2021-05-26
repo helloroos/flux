@@ -27,7 +27,7 @@ router.post('/plan/:id/create',
                     if (plan) {
                         plan.suggestions.push(newSuggestion);
                         plan.save();
-                        res.json(newSuggestion);
+                        res.json([newSuggestion, req.user]);
                     }
                 });
             })
@@ -73,5 +73,37 @@ router.patch('/:suggestion_id/upvote',
         const plan = Plan.findById(suggestionId);
     }
 );
+
+// router.patch('/:id',
+//     (req, res) => {
+
+//         const title = req.body.title;
+//         const description = req.body.description;
+//         const budget = req.body.budget;
+//         const description = req.body.description;
+//         const planId = { _id: req.params.id };
+//         let update = { 
+//             title: title,
+//             description: description,
+//         }
+        
+//         if (!title) {
+//             update = {
+//                 description: description
+//             }
+//         } else if (!description) {
+//             update = {
+//                 title: title
+//             }
+//         }
+        
+//         Plan.findOneAndUpdate(
+//             planId, update, { new: true })
+//                 .then(plan => res.json(plan))
+//                 .catch(err =>
+//                     res.status(404).json({ noplanfound: 'No plan found with that id, please try again' })
+//                 );
+//     }
+// );
 
 module.exports = router;

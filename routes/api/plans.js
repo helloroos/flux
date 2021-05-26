@@ -104,7 +104,7 @@ router.patch('/:id/addmember',
                 if (!plan.members.includes(currUser.id)){
                     plan.members.push(currUser);
                     plan.save();
-                    res.json({ message: 'Member added!' })
+                    res.json(req.user)
                 } else {
                     res.json({alreadythere: 'User is already in the trip!'})
                 };

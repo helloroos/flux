@@ -5,7 +5,7 @@ import UserPlans from "./user_plans";
 
 const mapSTP = state => {
     // if (!state.session.plans.user) return null
-    debugger
+    
     return ({
         plans: state.plans.userPlans
     })

@@ -34,8 +34,13 @@ router.post('/:id/send', (req, res) => {
             });
             
             const planId = req.params.id;
-            console.log(planId);
-            const { to } = req.body;
+            // console.log(planId);
+            // console.log(req.body)
+            // console.log(req)
+            // const [email] = req.body.email;
+            const to  = req.body.email;
+            // {to} = to.email;
+            // console.log({to});
             const mailOptions = {
                 from: 'FLUX <stateoffluxapp@gmail.com>',
                 to: to,

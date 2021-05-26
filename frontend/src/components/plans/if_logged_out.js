@@ -16,10 +16,10 @@ class IfLoggedOut extends React.Component {
     render() {
         return (
             <div>
-                <button onClick={this.handleAuth}>
+                <button className='buttons' onClick={this.handleAuth}>
                     Sign In
                 </button>
-                <button onClick={this.handleAuth}>
+                <button className='buttons' onClick={this.handleAuth}>
                     Sign Up
                 </button>
             </div>

@@ -54,7 +54,7 @@ class SignupForm extends React.Component {
                 <input className='form-inputs'value={this.state.firstName}
                         onChange={this.update('firstName')}
                         type='text'
-                        placeholder='First Name *'
+                        placeholder='First Name'
                 />
                 {this.state.errored ? (
                         <div>{this.handleErrors('First')}</div>
@@ -63,7 +63,7 @@ class SignupForm extends React.Component {
                 <input className='form-inputs' value={this.state.lastName}
                         onChange={this.update('lastName')}
                         type='text'
-                        placeholder='Last Name *'
+                        placeholder='Last Name'
                 />
                 {this.state.errored ? (
                         <div>{this.handleErrors('Last')}</div>
@@ -72,7 +72,7 @@ class SignupForm extends React.Component {
                 <input className='form-inputs' value={this.state.email}
                         onChange={this.update('email')}
                         type='text'
-                        placeholder='Email *'
+                        placeholder='Email'
                 />
                 {this.state.errored ? (
                         <div>{this.handleErrors('Email')}</div>
@@ -85,7 +85,7 @@ class SignupForm extends React.Component {
                 <input className='form-inputs' value={this.state.password}
                         onChange={this.update('password')}
                         type='password'
-                        placeholder='Enter a password *'
+                        placeholder='Enter a password'
                 />
                 {this.state.errored ? (
                         <div>{this.handleErrors('Password')}</div>
@@ -94,7 +94,7 @@ class SignupForm extends React.Component {
                 <input className='form-inputs' value={this.state.password2}
                         onChange={this.update('password2')}
                         type='password'
-                        placeholder='Re-enter a password *'
+                        placeholder='Re-enter a password'
                 />
                 {this.state.errored ? (
                         <div>{this.handleErrors('Confirm')}</div>
@@ -105,10 +105,11 @@ class SignupForm extends React.Component {
                         ) : null
                     }
                 <button className='buttons' value='Sign Up' onClick={this.handleSubmit}>Sign Up</ button>
-                </form>
+                <h5>Already have an account?</h5>
                 <div onClick={() => this.props.openModal('Sign In')}> 
-                    Logi In
+                    <h3>Sign In</h3>
                 </div>
+                </form>
             </div>
         )
     }

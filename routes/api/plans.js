@@ -22,6 +22,8 @@ router.post('/',
         const newPlan = new Plan({
             title: req.body.title,
             description: req.body.description,
+            startDate: req.body.startDate,
+            endDate: req.body.endDate,
             members: req.user,
         });
         newPlan.save().then(plan => res.json(plan))

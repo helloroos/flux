@@ -13,6 +13,12 @@ const PlanSchema = new Schema({
     description: {
         type: String
     },
+    startDate: {
+        type: Date
+    },
+    endDate: {
+        type: Date
+    },
     members: [{
         type: Schema.Types.ObjectID,
         ref: User

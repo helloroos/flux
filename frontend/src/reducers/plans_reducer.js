@@ -13,7 +13,7 @@ const plansReducer = (state = initialState, action) => {
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_PLAN:
-            debugger
+            
             newState.new = action.plan.data;
             return newState;
         case RECEIVE_USER_PLANS:
@@ -24,7 +24,7 @@ const plansReducer = (state = initialState, action) => {
             return newState;
         // case RECEIVE_MEMBERS:
         //     newState.members = action.members.data.members;
-        //     debugger
+        //     
         //     return newState;
         default:
             return state;

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Plan = require("./Plan")
 const User = require("./User")
+const Comment = require("./Comment")
 
 const SuggestionSchema = new Schema({
     title: {
@@ -15,7 +16,7 @@ const SuggestionSchema = new Schema({
         type: [String],
     },
     dates: {
-        type: [Date], // default: []
+        type: [Date],
         
     },
     plan: [{
@@ -27,6 +28,18 @@ const SuggestionSchema = new Schema({
         type: Schema.Types.ObjectID,
         ref: User,
         required: true
+    }],
+    comment: [{
+        type: Schema.Types.ObjectID,
+        ref: Comment,
+    }],
+    upvotes: [{
+        type: Schema.Types.ObjectID,
+        ref: User,
+    }],
+    downvotes: [{
+        type: Schema.Types.ObjectID,
+        ref: User,
     }]
 }, {
     timestamps: true

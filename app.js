@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
+mongoose.set('useFindAndModify', false);
 const db = require('./config/keys').mongoURI;
 
 const path = require('path');
@@ -8,6 +9,7 @@ const users = require('./routes/api/users');
 const plans = require('./routes/api/plans');
 const email = require('./routes/api/emails');
 const suggestions = require('./routes/api/suggestions');
+const comments = require('./routes/api/comments');
 
 const bodyParser = require('body-parser');
 
@@ -38,6 +40,7 @@ app.use("/api/users", users);
 app.use("/api/plans", plans);
 app.use("/api/email", email);
 app.use("/api/suggestions", suggestions);
+app.use("/api/comments", comments);
 
 
 // server port

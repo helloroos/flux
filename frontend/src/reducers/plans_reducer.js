@@ -22,7 +22,7 @@ const plansReducer = (state = initialState, action) => {
             newState.email = action.email.data;
             return newState;
         case RECEIVE_MEMBERS:
-            debugger
+            
             newState.members = action.memebers.data;
             return newState;
         default:

@@ -18,7 +18,7 @@ class SignupForm extends React.Component {
     }
 
     handleErrors(field) {
-        debugger
+        
         return this.props.errors.filter(error => error.includes(field))
     }
 
@@ -38,7 +38,7 @@ class SignupForm extends React.Component {
 
         this.props.signup(user)
             .then(res => {
-                debugger
+                
                 if (typeof res !== 'undefined') {
                     return this.setState({ errored: true })
                 } else {

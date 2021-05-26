@@ -12,7 +12,7 @@ const mapSTP = (state) => {
 };
 
 const mapDTP = dispatch => {
-    debugger
+    
     return ({
         fetchPlan: id => dispatch(fetchPlan(id)),
         sendInvite: (email, id) => dispatch(sendInvite(email, id)),

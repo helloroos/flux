@@ -17,7 +17,7 @@ class PlanItem extends React.Component {
 
     addMember(e) {
         e.preventDefault();
-        debugger
+        
         this.props.joinParty(this.props.match.params.planId, this.props.currentUser)
             .then((res) => {
                 if (res.type === 'RECEIVE_PLAN_ERRORS') {

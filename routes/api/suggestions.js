@@ -31,7 +31,7 @@ router.post('/plan/:id/create',
             user: req.user,
             plan: planId
         });
-        debugger
+        
         console.log(newSuggestion)
         
         newSuggestion.save().then(suggestion => res.json(suggestion))

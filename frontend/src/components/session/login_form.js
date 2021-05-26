@@ -15,7 +15,7 @@ class LoginForm extends React.Component {
     }
 
     handleErrors(field) {
-        debugger
+        
         return this.props.errors.filter(error => error.includes(field))
     }
 

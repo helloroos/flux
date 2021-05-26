@@ -31,8 +31,8 @@ class LoginForm extends React.Component {
         }
         
         this.props.login(user)
-            .then(res => {
-                if (res.type === 'RECEIVE_SESSION_ERRORS') {
+            .then((res) => {
+                if (typeof res !== 'undefined') {
                     return this.setState({ errored: true })
                 } else {
                     this.props.hideModal()
@@ -41,7 +41,6 @@ class LoginForm extends React.Component {
         }
 
     render() {
-        debugger
         return (
                 <div id='login'>
                     <form >

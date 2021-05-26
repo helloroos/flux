@@ -26,11 +26,9 @@ export const receiveSessionErrors = (errors) => ({
 })
 
 export const signup = user => dispatch => (
-    APIUtil.signup(user).then(user => (
-        dispatch(receiveUserSignIn(user.data))
-    ), err => (
-        dispatch(receiveSessionErrors(err.response.data))
-    ))
+    APIUtil.signup(user)
+        .then(user => dispatch(receiveUserSignIn(user.data))) 
+        .catch(err => dispatch(receiveSessionErrors(err.response.data)))
 );
 
 export const login = user => dispatch => (
@@ -40,7 +38,8 @@ export const login = user => dispatch => (
         APIUtil.setAuthToken(token);
         const decoded = jwt_decode(token);
         dispatch(receiveCurrentUser(decoded))
-    }, err => (
+    })
+    .catch(err => (
         dispatch(receiveSessionErrors(err.response.data))
     ))
 );

@@ -7,7 +7,7 @@ const { signup } = require("../../actions/session_actions");
 
 const mapSTP = state => ({
     signedIn: state.session.isSignedIn,
-    errors: state.errors.session
+    errors: Object.values(state.errors.session),
 });
 
 const mapDTP = dispatch => ({

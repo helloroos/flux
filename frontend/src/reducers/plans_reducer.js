@@ -18,7 +18,7 @@ const plansReducer = (state = initialState, action) => {
             newState.userPlans = action.plans.data;
             return newState;
         case RECEIVE_EMAIL:
-            debugger
+            
             newState.email = action.email.data;
             return newState;
         default:

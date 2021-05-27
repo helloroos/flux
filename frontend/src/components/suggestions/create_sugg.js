@@ -7,7 +7,7 @@ class CreateSugg extends React.Component {
         this.state = {
             title: '',
             description: '',
-            budget: '',
+            budget: '$$',
             dates: '',
             user: '',
             plan: ''
@@ -15,6 +15,7 @@ class CreateSugg extends React.Component {
 
         this.handleClick = this.handleClick.bind(this);
         this.handleButton = this.handleButton.bind(this);
+        this.handleSelect = this.handleSelect.bind(this);
     }
 
     handleButton(e) {
@@ -46,6 +47,10 @@ class CreateSugg extends React.Component {
         })
     }
 
+    handleSelect(value) {
+        return (this.state.budget === value)
+    }
+
     render() {
 
         let createButton;
@@ -53,6 +58,7 @@ class CreateSugg extends React.Component {
         if (!this.props.currentUser) {
             createButton = (
                 <button value='Sign In'
+                    className='sugg-buttons'
                     onClick={this.handleButton}>
                     Post a suggestion
                 </button>
@@ -60,6 +66,7 @@ class CreateSugg extends React.Component {
         } else {
             createButton = (
                 <button value='Post'
+                    className='sugg-buttons'
                     onClick={this.handleClick}>
                     Post a suggestion
                 </button>
@@ -67,21 +74,44 @@ class CreateSugg extends React.Component {
         }
 
         return (
-            <div>
+            <div className='sugg-cont'>
                  <form>
                     <input type='text'
+                        className='sugg-input'
                         value={this.state.title}
+                        placeholder='Make a suggestion'
                         onChange={this.update('title')}
                         />
                     <textarea
+                        className='sugg-input'
                         value={this.state.description}
+                        placeholder='Description'
                         onChange={this.update('description')}
                         />
-                    <input type='text'
-                        value={this.state.budget}
-                        onChange={this.update('budget')}
-                        />
-                    <span>$</span>
+                    <div className='radio-cont'>
+                        <label>$
+                        <input type='radio' 
+                            value='$'
+                            name='$'
+                            onChange={this.update('budget')}
+                            checked={this.handleSelect('$')}
+                            /></label>
+                        <label>$$
+                        <input type='radio' 
+                            value='$$'
+                            name='$$'
+                            onChange={this.update('budget')}
+                            checked={this.handleSelect('$$')}
+                            /></label>
+                        <label>$$$
+                        <input type='radio' 
+                            value='$$$'
+                            name='$$$'
+                            onChange={this.update('budget')}
+                            checked={this.handleSelect('$$$')}
+                            /></label>
+                    </div>
+            
                     { createButton }
                 </form>
             </div>

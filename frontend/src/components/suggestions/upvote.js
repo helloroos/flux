@@ -39,13 +39,8 @@ class Upvote extends React.Component {
     render() {
         return (
             <div>
-<<<<<<< HEAD
                 <button onClick={this.handleClick}>
                     up
-=======
-                <button>
-                    {/* {this.props.sugg} */}
->>>>>>> main
                 </button>
                 {this.state.numDiff}
             </div>

@@ -61,7 +61,7 @@ class PlanItem extends React.Component {
         let mapped;
 
         if (this.props.plan.members) {
-            debugger
+            
             mapped = this.props.plan.members
                 .filter(plan => plan._id === this.props.currentUser.id)
 
@@ -96,13 +96,7 @@ class PlanItem extends React.Component {
                     </button>
                 </form>
                 {joinButton}
-                <NavLink to={{
-                    pathname: `/${this.props.plan._id}/edit`,
-                    aboutProps: {
-                        plan: this.props.plan,
-                        editPlan: this.props.editPlan
-                    }
-                }}>
+                <NavLink to={`/${this.props.plan._id}/edit`}>
                     Edit Plan
                 </NavLink>
                 <CreateSuggContainer />

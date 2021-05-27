@@ -84,26 +84,71 @@ router.patch('/:id/addmember',
     }
 );
 
-  
+// REMOVE MEMBER TO PLAN
+router.patch('/:id/removemember',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+        const currUser = req.user;
+        const planId = { _id: req.params.id };
+        Plan.findOne({ _id: planId }, (err, plan) => {
+            if (plan) {
+                if (plan.members.includes(currUser.id)) {
+                    plan.members.pop(currUser).then(() => plan.save());
+                    res.json(req.user);
+                    // res.json(plan)
+                } else {
+                    res.json({ notthere: 'User is not added to this travel plan.' })
+                };
+            }
+        }).catch(err => res.json({ noplan: 'Sorry, the request could not be completed.' }));
+    }
+);
+
 router.patch('/:id', (req, res) => {
 
         const title = req.body.title;
         const description = req.body.description;
+        const startDate = req.body.startDate;
+        const endDate = req.body.endDate;
         const planId = { _id: req.params.id };
         let update = { 
             title: title,
             description: description,
+            startDate: startDate,
+            endDate: endDate
         }
         
         if (!title) {
             update = {
-                description: description
+                description: description,
+                startDate: startDate,
+                endDate: endDate
             }
         } else if (!description) {
             update = {
-                title: title
+                title: title,
+                startDate: startDate,
+                endDate: endDate
             }
-        }
+        } else if (!description && !title) {
+            update = {
+                startDate: startDate,
+                endDate: endDate
+            }
+        } else if (!startDate && !title) {
+            update = {
+                description: description
+            }
+        } else if (!description && !startDate) {
+            update = {
+                title: title,
+            }
+        } else if (!startDate) {
+            update = {
+                title: title,
+                description: description,
+            }
+        } 
         
         Plan.findOneAndUpdate(
             planId, update, { new: true })
@@ -121,23 +166,23 @@ router.patch('/:id', (req, res) => {
     // ).then(plan => res.json({ message: `D` }));
 });
 
-router.patch('/:id/date',
-    (req, res) => {
-        const startDate = new Date(req.body.startDate);
-        const endDate = new Date(req.body.endDate);
-        const planId = { _id: req.params.id };
-        Plan.update(
-            { _id: planId },
-            {
-              $set: {
-                startDate: startDate,
-                endDate: endDate
-              }
-            }
-         ).then(plan => res.json({message: `Dates updates to start: ${startDate} and end ${endDate}`}));
+// router.patch('/:id/date',
+//     (req, res) => {
+//         const startDate = new Date(req.body.startDate);
+//         const endDate = new Date(req.body.endDate);
+//         const planId = { _id: req.params.id };
+//         Plan.update(
+//             { _id: planId },
+//             {
+//               $set: {
+//                 startDate: startDate,
+//                 endDate: endDate
+//               }
+//             }
+//          ).then(plan => res.json({message: `Dates updates to start: ${startDate} and end ${endDate}`}));
           
-    }   
-);
+//     }   
+// );
 
 module.exports = router;
 

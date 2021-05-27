@@ -55,13 +55,25 @@ router.patch('/:id', (req, res) => {
 
 // INDEX for all comments of a user
 router.get('/user/:user_id', (req, res) => {
-    Comment.find({ user: req.params.user_id })
+    Comment.find({ author: req.params.user_id })
         .then(comments => res.json(comments))
         .catch(err =>
             res.status(404).json({ noplansfound: 'No comments can be found for this user' }
             )
         );
 });
+
+// INDEX for all comments of a suggestion
+router.get('/suggestion/:suggestion_id',
+    (req, res) => {
+        Comment.find({ suggestion: req.params.suggestion_id })
+            .then(sugg => res.json(sugg))
+            .catch(err =>
+                res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }
+                )
+            );
+    }
+);
 
 router.delete('/:id', (req, res) => {
     const commentId = req.params.id;

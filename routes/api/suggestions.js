@@ -153,8 +153,8 @@ router.patch('/:suggestion_id/removedownvote',
         Suggestion.findOne({ _id: suggestionId }, (err, suggestion) => {
             if (suggestion) {
                 if (suggestion.downvotes.includes(currUser.id)) {
-                    suggestion.downvotes.pop(currUser);
-                    suggestion.save();
+                    suggestion.downvotes.pop(currUser)
+                        .then(() => suggestion.save());
                     // res.json({ votesuccess: 'Remove successful!' })
                 } else {
                     // res.json({ notthere: 'User has not voted' })

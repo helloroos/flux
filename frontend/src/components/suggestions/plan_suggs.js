@@ -30,10 +30,10 @@ class PlanSuggestions extends React.Component {
         debugger
         const mapped = this.props.planSuggs.map(sugg => (
             <div className='sugg-item-cont'>
-                <h2>{sugg.title}</h2>
-                <p>{sugg.description}</p>
-                <h4>{sugg.budget}</h4>
-                <div>{sugg.user}</div>
+                <p className='sugg-title'>{sugg.title}</p>
+                <p className='sugg-desc'>{sugg.description}</p>
+                <p className='sugg-budget'>{sugg.budget}</p>
+                <p className='sugg-author'>{sugg.user}</p>
                 <Upvote sugg={sugg}
                     upvote={this.props.upvote}
                     upvoteRemove={this.props.upvoteRemove}
@@ -42,9 +42,9 @@ class PlanSuggestions extends React.Component {
                     downvote={this.props.downvote}
                     downvoteRemove={this.props.downvoteRemove}
                     />
-                <div onClick={this.toggleComments}>
-                    Open comments
-                </div>
+                <button className='buttons' onClick={this.toggleComments}>
+                    Comments
+                </button>
                 {this.state.commentsVisible ? (
                     <SuggComments suggId={sugg.id}/>
                 ) : null }

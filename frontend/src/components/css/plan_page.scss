@@ -14,10 +14,17 @@
   align-items: center;
   justify-content: center;
 
+  .total-main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
   .page-stretch {
     width: 100%;
     display: flex;
     flex-direction: row;
+    justify-items: flex-end;
   }
 
   .plan-title {
@@ -25,30 +32,50 @@
     font-size: 28px;
   }
 
+  .info-cont {
+      position: absolute;
+    font-size: 18px;
+    top: 150px;
+    left: 75px;
+    width: 440px;
+  }
+
+  .button-edit {
+    margin: 5px;
+  }
+
+  .main-desc {
+    color: white;
+    font-size: 18px;
+  }
+
   .left-side {
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
+    margin-bottom: 15px;
   }
 
-  .plan-info-cont {
-    // position: absolute;
-    left: 20px;
-    top: 200px;
-    // display: flex;
-    flex-direction: column;
-    background-color: rgb(8, 159, 123);
-    width: 200px;
-    height: 200px;
-  }
-
-  .create-sugg {
-    // position: absolute;
+  .right-side {
     display: flex;
     flex-direction: column;
-    // top: 150px;
-    width: 450px;
-    top: 150px;
-    right: 47px;
+    align-items: center;
+    margin-left: 18px;
+
+  }
+
+  .left-right {
+    display: flex;
+    align-items: center;
+  }
+
+
+  .create-sugg {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 15px;
+    width: 370px;
     background-color: rgb(235, 206, 110);
     border-radius: 14px;
   }
@@ -58,7 +85,7 @@
     flex-direction: column;
   }
 
-    .form-inputs {
+  .form-inputs {
     margin: 8px;
     width: 265px;
     border-radius: 5px;
@@ -66,8 +93,6 @@
     color: rgb(8, 159, 123);
     background-color: rgb(204, 255, 243);
     padding: 8px;
-
-
   }
 
   .form-inputs::placeholder {
@@ -80,32 +105,26 @@
     top: 260px;
     bottom: 100px;
     right: 20px;
-    width: 492px;
-    height: 400px;
+    width: 440px;
+    height: 340px;
     overflow: scroll;
   }
 
-
-  .members-cont {
-    margin: 0;
+  .all-suggs::-webkit-scrollbar-thumb {
+    background-color: rgb(238, 224, 177);
+    border-radius: 20px;
   }
-
-  // .member-list-scroll {
-  //   width: 250px;
-  //   height: 200px;
-  // }
 
   .invite-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    // position: absolute;
-    left: 45px;
-    bottom: 110px;
     width: 235px;
-    height: 100px;
+    height: 95px;
     background-color: rgb(255, 255, 255, 0.75);
     border-radius: 15px;
+    margin-left: 23px;
+
 
     .top-invite {
       display: flex;
@@ -125,24 +144,26 @@
   .members-cont {
     overflow: scroll;
     direction: rtl;
-    // position: absolute;
     border-radius: 15px;
-    // left: 20px;
-    // bottom: 195px;
     width: 250px;
-    height: 100px;
+    max-height: 230px;
     padding: 10px;
 
     .member-name {
       margin: 0;
+      color: white;
+      font-size: 15px;
+      text-align: center;
+      padding: 15px;
     }
 
   }
   .member-list-scroll {
     background-color: rgb(8, 159, 123);
     width: 235px;
-    min-height: 195px;
+    min-height: 200px;
     border-radius: 15px;
+    margin: 0;
     
 
   }
@@ -164,8 +185,27 @@
     }
   }
 
-
-
-
-
 }
+
+.buttons {
+    background-color: white;
+    border-radius: 15px;
+    font-family: sans-serif;
+    color: rgb(8, 159, 123);
+    width: 90px;
+    border: none;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    height: 32px;
+    padding: 7px;
+
+  }
+
+  .buttons:hover {
+    background-color: rgb(235, 206, 110);
+  }
+
+  .calendar-cont {
+    margin-right: 15px;
+    height: 320px;
+  }

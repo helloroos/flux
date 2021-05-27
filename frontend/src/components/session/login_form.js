@@ -14,12 +14,28 @@ class LoginForm extends React.Component {
     }
 
     handleErrors(field) {
-        
         return this.props.errors.filter(error => error.includes(field))
     }
 
     update(field) {
         return e => this.setState({ [field]: e.currentTarget.value })
+    }
+
+    demoLogin() {
+        const demoUser = {
+            email: "waldo@odlaw.com",
+            password: "123456"
+        }
+
+        this.props.login(demoUser)
+            .then((res) => {
+                if (typeof res !== 'undefined') {
+                    return this.setState({ errored: true })
+                } else {
+                    this.props.hideModal()
+                }
+            }
+        )
     }
 
     handleSubmit(e) {
@@ -36,8 +52,9 @@ class LoginForm extends React.Component {
                 } else {
                     this.props.hideModal()
                 }
-            })
-        }
+            }
+        )
+    }
 
     render() {
         return (
@@ -64,6 +81,10 @@ class LoginForm extends React.Component {
                         <button className='buttons' onClick={this.handleSubmit}
                                 value='Sign In'>
                             Sign In
+                        </button>
+                        <button className='buttons' onClick={this.demoLogin}
+                                value='Demo'>
+                            Demo
                         </button>
                     <h5>Don't have an account?</h5>
                     <div onClick={() => this.props.openModal('Sign Up')}> 

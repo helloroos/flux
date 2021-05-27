@@ -7,13 +7,13 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(8, 159, 123, 0.4)
+  background: rgba(8, 159, 123, 0.5)
 }
 
 
 div.form-cont {
   position: absolute;
-  top: 125px;
+  top: 175px;
   width: 350px;
   flex-direction: column;
   background-color: rgb(8, 159, 123);
@@ -52,7 +52,7 @@ div.form-cont {
 
   .form-inputs:focus {
     // border: 5px solid ;
-    outline: rgb(0, 97, 176) solid 5px;
+    outline: rgb(235, 206, 110) solid 5px;
     background-color: white;
   }
 
@@ -76,7 +76,7 @@ div.form-cont {
   }
 
   .buttons:hover {
-    background-color: rgb(0, 97, 176);
+    background-color: rgb(235, 206, 110);
   }
 
   h3 {
@@ -95,6 +95,10 @@ div.form-cont {
     cursor: default;
     margin: 5px;
     margin-top: 20px;
+  }
+
+  .errors {
+    color: rgb(235, 206, 110);
   }
   
 }

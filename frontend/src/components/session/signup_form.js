@@ -57,7 +57,7 @@ class SignupForm extends React.Component {
                         placeholder='First Name'
                 />
                 {this.state.errored ? (
-                        <div>{this.handleErrors('First')}</div>
+                        <div className='errors'>{this.handleErrors('First')}</div>
                         ) : null
                     }
                 <input className='form-inputs' value={this.state.lastName}
@@ -66,7 +66,7 @@ class SignupForm extends React.Component {
                         placeholder='Last Name'
                 />
                 {this.state.errored ? (
-                        <div>{this.handleErrors('Last')}</div>
+                        <div className='errors'>{this.handleErrors('Last')}</div>
                         ) : null
                     }
                 <input className='form-inputs' value={this.state.email}
@@ -75,11 +75,11 @@ class SignupForm extends React.Component {
                         placeholder='Email'
                 />
                 {this.state.errored ? (
-                        <div>{this.handleErrors('Email')}</div>
+                        <div className='errors'>{this.handleErrors('Email')}</div>
                         ) : null
                     }
                 {this.state.errored ? (
-                        <div>{this.handleErrors('A')}</div>
+                        <div className='errors'>{this.handleErrors('A')}</div>
                         ) : null
                     }
                 <input className='form-inputs' value={this.state.password}
@@ -88,7 +88,7 @@ class SignupForm extends React.Component {
                         placeholder='Enter a password'
                 />
                 {this.state.errored ? (
-                        <div>{this.handleErrors('Password')}</div>
+                        <div className='errors' >{this.handleErrors('Password')}</div>
                         ) : null
                     }
                 <input className='form-inputs' value={this.state.password2}
@@ -97,11 +97,11 @@ class SignupForm extends React.Component {
                         placeholder='Re-enter a password'
                 />
                 {this.state.errored ? (
-                        <div>{this.handleErrors('Confirm')}</div>
+                        <div className='errors' >{this.handleErrors('Confirm')}</div>
                         ) : null
                     }
                 {this.state.errored ? (
-                        <div>{this.handleErrors('Passwords')}</div>
+                        <div className='errors'>{this.handleErrors('Passwords')}</div>
                         ) : null
                     }
                 <button className='buttons' value='Sign Up' onClick={this.handleSubmit}>Sign Up</ button>

@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
                                 placeholder='Email'
                             />
                         {this.state.errored ? (
-                            <div>{this.handleErrors('Email')}</div>
+                            <div className='errors' >{this.handleErrors('Email')}</div>
                             ) : null
                         }
                         <input className='form-inputs' value={this.state.password}
@@ -59,7 +59,7 @@ class LoginForm extends React.Component {
                                 placeholder='Password'
                             />
                         {this.state.errored ? (
-                            <div>{this.handleErrors('password')}</div>
+                        <div className='errors' >{this.handleErrors('password')}</div>
                             ) : null
                         }
                         <button className='buttons' onClick={this.handleSubmit}

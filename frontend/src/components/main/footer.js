@@ -12,10 +12,10 @@ const Footer = () => {
           your logistics. 
         </p>
         <div className='teammates'>
-          <h5>Michelle Roos</h5>
-          <h5>Jessica Uphoff</h5>
-          <h5>Evan Leon</h5>
-          <h5>Syldys Khomushku</h5>
+          <p>Evan Leon</p>
+          <p>Michelle Roos</p>
+          <p>Jessica Uphoff</p>
+          <p>Syldys Khomushku</p>
         </div>
       </div>
     </footer>

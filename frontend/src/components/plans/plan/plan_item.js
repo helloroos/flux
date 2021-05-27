@@ -41,6 +41,7 @@ class PlanItem extends React.Component {
 
     componentDidMount() {
         this.props.fetchPlan(this.props.match.params.planId)
+        this.props.fetchPlanSuggs(this.props.match.params.planId)
     }
 
     update(field) {
@@ -61,8 +62,7 @@ class PlanItem extends React.Component {
 
         let mapped;
 
-        if (this.props.plan.members) {
-            
+        if (this.props.plan.members) {   
             mapped = this.props.plan.members
                 .filter(plan => plan._id === this.props.currentUser.id)
 
@@ -80,7 +80,17 @@ class PlanItem extends React.Component {
                 )
             }
         }
-        
+
+        let members;
+
+        if (this.props.plan.members) {
+            members = this.props.plan.members.map(user => (
+                <ul>
+                    <div>{user.firstName}</div>
+                    <div>{user.lastName}</div>
+                </ul>
+            ))
+        }
 
         return (
             <div className='body-4'>
@@ -102,6 +112,8 @@ class PlanItem extends React.Component {
                 <NavLink to={`/${this.props.plan._id}/edit`}>
                     Edit Plan
                 </NavLink>
+                <div>Members:</div>
+                { members }
                 <CreateSuggContainer />
                 <PlanSuggestionsContainer />
             </div>

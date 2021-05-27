@@ -1,4 +1,5 @@
 import React from 'react';
+import PlanSuggestionsContainer from './plan_suggs_container';
 
 class CreateSugg extends React.Component {
     constructor(props) {
@@ -10,11 +11,16 @@ class CreateSugg extends React.Component {
             budget: '',
             dates: '',
             user: '',
-            plan: ''
+            plan: '',
+            created: false
         }
 
         this.handleClick = this.handleClick.bind(this);
         this.handleButton = this.handleButton.bind(this);
+    }
+
+    updateProps() {
+        this.props.fetchPlanSuggs(this.props.planId)
     }
 
     handleButton(e) {
@@ -43,6 +49,7 @@ class CreateSugg extends React.Component {
             description: '',
             budget: '',
             dates: '',
+            created: true
         })
     }
 
@@ -84,6 +91,7 @@ class CreateSugg extends React.Component {
                     <span>$</span>
                     { createButton }
                 </form>
+                {this.state.created ? this.updateProps() : null }
             </div>
         )
     }

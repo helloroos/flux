@@ -1,4 +1,4 @@
-import { RECEIVE_EMAIL, RECEIVE_MEMBERS, RECEIVE_PLAN, RECEIVE_USER_PLANS } from "../actions/plan_actions";
+import { RECEIVE_EMAIL, RECEIVE_PLAN, RECEIVE_USER_PLANS } from "../actions/plan_actions";
 
 
 const initialState = {
@@ -22,10 +22,6 @@ const plansReducer = (state = initialState, action) => {
         case RECEIVE_EMAIL:
             newState.email = action.email.data;
             return newState;
-        // case RECEIVE_MEMBERS:
-        //     newState.members = action.members.data.members;
-        //     
-        //     return newState;
         default:
             return state;
     }

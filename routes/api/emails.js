@@ -3,6 +3,9 @@ const router = express.Router();
 var nodemailer = require('nodemailer');
 var { google } = require('googleapis');
 const React = require("react");
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+const keys = require('../../config/keys');
 
 const CLIENT_ID = require('../../config/keys').google_client_id;
 const CLIENT_SECRET = require('../../config/keys').google_client_secret;
@@ -17,7 +20,9 @@ const oAuth2Client = new google.auth.OAuth2(
  
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
-router.post('/:id/send', (req, res) => {
+router.post('/:id/send', 
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
     async function sendMail() {
         try {
             const accessToken = await oAuth2Client.getAccessToken();
@@ -37,11 +42,11 @@ router.post('/:id/send', (req, res) => {
             const planId = req.params.id;
             const email  = req.body.email;
             const mailOptions = {
-                from: 'FLUX <stateoffluxapp@gmail.com>',
+                from: 'FLUX ☀️🌴 <stateoffluxapp@gmail.com>',
                 to: email,
-                subject: "Let's get this trip organized!",
-                text: `Please join by following this link: localhost:5000/api/plans/${planId}`,
-                html: "<head> <style>\
+                subject: "Let's go somewhere nice ✈️",
+                text: `Someone has invited you to join their travel plan on Flux. Please join the plan at https://state-of-flux.herokuapp.com/#/${planId}.`,
+                html: `<head> <style>\
                              .link {color: red;}  \
                              Style goes in here <----\
                              \
@@ -49,10 +54,19 @@ router.post('/:id/send', (req, res) => {
                              \
                              \
                              </style> </head>\
-                    <div class='background'><h1>Flux</h1><h2>Your friends are plannig a trip and want you to join!</h2>\
-                    <h3 class='link'>Please join your friends by following this link <a href=`https://state-of-flux.herokuapp.com/#/${planId}` >Join your friends!</a></h3>\
-                    <p> Check the trip out and see if the dates work for you! </p>\
-                     <p> Add suggestions to share your thoughts or opionions, upvote and downvote suggestions to make your preferences heard</p> </div>"
+                    <div class='background'>\
+                    <h2>Hi friend,</h2>\
+                    <br>\
+                    <p><NAME> has invited you to join their travel plan on Flux. Flux helps you to get on the same page using smart organizing and polling to plan the perfect getaway.</p>\
+                    <br>\
+                    <p>Follow the below link to see <NAME>’s travel plan and start discussing the details of your upcoming trip.</p>\
+                    <br>\
+                    <a href=https://state-of-flux.herokuapp.com/#/${planId}><button>Click to join<button></a>\
+                    <br>\
+                    <p>Have a wonderful trip :)</p>\
+                    <p>The Flux team</p>\
+                    <br>\
+                    <p>FOOTER<p>`
             };
     
             const result = await transport.sendMail(mailOptions);

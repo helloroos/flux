@@ -41,7 +41,6 @@ class PlanItem extends React.Component {
 
     componentDidMount() {
         this.props.fetchPlan(this.props.match.params.planId)
-        this.props.fetchPlanSuggs(this.props.match.params.planId)
     }
 
     update(field) {
@@ -56,12 +55,11 @@ class PlanItem extends React.Component {
     }
 
     render() {
-
+        
         if (!this.props.plan) return null;
         let joinButton;
 
         let mapped;
-
         if (this.props.currentUser) {
             if (this.props.plan.members) {
                 mapped = this.props.plan.members
@@ -89,7 +87,6 @@ class PlanItem extends React.Component {
                     <h5 className='member-name'>{user.firstName} {user.lastName}</h5>
             ))
         }
-
         return (
             <div className='body-4'>
                     <p className='plan-title'>{this.props.plan.title}</p>

@@ -21,11 +21,11 @@ router.post('/suggestion/:id/create',
                 Suggestion.findOne({ _id: suggestionId }, (err, suggestion) => {
                     if (suggestion) {
                         suggestion.comments.push(newComment);
-                        suggestion.save();
-                        res.json({ message: 'Comment created!' });
+                        suggestion.save()
                     }
-                });
+                })
             })
+            .then((savedComment) => res.json(savedComment))
             .catch((error) => {
                 res.status(500).json({ error });
             }

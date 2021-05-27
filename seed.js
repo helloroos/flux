@@ -1,8 +1,8 @@
-const express = require("express");
-const app = express();
 const mongoose = require('mongoose');
 mongoose.set('useFindAndModify', false);
 const db = require('./config/keys').mongoURI;
+
+const User = require('./models/User')
 
 // connect to DB
 mongoose
@@ -10,17 +10,17 @@ mongoose
     .then(() => console.log("Connected to MongoDB successfully")) // listen 
     .catch(err => console.log(err));
 
-const User = require('./models/User')
 
 function seedDB() {
+        //Promise.all 
         // User.deleteMany({})
-    const newUser = new User({
-        firstName: "Waldo",
-        lastName: "Odlaw",
+    const demoUser = new User({
+        firstName: 'Waldo',
+        lastName: 'Odlaw',
         email: 'waldo@odlaw.com',
         password: '123456'
     })
-    newUser.save()
+    demoUser.save()
         .then(() => console.log('User saved.'))
         .catch(() => console.log('User not saved.'));
 }

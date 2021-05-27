@@ -22,10 +22,10 @@ router.post('/suggestion/:id/create',
                     if (suggestion) {
                         suggestion.comments.push(newComment);
                         suggestion.save()
+                        .then(() => res.json(newComment))
                     }
                 })
             })
-            .then((savedComment) => res.json(savedComment))
             .catch((error) => {
                 res.status(500).json({ error });
             }

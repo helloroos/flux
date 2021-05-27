@@ -22,7 +22,7 @@ router.post('/suggestion/:id/create',
                     if (suggestion) {
                         suggestion.comments.push(newComment);
                         suggestion.save()
-                        .then(() => res.json(newComment))
+                        .then(() => res.json({comment: newComment, author: req.user}));
                     }
                 })
             })
@@ -37,21 +37,16 @@ router.post('/suggestion/:id/create',
 router.patch('/:id', (req, res) => {
     const commentId = req.params.id;
     const newComment = req.body;
-    Comment.findById(commentId)
-        .then((result) => {
             Comment.findById({ _id: commentId }, (err, comment) => {
                 if (comment) {
                     comment.update(newComment)
                         .then(() => comment.save())
-                        .then((savedComment) => res.json(savedComment))
+                        .then(() => res.json(newComment))
                 }
-            });
-        })
-        .catch((error) => {
-            res.status(500).json({ error });
-        }
-    )
-})
+            }).catch((error) => {
+                res.status(500).json({ error });
+    });
+});
 
 // INDEX for all comments of a user
 router.get('/user/:user_id', (req, res) => {

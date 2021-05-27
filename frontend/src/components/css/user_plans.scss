@@ -118,3 +118,7 @@
 *::-webkit-scrollbar {
   width: 12px;
 }
+
+*::-webkit-scrollbar-corner {
+  display: none;
+}

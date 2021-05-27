@@ -61,18 +61,18 @@ router.get('/plan/:plan_id',
 });
 
 // 
-router.patch('/:suggestion_id/upvote',
-    // Should this be on the suggestion page, or the plan page?
-    passport.authenticate('jwt', { session: false }),
-    (req, res) => {
+// router.patch('/:suggestion_id/upvote',
+//     // Should this be on the suggestion page, or the plan page?
+//     passport.authenticate('jwt', { session: false }),
+//     (req, res) => {
 
-        const currUser = req.user;
-        const suggestionId = { _id: req.params.id };
-        const update = { upvotes: currUser }
+//         const currUser = req.user;
+//         const suggestionId = { _id: req.params.id };
+//         const update = { upvotes: currUser }
 
-        const plan = Plan.findById(suggestionId);
-    }
-);
+//         const plan = Plan.findById(suggestionId);
+//     }
+// );
 
 router.patch('/:id',
     (req, res) => {

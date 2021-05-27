@@ -34,4 +34,34 @@ router.post('/suggestion/:id/create',
     }
 );
 
+router.patch('/:id', (req, res) => {
+    const commentId = req.params.id;
+    const newComment = req.body;
+    console.log(newComment);
+    Comment.findById(commentId)
+        .then((result) => {
+            Comment.findById({ _id: commentId }, (err, comment) => {
+                if (comment) {
+                    comment.update(newComment)
+                        .then(() => comment.save())
+                        .then((savedComment) => res.json(savedComment))
+                }
+            });
+        })
+        .catch((error) => {
+            res.status(500).json({ error });
+        }
+    )
+
+})
+
+router.delete('/:id', (req, res) => {
+    const commentId = req.params.id;
+    Comment.deleteOne({ _id: commentId })
+        .then(() => res.status(200).json({ commentdeleted: 'suggestion successfully deleted' }))
+        .catch(err =>
+            res.status(404).json({ nocommentfound: 'No suggestion found with that id, please try again' })
+        );
+})
+
 module.exports = router;

@@ -15,7 +15,7 @@ const suggReducer = (state = initialState, action) => {
             newState.planSuggs = action.suggs.data;
             return newState
         case RECEIVE_SUGG:
-            
+            debugger
             newState.new = action.sugg.data;
             return newState
         default:

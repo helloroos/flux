@@ -37,9 +37,10 @@ class Header extends React.Component {
         </div>
       )
     } else {
+      debugger
       accountButtons = (
         <>
-          <Link to={`/users/${currentUser.id}`}>
+          <Link to={`/users/${currentUser._id}`}>
             <i className="icons fas fa-user-circle fa-2x"></i>
           </Link>
             <button className='buttons' onClick={this.handleLogout}>Log Out</button>

@@ -17,19 +17,19 @@ const suggReducer = (state = initialState, action) => {
             newState.planSuggs = action.suggs.data;
             return newState
         case RECEIVE_SUGG:
-            debugger
+            
             newState.new = action.sugg.data;
             return newState
         case RECEIVE_SUGG_COMMENTS:
             newState.comments = action.comments.data;
-            // debugger
+            
             return newState
         case RECEIVE_COMMENT:
-            debugger
+            
             newState.newComment = action.comment.data;
             return newState
         case REMOVE_COMMENT:
-            debugger
+            
             delete newState.comments[action.commentId];
             return newState;
         

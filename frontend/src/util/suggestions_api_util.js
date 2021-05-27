@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const createSugg = (suggData, planId) => {
-    debugger
+    
     return axios.post(`/api/suggestions/plan/${planId}/create`, suggData)
 };
 
@@ -18,7 +18,7 @@ export const showSuggComments = suggId => {
 };
 
 export const createComment = (comment, suggId) => {
-    debugger
+    
     return axios.post(`/api/comments/suggestion/${suggId}/create`, comment)
 };
 

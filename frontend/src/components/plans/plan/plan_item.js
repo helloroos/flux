@@ -55,7 +55,7 @@ class PlanItem extends React.Component {
     }
 
     render() {
-        debugger
+        
         if (!this.props.plan) return null;
         let joinButton;
 

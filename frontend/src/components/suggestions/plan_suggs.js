@@ -27,8 +27,7 @@ class PlanSuggestions extends React.Component {
     
     render() {
         if (!this.props.suggs) return null;
-
-        debugger
+        
         const mapped = this.props.suggs.map(sugg => (
             <div className='sugg-item-cont'>
                 <h2>{sugg.title}</h2>
@@ -53,6 +52,7 @@ class PlanSuggestions extends React.Component {
                         fetchSuggComments={this.props.fetchSuggComments}/>
                 {this.state.commentsVisible ? (
                     <SuggComments sugg={sugg}
+                        comments={this.props.comments}
                         fetchSuggComments={this.props.fetchSuggComments}/>
                 ) : null }
             </div>

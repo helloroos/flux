@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const createPlan = (planData) => {  
-    debugger
+    
     return axios.post('/api/plans', planData);
 };
 

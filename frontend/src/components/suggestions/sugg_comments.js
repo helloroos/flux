@@ -10,12 +10,13 @@ class SuggComments extends React.Component {
     }
 
     render() {
+        if (!this.props.comments) return null;
 
         let comments;
         debugger
-        if (this.props.sugg.comments.length > 0) {
-            debugger
-            comments = this.props.sugg.comments.map(comment => (
+        if (this.props.comments.length > 0) {
+            
+            comments = this.props.comments.map(comment => (
             <div>
                 <div>{comment.body}</div>
                 <div>{comment.author}</div>

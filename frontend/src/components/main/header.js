@@ -37,7 +37,7 @@ class Header extends React.Component {
         </div>
       )
     } else {
-      debugger
+      
       accountButtons = (
         <>
           <Link to={`/users/${currentUser._id}`}>

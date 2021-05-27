@@ -1,11 +1,25 @@
-// body {
-//   background-image: url('../../assets/background1.jpg');
-// }
+.body-2 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -2;
+  background-image: url('../../assets/background2.jpg');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .main-cont {
   // background-image: url('../../assets/background1.jpg');
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 100px;
   
   .form-cont {
     -webkit-box-shadow: 3px 3px 5px 6px rgb(0, 97, 176);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */

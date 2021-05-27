@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import CreateSuggContainer from '../../suggestions/create_sugg_container';
 import PlanSuggestionsContainer from '../../suggestions/plan_suggs_container';
+import '../../css/plan_page.scss'
 
 class PlanItem extends React.Component {
     constructor(props) {
@@ -82,19 +83,21 @@ class PlanItem extends React.Component {
         
 
         return (
-            <div>
+            <div className='body-4'>
                 {this.props.plan.title}
                 {this.props.plan.description}
                 {this.state.loggedIn ? this.refreshPage() : null}
-                <form>
-                    <div>Invite people:</div>
-                    <input onChange={this.update('email')}
-                            placeholder='Email *'
-                    />
-                    <button onClick={this.handleClick}>
-                        Send Invite
-                    </button>
-                </form>
+                <div>
+                    <form className='invite-form'>
+                        <div>Invite people:</div>
+                        <input onChange={this.update('email')}
+                                placeholder='Email *'
+                        />
+                        <button onClick={this.handleClick}>
+                            Send Invite
+                        </button>
+                    </form>
+                </div>
                 {joinButton}
                 <NavLink to={{
                     pathname: `/${this.props.plan._id}/edit`,

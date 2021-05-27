@@ -17,7 +17,6 @@ router.post('/',
         if (!isValid) {
             return res.status(400).json(errors);
         }
-        console.log(req.user);
         
         const newPlan = new Plan({
             title: req.body.title,
@@ -61,7 +60,6 @@ router.get('/:id', (req, res) => {
         .populate({path: 'members', model: 'User'})
         .populate({ path: 'suggestions', model: 'Suggestion'})
         .exec((error, plan) => {
-            console.log(plan)
             res.json(plan)
         })
     }

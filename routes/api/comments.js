@@ -37,7 +37,6 @@ router.post('/suggestion/:id/create',
 router.patch('/:id', (req, res) => {
     const commentId = req.params.id;
     const newComment = req.body;
-    console.log(newComment);
     Comment.findById(commentId)
         .then((result) => {
             Comment.findById({ _id: commentId }, (err, comment) => {

@@ -64,7 +64,6 @@ class PlanItem extends React.Component {
 
         if (this.props.currentUser) {
             if (this.props.plan.members) {
-                debugger   
                 mapped = this.props.plan.members
                     .filter(plan => plan._id === this.props.currentUser.id)
 

@@ -8,6 +8,7 @@ const passport = require('passport');
 const db = require('../../config/keys').mongoURI;
 
 // Create a suggestion on the plan's page
+// returns new plan and currUser
 router.post('/plan/:id/create',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
@@ -63,26 +64,53 @@ router.get('/plan/:plan_id',
 
 router.patch('/:suggestion_id/upvote',
     // Should this be on the suggestion page, or the plan page?
+    // should change from down to up if clickec
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
 
         const currUser = req.user;
         const suggestionId = { _id: req.params.suggestion_id };
 
-        console.log(suggestionId);
-
         Suggestion.findOne({ _id: suggestionId }, (err, suggestion) => {
             if (suggestion) {
                 if (!suggestion.upvotes.includes(currUser.id)) {
-                    suggestion.upvotes.push(currUser);
-                    suggestion.save();
-                    res.json({ votesuccess: 'Upvote successful!' })
+                    if (suggestion.downvotes.includes(currUser.id)) {
+                        suggestion.downvotes.pop(currUser)
+                            .then(() => suggestion.save());
+                        console.log('User removed from downvotes');
+                    }
+                    suggestion.upvotes.push(currUser)
+                        .then(() => suggestion.save());
+                    // res.json({ votesuccess: 'Upvote successful!' })
                 } else {
-                    res.json({ alreadythere: 'Duplicate vote' })
+                    // res.json({ alreadythere: 'Duplicate vote' })
                 };
+                res.json(suggestion)
             }
-        }).catch(err => res.json({ noplan: 'Sorry, no suggestion with that with that id' }));
+        }).catch(err => res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }));
+    }
+);
 
+router.patch('/:suggestion_id/removeupvote',
+    // Should this be on the suggestion page, or the plan page?
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+
+        const currUser = req.user;
+        const suggestionId = { _id: req.params.suggestion_id };
+
+        Suggestion.findOne({ _id: suggestionId }, (err, suggestion) => {
+            if (suggestion) {
+                if (suggestion.upvotes.includes(currUser.id)) {
+                    suggestion.upvotes.pop(currUser);
+                    suggestion.save();
+                    // res.json({ votesuccess: 'Remove successful!' })
+                } else {
+                    // res.json({ notthere: 'User has not voted' })
+                };
+                res.json(suggestion)
+            }
+        }).catch(err => res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }));
     }
 );
 
@@ -97,15 +125,43 @@ router.patch('/:suggestion_id/downvote',
         Suggestion.findOne({ _id: suggestionId }, (err, suggestion) => {
             if (suggestion) {
                 if (!suggestion.downvotes.includes(currUser.id)) {
-                    suggestion.downvotes.push(currUser);
-                    suggestion.save();
-                    res.json({ votesuccess: 'Downvote successful!' })
+                    if (suggestion.upvotes.includes(currUser.id)) {
+                        suggestion.upvotes.pop(currUser)
+                            .then(() => suggestion.save());
+                        console.log('User removed from downvotes');
+                    }
+                    suggestion.downvotes.push(currUser)
+                        .then(() => suggestion.save());
+                    // res.json({ votesuccess: 'Downvote successful!' })
                 } else {
-                    res.json({ alreadythere: 'Duplicate vote' })
+                    // res.json({ alreadythere: 'Duplicate vote' })
                 };
+                res.json(suggestion)
             }
-        }).catch(err => res.json({ noplan: 'Sorry, no suggestion with that with that id' }));
+        }).catch(err => res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }));
+    }
+);
 
+router.patch('/:suggestion_id/removedownvote',
+    // Should this be on the suggestion page, or the plan page?
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+
+        const currUser = req.user;
+        const suggestionId = { _id: req.params.suggestion_id };
+
+        Suggestion.findOne({ _id: suggestionId }, (err, suggestion) => {
+            if (suggestion) {
+                if (suggestion.downvotes.includes(currUser.id)) {
+                    suggestion.downvotes.pop(currUser);
+                    suggestion.save();
+                    // res.json({ votesuccess: 'Remove successful!' })
+                } else {
+                    // res.json({ notthere: 'User has not voted' })
+                };
+                res.json(suggestion)
+            }
+        }).catch(err => res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }));
     }
 );
 

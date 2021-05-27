@@ -41,7 +41,14 @@ router.post('/:id/send', (req, res) => {
                 to: email,
                 subject: "Let's get this trip organized!",
                 text: `Please join by following this link: localhost:5000/api/plans/${planId}`,
-                html: "<style> .link {color: red};  </style>\
+                html: "<head> <style>\
+                             .link {color: red;}  \
+                             Style goes in here <----\
+                             \
+                             \
+                             \
+                             \
+                             </style> </head>\
                     <div class='background'><h1>Get your State of Flux in order!</h1> <h2>Your friends are plannig a trip and want you to join!</h2>\
                     <h3 class='link'>Please join your friends by following this link <a href=`https://state-of-flux.herokuapp.com/#/${planId}` >Join your friends!</a></h3>\
                     <p> Check the trip out and see if the dates work for you! </p>\

@@ -24,14 +24,20 @@ export const receiveSuggErrors = errors => {
 
 // export default removeSugg = 
 
+export const fetchSugg = (suggId) => dispatch => (
+    SuggApiUtil.showSugg(suggId)
+        .then(sugg => dispatch(receiveSugg(sugg)))
+        // .catch(err => dispatch(receiveSuggErrors(err)))
+);
+
 export const fetchPlanSuggs = (planId) => dispatch => (
     SuggApiUtil.showPlanSugg(planId)
         .then(suggs => dispatch(receivePlanSuggs(suggs)))
-        .catch(err => dispatch(receiveSuggErrors(err)))
+        // .catch(err => dispatch(receiveSuggErrors(err)))
 );
 
 export const createSugg = (sugg, planId) => dispatch => (
     SuggApiUtil.createSugg(sugg, planId)
         .then(sugg => dispatch(receiveSugg(sugg)))
-        .catch(err => dispatch(receiveSuggErrors(err)))
+        // .catch(err => dispatch(receiveSuggErrors(err)))
 );

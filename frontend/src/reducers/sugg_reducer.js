@@ -2,10 +2,9 @@ import { RECEIVE_COMMENT, RECEIVE_SUGG_COMMENTS, REMOVE_COMMENT } from "../actio
 import { RECEIVE_PLAN_SUGGS, RECEIVE_SUGG } from "../actions/sugg_actions";
 
 const initialState = {
-    planSuggs: undefined,
-    new: undefined,
-    comments: [],
-    newComment: {}
+    all: [],
+    new: []
+    // comments: []
 };
 
 const suggReducer = (state = initialState, action) => {
@@ -14,20 +13,20 @@ const suggReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case RECEIVE_PLAN_SUGGS:
-            newState.planSuggs = action.suggs.data;
+            newState = action.suggs.data;
             return newState
         case RECEIVE_SUGG:
-            
+            debugger
             newState.new = action.sugg.data;
             return newState
-        case RECEIVE_SUGG_COMMENTS:
-            newState.comments = action.comments.data;
+        // case RECEIVE_SUGG_COMMENTS:
+        //     newState.comments = action.comments.data;
             
-            return newState
-        case RECEIVE_COMMENT:
+        //     return newState
+        // case RECEIVE_COMMENT:
             
-            newState.newComment = action.comment.data;
-            return newState
+        //     newState.comments.push(action.comment.data);
+        //     return newState
         case REMOVE_COMMENT:
             
             delete newState.comments[action.commentId];

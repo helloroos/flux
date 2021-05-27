@@ -5,9 +5,9 @@ class SuggComments extends React.Component {
     //     super(props)
     // }
 
-    componentDidMount() {
-        this.props.fetchSuggComments(this.props.sugg._id)
-    }
+    // componentDidMount() {
+    //     this.props.fetchSuggComments(this.props.sugg._id)
+    // }
 
     render() {
 

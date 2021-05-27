@@ -1,10 +1,14 @@
 .sugg-item-cont {
-  background-color: red;
+  background-color: rgb(255, 255, 255, 0.75);
   border-radius: 15px;
   padding: 10px;
+  margin: 15px;
 
-  h2 {
-    text-justify: center;
+
+  p.sugg-title {
+    color: rgb(0, 97, 176);
+    font-size: 20px;
+    margin: 10px
   }
 
 }

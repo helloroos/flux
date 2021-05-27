@@ -85,9 +85,9 @@ class PlanCreateForm extends React.Component {
        
         return (
             <div className='body-2'>
+                <h2>Create a plan...</h2>
             <div className='main-cont'>
                 <form className='form-cont'>
-                    <h2>Create a plan...</h2>
                     <input type='text'
                         className='form-inputs'
                         value={this.state.title}

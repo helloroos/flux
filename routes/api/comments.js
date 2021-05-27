@@ -35,17 +35,21 @@ router.post('/suggestion/:id/create',
 
 // Should this be on the suggestion page, or the plan page?
 router.patch('/:id', (req, res) => {
-    const commentId = req.params.id;
     const newComment = req.body;
-            Comment.findById({ _id: commentId }, (err, comment) => {
-                if (comment) {
-                    comment.update(newComment)
-                        .then(() => comment.save())
-                        .then(() => res.json(newComment))
-                }
-            }).catch((error) => {
-                res.status(500).json({ error });
-    });
+
+    const commentId = req.params.id;
+    const body = req.body.body;
+    let update = { 
+        body
+    }
+    Comment.findOneAndUpdate(
+        commentId, update, { new: true })
+            .then(() => res.json({ _id: commentId, comment: update}))
+            .catch(err =>
+                res.status(404).json({ nosuggfound: 'No suggestion found with that id, please try again' })
+            );
+
+    
 });
 
 // INDEX for all comments of a user
@@ -62,9 +66,9 @@ router.get('/user/:user_id', (req, res) => {
 router.get('/suggestion/:suggestion_id',
     (req, res) => {
         Comment.find({ suggestion: req.params.suggestion_id })
-            .then(sugg => res.json(sugg))
+            .then(comment => res.json(comment))
             .catch(err =>
-                res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }
+                res.status(404).json({ nocommentfound: 'No comments can be found for this id' }
                 )
             );
     }
@@ -73,9 +77,9 @@ router.get('/suggestion/:suggestion_id',
 router.delete('/:id', (req, res) => {
     const commentId = req.params.id;
     Comment.deleteOne({ _id: commentId })
-        .then(() => res.status(200).json({ commentdeleted: 'suggestion successfully deleted' }))
+        .then(() => res.status(200).json({ commentdeleted: 'comment successfully deleted' }))
         .catch(err =>
-            res.status(404).json({ nocommentfound: 'No suggestion found with that id, please try again' })
+            res.status(404).json({ nocommentfound: 'No comment found with that id, please try again' })
         );
 })
 

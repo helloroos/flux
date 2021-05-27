@@ -19,7 +19,7 @@ class PlanItem extends React.Component {
     }
 
     refreshPage() {
-        if (Object.values(this.props.currentUser).length === 0) {
+        if (!this.props.currentUser) {
             this.props.openModal('Sign In')
         } else {
             this.setState({ loggedIn: false })
@@ -62,22 +62,25 @@ class PlanItem extends React.Component {
 
         let mapped;
 
-        if (this.props.plan.members) {   
-            mapped = this.props.plan.members
-                .filter(plan => plan._id === this.props.currentUser.id)
+        if (this.props.currentUser) {
+            if (this.props.plan.members) {
+                debugger   
+                mapped = this.props.plan.members
+                    .filter(plan => plan._id === this.props.currentUser.id)
 
-            if (mapped.length > 0) {
-                joinButton = (
-                    <div>
-                        Congrats! You are part of our group!
-                    </div>
-                )
-            } else {
-                joinButton = (
-                    <button onClick={this.addMember}>
-                        Join
-                    </button>
-                )
+                if (mapped.length > 0) {
+                    joinButton = (
+                        <div>
+                            Congrats! You are part of our group!
+                        </div>
+                    )
+                } else {
+                    joinButton = (
+                        <button onClick={this.addMember}>
+                            Join
+                        </button>
+                    )
+                }
             }
         }
 

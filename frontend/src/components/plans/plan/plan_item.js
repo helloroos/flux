@@ -2,7 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import CreateSuggContainer from '../../suggestions/create_sugg_container';
 import PlanSuggestionsContainer from '../../suggestions/plan_suggs_container';
+import { DateRange } from 'react-date-range';
 import '../../css/plan_page.scss'
+import '../../css/date-range.scss'
 
 class PlanItem extends React.Component {
     constructor(props) {
@@ -63,12 +65,11 @@ class PlanItem extends React.Component {
         if (this.props.currentUser) {
             if (this.props.plan.members) {
                 mapped = this.props.plan.members
-                    .filter(plan => plan._id === this.props.currentUser.id)
+                    .filter(plan => plan._id === this.props.currentUser._id)
 
                 if (mapped.length > 0) {
                     joinButton = (
-                        // <></>
-                        <p>Joined!</p> 
+                        <p className='joined'>Joined!</p> 
                     )
                 } else {
                     joinButton = (
@@ -89,19 +90,29 @@ class PlanItem extends React.Component {
         }
         return (
             <div className='body-4'>
-                    <p className='plan-title'>{this.props.plan.title}</p>
-
-                    <div className='left-side'>
-
-                        <div className='plan-info-cont'>
-
-                            <p>{this.props.plan.description}</p>
-
+                    <h2 className='plan-title'>{this.props.plan.title}</h2>
+                        <div className='info-cont'>
+                            <p className='main-desc'>{this.props.plan.description}</p>
                             {this.state.loggedIn ? this.refreshPage() : null}
                             <NavLink to={`/${this.props.plan._id}/edit`}>
-                                Edit Plan
+                                <button className='buttons button-edit'>Edit Plan</button>
                             </NavLink>
                         </div>
+            <div className='total-main'>
+                    <div className='left-side'>
+
+                    <div className='calendar-cont'>
+                        <DateRange
+                            // ranges={[this.props.plan.dateRange]}
+                            onChange={this.updateDates}
+                            editableDateInputs={true}
+                            showSelectionPreview={true}
+                            direction='horizontal'
+                            months={1}
+                            showDateDisplay={false}
+                            showMonthAndYearPickers={false}
+                        />
+                    </div>
 
                         <div className='right-left'>
                         <div className='members-cont'>
@@ -117,9 +128,9 @@ class PlanItem extends React.Component {
                                 {joinButton}
                                 </div>
                                 <input onChange={this.update('email')}
-                                        placeholder='Email *'
+                                        placeholder='Email'
                                 />
-                                 <i onClick={this.handleClick} className="icons fas fa-plus-circle"></i>
+                                 <i onClick={this.handleClick} className="add-icon icons fas fa-plus-circle"></i>
 
                             </form>
                         </div>
@@ -132,7 +143,7 @@ class PlanItem extends React.Component {
                             <div className='all-suggs'><PlanSuggestionsContainer /></div>
                         </div>
                     </div>
-
+                </div>
             </div>
         )
     }

@@ -31,10 +31,10 @@ class Suggestion extends React.Component {
         return (
             <div>
                 <div className='sugg-item-cont'>
-                    <h2>{sugg.title}</h2>
-                    <p>{sugg.description}</p>
-                    <h4>{sugg.budget}</h4>
-                    <div>{sugg.user}</div>
+                    <p className='sugg-title'>{sugg.title}</p>
+                    <p className='sugg-desc'>{sugg.description}</p>
+                    <p className='sugg-budget'>{sugg.budget}</p>
+                    <p className='sugg-author'>{sugg.user}</p>
                 </div>
                 <Upvote sugg={sugg}
                     currentUser={this.props.currentUser}

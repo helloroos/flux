@@ -3,7 +3,9 @@ import { RECEIVE_PLAN_SUGGS, RECEIVE_SUGG } from "../actions/sugg_actions";
 
 const initialState = {
     planSuggs: undefined,
-    new: undefined
+    new: undefined,
+    comments: [],
+    newComment: {}
 };
 
 const suggReducer = (state = initialState, action) => {
@@ -19,7 +21,7 @@ const suggReducer = (state = initialState, action) => {
             newState.new = action.sugg.data;
             return newState
         case RECEIVE_SUGG_COMMENTS:
-            newState.planSuggs.comments = action.comments.data;
+            newState.comments = action.comments.data;
             // debugger
             return newState
         case RECEIVE_COMMENT:
@@ -28,7 +30,7 @@ const suggReducer = (state = initialState, action) => {
             return newState
         case REMOVE_COMMENT:
             debugger
-            delete newState.planSuggs.comments[action.commentId];
+            delete newState.comments[action.commentId];
             return newState;
         
         default:

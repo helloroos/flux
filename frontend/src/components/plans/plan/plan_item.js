@@ -41,7 +41,6 @@ class PlanItem extends React.Component {
 
     componentDidMount() {
         this.props.fetchPlan(this.props.match.params.planId)
-        this.props.fetchPlanSuggs(this.props.match.params.planId)
     }
 
     update(field) {

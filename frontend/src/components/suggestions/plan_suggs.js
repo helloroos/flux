@@ -26,10 +26,10 @@ class PlanSuggestions extends React.Component {
     }
     
     render() {
-        if (!this.props.suggs.planSuggs) return null;
+        if (!this.props.suggs) return null;
 
         debugger
-        const mapped = this.props.suggs.planSuggs.map(sugg => (
+        const mapped = this.props.suggs.map(sugg => (
             <div className='sugg-item-cont'>
                 <h2>{sugg.title}</h2>
                 <p>{sugg.description}</p>
@@ -46,15 +46,15 @@ class PlanSuggestions extends React.Component {
                 <div onClick={this.toggleComments}>
                     Open comments
                 </div>
-                {/* <CreateComment suggId={sugg._id}
+                <CreateComment suggId={sugg._id}
                         createComment={this.props.createComment}
                         currentUser={this.props.currentUser}
                         openModal={this.props.openModal}
-                        fetchSuggComments={this.props.fetchSuggComments}/> */}
-                {/* {this.state.commentsVisible ? (
+                        fetchSuggComments={this.props.fetchSuggComments}/>
+                {this.state.commentsVisible ? (
                     <SuggComments sugg={sugg}
                         fetchSuggComments={this.props.fetchSuggComments}/>
-                ) : null } */}
+                ) : null }
             </div>
         ))
 

@@ -43,13 +43,14 @@ class CreateSugg extends React.Component {
         }
 
         this.props.createSugg(sugg, this.props.planId)
-        this.setState({
-            title: '',
-            description: '',
-            budget: '',
-            dates: '',
-            created: true
-        })
+            .then(this.setState({
+                title: '',
+                description: '',
+                budget: '',
+                dates: '',
+                created: true
+            })
+        )
     }
 
     handleSelect(value) {

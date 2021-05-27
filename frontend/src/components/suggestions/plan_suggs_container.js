@@ -9,8 +9,9 @@ import PlanSuggestions from './plan_suggs';
 const mapSTP = (state, ownProps) => {
     return ({
         planId: ownProps.match.params.planId,
-        suggs: state.suggs,
-        currentUser: state.session.user
+        suggs: state.suggs.planSuggs,
+        currentUser: state.session.user,
+        comments: state.session.comments
     })
 };
 

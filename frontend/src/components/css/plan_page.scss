@@ -19,5 +19,22 @@
     height: 400px;
   }
 
+  .radio-cont {
+    width: fit-content;
+    background-color: white;
+    padding: 15px;
+    border-radius: 40px;
+    font-size: 20px;
+    
+    input {
+      margin-left: 10px;
+    }
+
+    input[type="radio"] {
+      opacity: 0;
+      width: 0;
+    }
+  }
+
 
 }

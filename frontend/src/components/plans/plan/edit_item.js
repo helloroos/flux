@@ -1,7 +1,7 @@
 import React from 'react';
 import { DateRange } from 'react-date-range';
-import 'react-date-range/dist/styles.css';
-import 'react-date-range/dist/theme/default.css';
+import '../../css/create_plan.scss'
+import '../../css/date-range.scss'
 
 class EditPlan extends React.Component {
     constructor(props) {
@@ -50,29 +50,39 @@ class EditPlan extends React.Component {
         }
 
         return (
-            <form>
-                <label>Title:</label>
-                <input type='text'
-                    onChange={this.update('title')}
-                    />
-                <label>Description:</label>
-                <textarea
-                    onChange={this.update('description')}
-                    />
-                <button onClick={this.handleEdit}>
-                    Submit changes
-                </button>
-                <DateRange
-                        ranges={[dateRange]}
-                        onChange={this.updateDates}
-                        editableDateInputs={true}
-                        showSelectionPreview={true}
-                        direction='horizontal'
-                        months={1}
-                        showDateDisplay={false}
-                        showMonthAndYearPickers={false}
-                    />
+            <div className='body-2'>
+                <h2>Edit your plan...</h2>
+            <div className='main-cont'>
+                <form className='form-cont'>
+                    <input type='text'
+                        className='form-inputs'
+                        value={this.state.title}
+                        onChange={this.update('title')}
+                        />
+                    <textarea
+                        className='form-inputs'
+                            value={this.state.description}
+                        onChange={this.update('description')}
+                        />
+                        <p>Edit the date range:</p>
+                    <div className='calendar-cont'>
+                        <DateRange
+                            ranges={[dateRange]}
+                            onChange={this.updateDates}
+                            editableDateInputs={true}
+                            showSelectionPreview={true}
+                            direction='horizontal'
+                            months={1}
+                            showDateDisplay={false}
+                            showMonthAndYearPickers={false}
+                            />
+                    </div>
+                    <button className='buttons' onClick={this.handleEdit}>
+                        Submit
+                    </button>
             </form>
+        </div>
+        </div>
         )
     }
 };

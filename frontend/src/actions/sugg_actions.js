@@ -3,6 +3,7 @@ import * as SuggApiUtil from '../util/suggestions_api_util';
 export const RECEIVE_SUGG = 'RECEIVE_SUGG';
 export const RECEIVE_PLAN_SUGGS = 'RECEIVE_PLAN_SUGGS';
 export const RECEIVE_SUGG_ERRORS = 'RECEIVE_SUGG_ERRORS';
+export const DELETE_SUGG = 'DELETE_SUGG';
 
 export const receiveSugg = sugg => ({
     type: RECEIVE_SUGG,
@@ -20,6 +21,8 @@ export const receiveSuggErrors = errors => {
         errors
     })
 };
+
+// export default removeSugg = 
 
 export const fetchPlanSuggs = (planId) => dispatch => (
     SuggApiUtil.showPlanSugg(planId)

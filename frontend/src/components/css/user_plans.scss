@@ -1,37 +1,120 @@
-.main-cont {
+.body-3 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -2;
+  background-image: url('../../assets/background3.jpg');
+  background-size: cover;
+  // height: 100%;
+  // display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.plans-title {
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  color: white;
+
+}
+
+
+.main-plan-cont {
+
+  position: absolute;
+  top: 175px;
+  left: 0;
+  right: 0;
   overflow: scroll;
   overflow-y: hidden;
-
+  height: 500px;
+  
+  
+  
   .plans-cont {
     display: flex;
-    flex-direction: row;  
+    flex-direction: row;   
     
+    .each-plan-cont:hover {
+      background-color: rgb(235, 206, 110);
+    }
     
-    
+    .each-plan-cont:hover h6 {
+      color: rgb(145, 118, 31);
+    }
+    .each-plan-cont:hover p {
+      color: rgb(145, 118, 31);
+    }
     .each-plan-cont {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
       width: 400px;
+      min-width: 400px;
       height: 400px;
       background-color: rgb(8, 159, 123);
       border-radius: 100%;
       object-fit: none;
+      margin: 15px;
+
 
       .plan-title {
+
         font-family: Lato;
         font-size: 40px;
         color: white;
         text-decoration: none;
+        margin: 20px;
+        text-decoration: none;
       }
 
+
+      
+      h6 {
+        color: rgb(204, 255, 243);
+        font-size: 14px;
+        margin: 0;
+        text-align: center;
+      }
+      
+      h5 {
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 50px;
+        
+      }
+      
       p {
-        width: 350px;
+        color: rgb(204, 255, 243);
+        font-size: 15px;
+        text-align: center;
+        
       }
-
+      
     }
   }
+  
+}
+.plan-title-links {
+  text-decoration: none;
 
+}
+
+*::-webkit-scrollbar-track {
+  display: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(166, 208, 242);
+  border-radius: 20px;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
 }

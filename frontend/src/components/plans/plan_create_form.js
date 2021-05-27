@@ -51,7 +51,7 @@ class PlanCreateForm extends React.Component {
 
         if (!this.props.currentUser) {
             createForm = (
-                <button onClick={this.handleAuth}>
+                <button onClick={this.handleAuth} className='buttons'>
                     Create
                 </button>
             )
@@ -65,6 +65,7 @@ class PlanCreateForm extends React.Component {
         }
        
         return (
+            <div className='body-2'>
             <div className='main-cont'>
                 <form className='form-cont'>
                     <h2>Create a plan...</h2>
@@ -87,6 +88,7 @@ class PlanCreateForm extends React.Component {
                 { createForm }
                 </form>
                 {this.state.created ? this.refreshPage() : null }
+            </div>
             </div>
         )
     }

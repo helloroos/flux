@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 var nodemailer = require('nodemailer');
 var { google } = require('googleapis');
+const React = require("react");
 
 const CLIENT_ID = require('../../config/keys').google_client_id;
 const CLIENT_SECRET = require('../../config/keys').google_client_secret;
@@ -40,6 +41,11 @@ router.post('/:id/send', (req, res) => {
                 to: email,
                 subject: "Let's get this trip organized!",
                 text: `Please join by following this link: localhost:5000/api/plans/${planId}`,
+                html: "<style> .link {color: red};  </style>\
+                    <div class='background'><h1>Get your State of Flux in order!</h1> <h2>Your friends are plannig a trip and want you to join!</h2>\
+                    <h3 class='link'>Please join your friends by following this link <a href=`https://state-of-flux.herokuapp.com/#/${planId}` >Join your friends!</a></h3>\
+                    <p> Check the trip out and see if the dates work for you! </p>\
+                     <p> Add suggestions to share your thoughts or opionions, upvote and downvote suggestions to make your preferences heard</p> </div>"
             };
     
             const result = await transport.sendMail(mailOptions);

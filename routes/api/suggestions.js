@@ -17,7 +17,6 @@ router.post('/plan/:id/create',
             title: req.body.title,
             description: req.body.description,
             budget: req.body.budget,
-            dates: req.body.dates,
             user: req.user,
             plan: planId
         });    
@@ -26,8 +25,8 @@ router.post('/plan/:id/create',
             .then((result) => {
                 Plan.findOne({ _id: planId }, (err, plan) => {
                     if (plan) {
-                        plan.suggestions.push(newSuggestion);
-                        plan.save();
+                        plan.suggestions.push(newSuggestion)
+                        plan.save()
                         res.json([newSuggestion, req.user]);
                     }
                 });
@@ -51,7 +50,6 @@ router.get('/user/:user_id', (req, res) => {
 
 // INDEX for all suggestions of a plan
 router.get('/plan/:plan_id',
-    // passport.authenticate('jwt', { session: false }),
     (req, res) =>  {
     Suggestion.find({plan: req.params.plan_id})
         .then(sugg => res.json(sugg))
@@ -61,10 +59,7 @@ router.get('/plan/:plan_id',
     );
 });
 
-
 router.patch('/:suggestion_id/upvote',
-    // Should this be on the suggestion page, or the plan page?
-    // should change from down to up if clickec
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
 
@@ -81,9 +76,7 @@ router.patch('/:suggestion_id/upvote',
                     }
                     suggestion.upvotes.push(currUser)
                         .then(() => suggestion.save());
-                    // res.json({ votesuccess: 'Upvote successful!' })
                 } else {
-                    // res.json({ alreadythere: 'Duplicate vote' })
                 };
                 res.json(suggestion)
             }
@@ -104,9 +97,7 @@ router.patch('/:suggestion_id/removeupvote',
                 if (suggestion.upvotes.includes(currUser.id)) {
                     suggestion.upvotes.pop(currUser);
                     suggestion.save();
-                    // res.json({ votesuccess: 'Remove successful!' })
                 } else {
-                    // res.json({ notthere: 'User has not voted' })
                 };
                 res.json(suggestion)
             }
@@ -115,7 +106,6 @@ router.patch('/:suggestion_id/removeupvote',
 );
 
 router.patch('/:suggestion_id/downvote',
-    // Should this be on the suggestion page, or the plan page?
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
 
@@ -132,9 +122,7 @@ router.patch('/:suggestion_id/downvote',
                     }
                     suggestion.downvotes.push(currUser)
                         .then(() => suggestion.save());
-                    // res.json({ votesuccess: 'Downvote successful!' })
                 } else {
-                    // res.json({ alreadythere: 'Duplicate vote' })
                 };
                 res.json(suggestion)
             }
@@ -143,7 +131,6 @@ router.patch('/:suggestion_id/downvote',
 );
 
 router.patch('/:suggestion_id/removedownvote',
-    // Should this be on the suggestion page, or the plan page?
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
 
@@ -155,9 +142,7 @@ router.patch('/:suggestion_id/removedownvote',
                 if (suggestion.downvotes.includes(currUser.id)) {
                     suggestion.downvotes.pop(currUser)
                         .then(() => suggestion.save());
-                    // res.json({ votesuccess: 'Remove successful!' })
                 } else {
-                    // res.json({ notthere: 'User has not voted' })
                 };
                 res.json(suggestion)
             }

@@ -27,7 +27,7 @@ router.post('/plan/:id/create',
                     if (plan) {
                         plan.suggestions.push(newSuggestion)
                         plan.save()
-                        res.json([newSuggestion, req.user]);
+                        res.json({newSuggestion, user: req.user});
                     }
                 });
             })
@@ -74,11 +74,11 @@ router.patch('/:suggestion_id/upvote',
                             .then(() => suggestion.save());
                         console.log('User removed from downvotes');
                     }
-                    suggestion.upvotes.push(currUser)
-                        .then(() => suggestion.save());
+                    suggestion.upvotes.push(currUser);
+                    suggestion.save();
                 } else {
                 };
-                res.json(suggestion)
+                res.json({upvotes: suggestion.upvotes.length})
             }
         }).catch(err => res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }));
     }
@@ -99,7 +99,7 @@ router.patch('/:suggestion_id/removeupvote',
                     suggestion.save();
                 } else {
                 };
-                res.json(suggestion)
+                res.json({ upvotes: suggestion.upvotes.length })
             }
         }).catch(err => res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }));
     }
@@ -121,10 +121,10 @@ router.patch('/:suggestion_id/downvote',
                         console.log('User removed from downvotes');
                     }
                     suggestion.downvotes.push(currUser)
-                        .then(() => suggestion.save());
+                    suggestion.save();
                 } else {
                 };
-                res.json(suggestion)
+                res.json({ downvotes: suggestion.downvotes.length })
             }
         }).catch(err => res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }));
     }
@@ -141,10 +141,10 @@ router.patch('/:suggestion_id/removedownvote',
             if (suggestion) {
                 if (suggestion.downvotes.includes(currUser.id)) {
                     suggestion.downvotes.pop(currUser)
-                        .then(() => suggestion.save());
+                    suggestion.save();
                 } else {
                 };
-                res.json(suggestion)
+                res.json({ downvotes: suggestion.downvotes.length })
             }
         }).catch(err => res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }));
     }

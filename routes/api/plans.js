@@ -111,6 +111,9 @@ router.patch('/:id', (req, res) => {
         const startDate = req.body.startDate;
         const endDate = req.body.endDate;
         const planId = { _id: req.params.id };
+
+        console.log(req.body);
+
         let update = { 
             title: title,
             description: description,

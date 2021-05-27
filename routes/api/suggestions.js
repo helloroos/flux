@@ -59,6 +59,15 @@ router.get('/plan/:plan_id',
     );
 });
 
+router.get('/:id', (req, res) => {
+    Suggestion.findById(req.params.id)
+        .then(sugg => res.json(sugg))
+        .catch(err =>
+            res.status(404).json({ noplansfound: 'No suggestion can be found for this id' }
+        )
+    );
+});
+
 router.patch('/:suggestion_id/upvote',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {

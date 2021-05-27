@@ -4,45 +4,70 @@ class Upvote extends React.Component {
 
     constructor(props) {
         super(props)
-        
+        debugger
         let up = props.sugg.upvotes.length;
         let down = props.sugg.downvotes.length;
         
         this.state = {
             upvotes: props.sugg.upvotes,
+            downvotes: props.sugg.downvotes,
             numUpvotes: up,
             numDownVotes: down,
             numDiff: (up - down)
         }
 
-        this.handleClick = this.handleClick.bind(this)
+        this.handleUpvote = this.handleUpvote.bind(this);
+        this.handleDownvote = this.handleDownvote.bind(this);
     }
 
-    handleClick(e) {
+    handleUpvote(e) {
         e.preventDefault();
         debugger
-        if (this.state.upvotes.includes(this.props.currentUser._id)) {
-            this.props.upvote(this.props.suggId)
-            this.setState({
+        if (!this.state.upvotes.includes(this.props.currentUser._id)) {
+            this.props.upvote(this.props.sugg._id)
+                .then(this.setState({
                 upvotes: this.state.upvotes.push(this.props.currentUser._id),
                 numUpvotes: (this.state.numUpvotes + 1),
-            })
+            }))
         } else {
-            this.props.upvoteRemove(this.props.suggId)
-            this.setState({
+            this.props.upvoteRemove(this.props.sugg._id)
+            .then(this.setState({
                 upvotes: this.state.upvotes.filter(id => id !== this.props.currentUser._id),
                 numUpvotes: (this.state.numUpvotes - 1),
-            })
+            }))
+        }
+    }
+
+    handleDownvote(e) {
+        e.preventDefault();
+        debugger
+        if (!this.state.downvotes.includes(this.props.currentUser._id)) {
+            this.props.downvote(this.props.sugg._id)
+                .then(this.setState({
+                    downvotes: this.state.downvotes.push(this.props.currentUser._id),
+                    numDownVotes: (this.state.numDownVotes + 1),
+                })
+            )
+        } else {
+            this.props.downvoteRemove(this.props.sugg._id)
+             .then(this.setState({
+                    downvotes: this.state.downvotes.filter(id => id !== this.props.currentUser._id),
+                    numDownVotes: (this.state.numDownVotes - 1),
+                })
+            )
         }
     }
 
     render() {
         return (
             <div>
-                <button onClick={this.handleClick}>
+                <button onClick={this.handleUpvote}>
                     up
                 </button>
                 {this.state.numDiff}
+                <button onClick={this.handleDownvote}>
+                    down
+                </button>
             </div>
         )
     }

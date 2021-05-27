@@ -5,21 +5,22 @@ class SuggComments extends React.Component {
     //     super(props)
     // }
 
-    componentDidMount() {
-        this.props.fetchSuggComments(this.props.sugg._id)
-    }
+    // componentDidMount() {
+    //     this.props.fetchSugg(this.props.sugg._id)
+    // }
 
     render() {
-        if (!this.props.comments) return null;
+        if (!this.props.sugg.comments) return null;
 
         let comments;
         
-        if (this.props.comments.length > 0) {
+        if (this.props.sugg.comments.length > 0) {
             
-            comments = this.props.comments.map(comment => (
+            comments = this.props.sugg.comments.map(comment => (
             <div>
-                <div>{comment.body}</div>
-                <div>{comment.author}</div>
+                <div>{comment}</div>
+                {/* <div>{comment.body}</div>
+                <div>{comment.author}</div> */}
             </div>
         ))
         } else {

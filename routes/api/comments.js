@@ -20,6 +20,7 @@ router.post('/suggestion/:id/create',
             .then((result) => {
                 Suggestion.findOne({ _id: suggestionId }, (err, suggestion) => {
                     if (suggestion) {
+                        newComment.suggestion = suggestion;
                         suggestion.comments.push(newComment);
                         suggestion.save()
                         .then(() => res.json(newComment))

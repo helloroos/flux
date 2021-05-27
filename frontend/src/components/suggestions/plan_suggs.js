@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/plan_sugg.scss'
 
 class PlanSuggestions extends React.Component {
     
@@ -10,10 +11,10 @@ class PlanSuggestions extends React.Component {
         if (!this.props.planSuggs) return null;
         debugger
         const mapped = this.props.planSuggs.map(sugg => (
-            <div>
-                <div>{sugg.title}</div>
-                <div>{sugg.description}</div>
-                <div>{sugg.budget}</div>
+            <div className='sugg-item-cont'>
+                <h2>{sugg.title}</h2>
+                <p>{sugg.description}</p>
+                <h4>{sugg.budget}</h4>
                 <div>{sugg.user}</div>
             </div>
         ))

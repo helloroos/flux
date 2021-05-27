@@ -8,7 +8,7 @@ class PlanSuggestions extends React.Component {
     
     render() {
         if (!this.props.planSuggs) return null;
-
+        debugger
         const mapped = this.props.planSuggs.map(sugg => (
             <div>
                 <div>{sugg.title}</div>

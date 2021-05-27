@@ -38,8 +38,7 @@ class SignupForm extends React.Component {
 
         this.props.signup(user)
             .then(res => {
-                
-                if (typeof res !== 'undefined') {
+                if (typeof res === 'undefined') {
                     return this.setState({ errored: true })
                 } else {
                     this.props.hideModal()

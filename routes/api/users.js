@@ -62,6 +62,11 @@ router.post('/login', (req, res) => {
                     if (isMatch) {
                         const payload = { id: user.id, email: user.email };
 
+                        const _id = user._id;
+                        const firstName = user.firstName;
+                        const lastName = user.lastName;
+                        const email = user.email;
+
                         jwt.sign(
                             payload,
                             keys.secretOrKey,
@@ -70,7 +75,11 @@ router.post('/login', (req, res) => {
                             (err, token) => {
                                 res.json({
                                     success: true,
-                                    token: 'Bearer ' + token
+                                    token: 'Bearer ' + token,
+                                    _id,
+                                    firstName,
+                                    lastName,
+                                    email
                                 });
                             });
                     } else {

@@ -51,8 +51,17 @@ router.patch('/:id', (req, res) => {
             res.status(500).json({ error });
         }
     )
-
 })
+
+// INDEX for all comments of a user
+router.get('/user/:user_id', (req, res) => {
+    Comment.find({ user: req.params.user_id })
+        .then(comments => res.json(comments))
+        .catch(err =>
+            res.status(404).json({ noplansfound: 'No comments can be found for this user' }
+            )
+        );
+});
 
 router.delete('/:id', (req, res) => {
     const commentId = req.params.id;

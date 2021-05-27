@@ -1,7 +1,16 @@
+const express = require("express");
+const app = express();
+const mongoose = require('mongoose');
+mongoose.set('useFindAndModify', false);
+const db = require('./config/keys').mongoURI;
+
+// connect to DB
+mongoose
+    .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log("Connected to MongoDB successfully")) // listen 
+    .catch(err => console.log(err));
+
 const User = require('./models/User')
-// const User = require('./models/User')
-// const User = require('./models/User')
-// const User = require('./models/User')
 
 function seedDB() {
         // User.deleteMany({})
@@ -11,7 +20,6 @@ function seedDB() {
         email: 'waldo@odlaw.com',
         password: '123456'
     })
-    console.log(newUser);
     newUser.save()
         .then(() => console.log('User saved.'))
         .catch(() => console.log('User not saved.'));

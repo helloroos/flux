@@ -13,7 +13,7 @@ class SuggComments extends React.Component {
         if (!this.props.comments) return null;
 
         let comments;
-        debugger
+        
         if (this.props.comments.length > 0) {
             
             comments = this.props.comments.map(comment => (

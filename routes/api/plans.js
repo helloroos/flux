@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const Plan = require('../../models/Plan');
 const User = require('../../models/User');
+const Comment = require('../../models/Comment');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
@@ -43,7 +44,9 @@ router.get('/user/:user_id', (req, res) => {
 router.get('/:id', (req, res) => {
     Plan.findById(req.params.id)
         .populate({path: 'members', model: 'User'})
-        .populate({ path: 'suggestions', model: 'Suggestion'})
+        .populate({ path: 'suggestions', model: 'Suggestion', populate: {
+            path: 'comments' , model: 'Comment'
+        }})
         .exec((error, plan) => {
             res.json(plan)
         })

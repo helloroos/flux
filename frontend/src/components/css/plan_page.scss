@@ -1,5 +1,7 @@
 .body-4 {
   position: absolute;
+  display: flex;
+  flex-direction: row;
   top: 0;
   bottom: 0;
   right: 0;
@@ -8,23 +10,153 @@
   background-image: url('../../assets/background4.jpg');
   background-size: cover;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 
+  .page-stretch {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .plan-title {
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    top: 105px;
+    left: 60px;
+    font-size: 28px;
+  }
+
+  .left-side {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .plan-info-cont {
+    // position: absolute;
+    left: 20px;
+    top: 200px;
+    // display: flex;
+    flex-direction: column;
+    background-color: rgb(8, 159, 123);
+    width: 200px;
+    height: 200px;
+  }
+
+  .create-sugg {
+    // position: absolute;
+    display: flex;
+    flex-direction: column;
+    // top: 150px;
+    width: 450px;
+    top: 150px;
+    right: 47px;
+    background-color: rgb(235, 206, 110);
+    border-radius: 14px;
+  }
+
+  .plan-sugg-cont {
+    display: flex;
+    flex-direction: column;
+  }
+
+    .form-inputs {
+    margin: 8px;
+    width: 265px;
+    border-radius: 5px;
+    border: none;
+    color: rgb(8, 159, 123);
+    background-color: rgb(204, 255, 243);
+    padding: 8px;
+
+
+  }
+
+  .form-inputs::placeholder {
+    color: rgb(8, 159, 123);
+    font-family: lato;
+  }
+
+  .all-suggs {
+    // position: absolute;
+    top: 260px;
+    bottom: 100px;
+    right: 20px;
+    width: 492px;
+    height: 400px;
+    overflow: scroll;
+  }
+
+
+  .members-cont {
+    margin: 0;
+  }
+
+  // .member-list-scroll {
+  //   width: 250px;
+  //   height: 200px;
+  // }
 
   .invite-form {
-    background-color: rgb(0, 97, 176);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // position: absolute;
+    left: 45px;
+    bottom: 110px;
+    width: 235px;
+    height: 100px;
+    background-color: rgb(255, 255, 255, 0.75);
+    border-radius: 15px;
+
+    .top-invite {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .invite-ppl {
+      color: rgb(8, 159, 123);
+    }
+  }
+  
+  .members-cont::-webkit-scrollbar-thumb {
+  background-color: rgb(150, 221, 194);
+  border-radius: 20px;
+}
+  .members-cont {
+    overflow: scroll;
+    direction: rtl;
+    // position: absolute;
+    border-radius: 15px;
+    // left: 20px;
+    // bottom: 195px;
     width: 250px;
-    height: 400px;
+    height: 100px;
+    padding: 10px;
+
+    .member-name {
+      margin: 0;
+    }
+
+  }
+  .member-list-scroll {
+    background-color: rgb(8, 159, 123);
+    width: 235px;
+    min-height: 195px;
+    border-radius: 15px;
+    
+
   }
 
   .radio-cont {
     width: fit-content;
     background-color: white;
-    padding: 15px;
+    padding: 10px;
     border-radius: 40px;
-    font-size: 20px;
+    font-size: 18px;
     
     input {
       margin-left: 10px;
@@ -35,6 +167,9 @@
       width: 0;
     }
   }
+
+
+
 
 
 }

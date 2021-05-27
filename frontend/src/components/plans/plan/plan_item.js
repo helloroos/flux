@@ -69,13 +69,12 @@ class PlanItem extends React.Component {
 
                 if (mapped.length > 0) {
                     joinButton = (
-                        <div>
-                            Congrats! You are part of our group!
-                        </div>
+                        // <></>
+                        <p>Joined!</p> 
                     )
                 } else {
                     joinButton = (
-                        <button onClick={this.addMember}>
+                        <button className='buttons' onClick={this.addMember}>
                             Join
                         </button>
                     )
@@ -87,37 +86,56 @@ class PlanItem extends React.Component {
 
         if (this.props.plan.members) {
             members = this.props.plan.members.map(user => (
-                <ul>
-                    <div>{user.firstName}</div>
-                    <div>{user.lastName}</div>
-                </ul>
+                    <h5 className='member-name'>{user.firstName} {user.lastName}</h5>
             ))
         }
 
         return (
             <div className='body-4'>
-                {this.props.plan.title}
-                {this.props.plan.description}
-                {this.state.loggedIn ? this.refreshPage() : null}
-                <div>
-                    <form className='invite-form'>
-                        <div>Invite people:</div>
-                        <input onChange={this.update('email')}
-                                placeholder='Email *'
-                        />
-                        <button onClick={this.handleClick}>
-                            Send Invite
-                        </button>
-                    </form>
-                </div>
-                {joinButton}
-                <NavLink to={`/${this.props.plan._id}/edit`}>
-                    Edit Plan
-                </NavLink>
-                <div>Members:</div>
-                { members }
-                <CreateSuggContainer />
-                <PlanSuggestionsContainer />
+                    <p className='plan-title'>{this.props.plan.title}</p>
+
+                    <div className='left-side'>
+
+                        <div className='plan-info-cont'>
+
+                            <p>{this.props.plan.description}</p>
+
+                            {this.state.loggedIn ? this.refreshPage() : null}
+                            <NavLink to={`/${this.props.plan._id}/edit`}>
+                                Edit Plan
+                            </NavLink>
+                        </div>
+
+                        <div className='right-left'>
+                        <div className='members-cont'>
+                            <div className='member-list-scroll'>
+                                { members }
+                            </div>
+                        </div>
+
+                        <div className='invite-form'>
+                            <form>
+                                <div className='top-invite'>
+                                <p className='invite-ppl'>Invite people</p>
+                                {joinButton}
+                                </div>
+                                <input onChange={this.update('email')}
+                                        placeholder='Email *'
+                                />
+                                 <i onClick={this.handleClick} className="icons fas fa-plus-circle"></i>
+
+                            </form>
+                        </div>
+                        </div>
+
+                    </div>
+                    <div className='right-side'>
+                        <div className='plan-sugg-cont'>
+                            <div className='create-sugg'><CreateSuggContainer /></div>
+                            <div className='all-suggs'><PlanSuggestionsContainer /></div>
+                        </div>
+                    </div>
+
             </div>
         )
     }

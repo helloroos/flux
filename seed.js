@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.set('useFindAndModify', false);
 const db = require('./config/keys').mongoURI;
+const bcrypt = require('bcryptjs');
 
 const User = require('./models/User')
 
@@ -20,9 +21,16 @@ function seedDB() {
         email: 'waldo@odlaw.com',
         password: '123456'
     })
-    demoUser.save()
-        .then(() => console.log('User saved.'))
-        .catch(() => console.log('User not saved.'));
+
+    bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(demoUser.password, salt, (err, hash) => {
+            if (err) throw err;
+            demoUser.password = hash;
+            demoUser.save()
+                .then(() => console.log('User saved.'))
+                .catch(() => console.log('User not saved.'));
+        })
+    })
 }
 
 seedDB();

@@ -60,19 +60,54 @@ router.get('/plan/:plan_id',
     );
 });
 
-// 
-// router.patch('/:suggestion_id/upvote',
-//     // Should this be on the suggestion page, or the plan page?
-//     passport.authenticate('jwt', { session: false }),
-//     (req, res) => {
 
-//         const currUser = req.user;
-//         const suggestionId = { _id: req.params.id };
-//         const update = { upvotes: currUser }
+router.patch('/:suggestion_id/upvote',
+    // Should this be on the suggestion page, or the plan page?
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
 
-//         const plan = Plan.findById(suggestionId);
-//     }
-// );
+        const currUser = req.user;
+        const suggestionId = { _id: req.params.suggestion_id };
+
+        console.log(suggestionId);
+
+        Suggestion.findOne({ _id: suggestionId }, (err, suggestion) => {
+            if (suggestion) {
+                if (!suggestion.upvotes.includes(currUser.id)) {
+                    suggestion.upvotes.push(currUser);
+                    suggestion.save();
+                    res.json({ votesuccess: 'Upvote successful!' })
+                } else {
+                    res.json({ alreadythere: 'Duplicate vote' })
+                };
+            }
+        }).catch(err => res.json({ noplan: 'Sorry, no suggestion with that with that id' }));
+
+    }
+);
+
+router.patch('/:suggestion_id/downvote',
+    // Should this be on the suggestion page, or the plan page?
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+
+        const currUser = req.user;
+        const suggestionId = { _id: req.params.suggestion_id };
+
+        Suggestion.findOne({ _id: suggestionId }, (err, suggestion) => {
+            if (suggestion) {
+                if (!suggestion.downvotes.includes(currUser.id)) {
+                    suggestion.downvotes.push(currUser);
+                    suggestion.save();
+                    res.json({ votesuccess: 'Downvote successful!' })
+                } else {
+                    res.json({ alreadythere: 'Duplicate vote' })
+                };
+            }
+        }).catch(err => res.json({ noplan: 'Sorry, no suggestion with that with that id' }));
+
+    }
+);
 
 router.patch('/:id',
     (req, res) => {

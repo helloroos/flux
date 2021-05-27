@@ -30,10 +30,10 @@ router.post('/suggestion/:id/create',
                 res.status(500).json({ error });
             }
         )
-        // Add comment to plan
     }
 );
 
+// Should this be on the suggestion page, or the plan page?
 router.patch('/:id', (req, res) => {
     const commentId = req.params.id;
     const newComment = req.body;

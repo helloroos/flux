@@ -2,8 +2,8 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { DateRange } from 'react-date-range';
 import '../css/create_plan.scss'
-import 'react-date-range/dist/styles.css';
-import 'react-date-range/dist/theme/default.css';
+import '../css/date-range.scss'
+
 
 class PlanCreateForm extends React.Component {
     constructor(props) {
@@ -100,9 +100,7 @@ class PlanCreateForm extends React.Component {
                         onChange={this.update('description')}
                         placeholder='tell us about the plan...'
                         />
-                    <p>Select a date range:</p>
-                { createForm }
-                </form>
+                    <p>Select a broad date range:</p>
                 {this.state.created ? this.refreshPage() : null }
                     <div className='calendar-cont'>
                         <DateRange
@@ -116,6 +114,8 @@ class PlanCreateForm extends React.Component {
                             showMonthAndYearPickers={false}
                         />
                     </div>
+                { createForm }
+                </form>
             </div>
             </div>
         )

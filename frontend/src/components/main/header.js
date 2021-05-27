@@ -40,7 +40,7 @@ class Header extends React.Component {
       debugger
       accountButtons = (
         <>
-          <Link to={`/users/${currentUser.id}`}>
+          <Link to={`/users/${currentUser._id}`}>
             <i className="icons fas fa-user-circle fa-2x"></i>
           </Link>
             <button className='buttons' onClick={this.handleLogout}>Log Out</button>
@@ -56,7 +56,7 @@ class Header extends React.Component {
       <header>
         <div className='header-cont'>
           <div className='left-head'>
-            <h1 className='logo'>flux</h1>
+            <Link to="/" ><h1 className='logo'>flux</h1></Link>
           </div>
           <div className='right-head'>
             <Link to='/plans/create'>

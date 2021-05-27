@@ -78,7 +78,7 @@ router.patch('/:suggestion_id/upvote',
                     suggestion.save();
                 } else {
                 };
-                res.json({upvotes: suggestion.upvotes.length})
+                res.json({upvotes: suggestion.upvotes.length, users: suggestion.upvotes})
             }
         }).catch(err => res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }));
     }
@@ -99,7 +99,7 @@ router.patch('/:suggestion_id/removeupvote',
                     suggestion.save();
                 } else {
                 };
-                res.json({ upvotes: suggestion.upvotes.length })
+                res.json({ upvotes: suggestion.upvotes.length, users: suggestion.upvotes })
             }
         }).catch(err => res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }));
     }
@@ -124,7 +124,7 @@ router.patch('/:suggestion_id/downvote',
                     suggestion.save();
                 } else {
                 };
-                res.json({ downvotes: suggestion.downvotes.length })
+                res.json({ downvotes: suggestion.downvotes.length, users: suggestion.downvotes })
             }
         }).catch(err => res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }));
     }
@@ -144,7 +144,7 @@ router.patch('/:suggestion_id/removedownvote',
                     suggestion.save();
                 } else {
                 };
-                res.json({ downvotes: suggestion.downvotes.length })
+                res.json({ downvotes: suggestion.downvotes.length, users: suggestion.downvotes })
             }
         }).catch(err => res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }));
     }

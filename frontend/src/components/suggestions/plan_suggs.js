@@ -3,6 +3,7 @@ import '../css/plan_sugg.scss'
 import Upvote from './upvote';
 import Downvote from './downvote';
 import SuggComments from './sugg_comments';
+import CreateComment from './comment_create';
 
 class PlanSuggestions extends React.Component {
     constructor(props) {
@@ -25,10 +26,10 @@ class PlanSuggestions extends React.Component {
     }
     
     render() {
-        if (!this.props.planSuggs) return null;
+        if (!this.props.suggs.planSuggs) return null;
 
         debugger
-        const mapped = this.props.planSuggs.map(sugg => (
+        const mapped = this.props.suggs.planSuggs.map(sugg => (
             <div className='sugg-item-cont'>
                 <h2>{sugg.title}</h2>
                 <p>{sugg.description}</p>
@@ -45,13 +46,19 @@ class PlanSuggestions extends React.Component {
                 <div onClick={this.toggleComments}>
                     Open comments
                 </div>
-                {this.state.commentsVisible ? (
-                    <SuggComments suggId={sugg.id}/>
-                ) : null }
+                {/* <CreateComment suggId={sugg._id}
+                        createComment={this.props.createComment}
+                        currentUser={this.props.currentUser}
+                        openModal={this.props.openModal}
+                        fetchSuggComments={this.props.fetchSuggComments}/> */}
+                {/* {this.state.commentsVisible ? (
+                    <SuggComments sugg={sugg}
+                        fetchSuggComments={this.props.fetchSuggComments}/>
+                ) : null } */}
             </div>
         ))
 
-        return mapped
+        return mapped 
     }
 };
 

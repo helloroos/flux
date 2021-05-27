@@ -9,7 +9,6 @@ class CreateSugg extends React.Component {
             title: '',
             description: '',
             budget: '$$',
-            dates: '',
             user: '',
             plan: '',
             created: false
@@ -39,7 +38,6 @@ class CreateSugg extends React.Component {
             title: this.state.title,
             description: this.state.description,
             budget: this.state.budget,
-            dates: this.state.dates,
             user: this.props.currentUser.id,
             plan: this.props.planId
         }

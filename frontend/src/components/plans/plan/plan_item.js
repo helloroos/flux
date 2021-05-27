@@ -56,12 +56,11 @@ class PlanItem extends React.Component {
     }
 
     render() {
-
+        debugger
         if (!this.props.plan) return null;
         let joinButton;
 
         let mapped;
-
         if (this.props.currentUser) {
             if (this.props.plan.members) {
                 mapped = this.props.plan.members
@@ -93,7 +92,6 @@ class PlanItem extends React.Component {
                 </ul>
             ))
         }
-
         return (
             <div className='body-4'>
                 {this.props.plan.title}

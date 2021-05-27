@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 mongoose.set('useFindAndModify', false);
 const db = require('./config/keys').mongoURI;
 const bcrypt = require('bcryptjs');
-
 const User = require('./models/User')
 
 // connect to DB
@@ -13,8 +12,8 @@ mongoose
 
 
 function seedDB() {
-        //Promise.all 
         // User.deleteMany({})
+
     const demoUser = new User({
         firstName: 'Waldo',
         lastName: 'Odlaw',
@@ -31,6 +30,10 @@ function seedDB() {
                 .catch(() => console.log('User not saved.'));
         })
     })
+
+    // Promise.all([promise1, promise2, promise3]).then((values) => {
+    //     console.log(values);
+    // });
 }
 
 seedDB();

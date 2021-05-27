@@ -133,7 +133,7 @@ class PlanItem extends React.Component {
                                 <input onChange={this.update('email')}
                                         placeholder='Email'
                                 />
-                                 <i onClick={this.handleClick} className="icons fas fa-plus-circle"></i>
+                                 <i onClick={this.handleClick} className="add-icon icons fas fa-plus-circle"></i>
 
                             </form>
                         </div>

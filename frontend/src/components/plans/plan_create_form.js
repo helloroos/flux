@@ -47,7 +47,7 @@ class PlanCreateForm extends React.Component {
             startDate: this.state.startDate,
             endDate: this.state.endDate
         }
-        debugger
+        
         this.props.createPlan(plan)
         this.setState({
             created: true
@@ -60,15 +60,6 @@ class PlanCreateForm extends React.Component {
     }
 
     render() {
-        let disabledDates = [];
-            if (this.props.reservations){
-            Object.values(this.props.reservations).forEach (reservation => {
-                
-                let start = reservation.startDate;
-                let end = reservation.endDate;
-                disabledDates = disabledDates.concat(this.dateRange(start, end))
-            })
-        }  
         
         const dateRange = {
             startDate: this.state.startDate, 

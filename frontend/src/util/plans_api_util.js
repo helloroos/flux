@@ -17,7 +17,6 @@ export const createInvite = (emailData, id) => {
 };
 
 export const joinPlan = (planId, userId) => {
-    
     return axios.patch(`/api/plans/${planId}/addmember`, userId)
 };
 

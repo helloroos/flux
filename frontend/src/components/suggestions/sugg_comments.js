@@ -10,16 +10,20 @@ class SuggComments extends React.Component {
 
         const { comments } = this.props.sugg
         // if (!comments) return null;
-
+        
         let arrComments;
         
         if (comments.length > 0) {
             
-            arrComments = comments.map(comment => (
-            <div>
-                <div>{comment}</div>
-            </div>
-        ))
+            arrComments = comments.map(comment => {
+                debugger
+                return (
+                    <div>
+                        <div>{comment.author[0].firstName}</div>
+                        <div>{comment.author[0].lastName}</div>
+                        <div>{comment.body}</div>
+                    </div>
+        )})
         } else {
             arrComments = (<div>No comments yet</div>)
         }

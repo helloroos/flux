@@ -10,7 +10,7 @@ class CreateComment extends React.Component {
             suggestion: props.suggId,
             created: false
         }
-        debugger
+        
         this.handleClick = this.handleClick.bind(this);
         this.handleButton = this.handleButton.bind(this);
     }
@@ -31,7 +31,7 @@ class CreateComment extends React.Component {
             author: this.state.author,
             suggestion: this.state.suggestion
         }
-        debugger
+        
         this.props.createComment(sugg, this.props.sugg._id)
         this.setState({
             body: '',
@@ -45,7 +45,7 @@ class CreateComment extends React.Component {
     render() {
 
         let createButton;
-        debugger
+        
         if (!this.props.currentUser) {
             createButton = (
                 <button value='Sign In'

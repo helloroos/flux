@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import HeaderContainer from './main/header_container';
 import UserPlansContainer from './plans/user_plans_container';
 import Footer from './main/footer';
+import FooterContainer from './main/footer_container';
 import PlanItemContainer from './plans/plan/plan_item_container';
 import PlanCreateFormContainer from './plans/plan_create_form_container';
 import EditPlanContainer from './plans/plan/edit_item_container';
@@ -21,7 +22,7 @@ const App = () => (
             <Route exact path='/plans/create' component={PlanCreateFormContainer} />
             <Route exact path='/:planId/edit' component={EditPlanContainer} />
         </Switch>
-        <Footer />
+        <FooterContainer />
     </div>
 );
 

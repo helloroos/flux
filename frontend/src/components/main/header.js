@@ -27,6 +27,7 @@ class Header extends React.Component {
 
   render() {
     let { currentUser } = this.props;
+    const path = this.props.location.pathname;
     let accountButtons;
 
     if (!currentUser) {
@@ -36,8 +37,7 @@ class Header extends React.Component {
           <button className='buttons' onClick={this.handleClick}>Sign Up</button>
         </div>
       )
-    } else {
-      
+    } else if (currentUser && path === "/") {
       accountButtons = (
         <>
           <Link to={`/users/${currentUser._id}`}>
@@ -46,11 +46,30 @@ class Header extends React.Component {
             <button className='buttons' onClick={this.handleLogout}>Log Out</button>
         </>
       )
+    } else if (path.includes("users")) {
+      accountButtons = (
+      <div>
+          <Link to='/plans/create'>
+            {/* plus icon for add new trip */}
+            <i className="icons fas fa-plus-circle fa-2x"></i>
+          </Link>
+          <button className='buttons' onClick={this.handleLogout}>Log Out</button>
+      </div>
+      )
+    } else {
+      accountButtons = (
+        <div>
+          <Link to='/plans/create'>
+            {/* plus icon for add new trip */}
+            <i className="icons fas fa-plus-circle fa-2x"></i>
+          </Link>
+          <Link to={`/users/${currentUser._id}`}>
+            <i className="icons fas fa-user-circle fa-2x"></i>
+          </Link>
+          <button className='buttons' onClick={this.handleLogout}>Log Out</button>
+        </div>
+      )
     }
-      
-
-            
-            
 
     return (
       <header>
@@ -59,10 +78,6 @@ class Header extends React.Component {
             <Link className='logo-link' to="/" ><h1 className='logo'>flux</h1></Link>
           </div>
           <div className='right-head'>
-            <Link to='/plans/create'>
-              {/* plus icon for add new trip */}
-              <i className="icons fas fa-plus-circle fa-2x"></i>
-            </Link>
             {/* <div className='dropdown'> */}
             {/* <Link> */}
               {/* <i className="drop-icon icons fas fa-chevron-circle-down fa-2x"></i> */}

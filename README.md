@@ -30,7 +30,12 @@ You will also see any lint errors in the console.
 
 ## Authors
 
-Michelle Roos Github: [@helloroos](https://github.com/helloroos) LinkedIn: [@Linkedin](https://linkedin.com/in/Linkedin) | Evan Leon - Backend Lead Github: [@helloroos](https://github.com/helloroos) LinkedIn: [@Linkedin](https://linkedin.com/in/Linkedin)
+Michelle Roos - Team Lead
+Github: [@helloroos](https://github.com/helloroos) 
+LinkedIn: [@Linkedin](https://linkedin.com/in/Linkedin) | 
+Evan Leon - Backend Lead 
+Github: [@helloroos](https://github.com/helloroos) 
+LinkedIn: [@Linkedin](https://linkedin.com/in/Linkedin)
 :-----:|:-----:
 hi|hi
 

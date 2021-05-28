@@ -354,3 +354,11 @@ template {
 .nav-button {
   color: red;
 }
+
+button {
+  cursor: pointer;
+}
+
+i {
+  cursor: pointer;
+}

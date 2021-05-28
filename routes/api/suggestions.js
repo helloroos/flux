@@ -52,6 +52,7 @@ router.get('/user/:user_id', (req, res) => {
 router.get('/plan/:plan_id',
     (req, res) =>  {
     Suggestion.find({plan: req.params.plan_id})
+    .populate({path: 'user', model: 'User'})
     .populate({path: 'comments', model: 'Comment', populate: {
         path: "author", model: "User"
     }})

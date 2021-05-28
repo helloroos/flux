@@ -79,7 +79,7 @@ class PlanItem extends React.Component {
                     )
                 } else {
                     joinButton = (
-                        <button className='buttons' onClick={this.addMember}>
+                        <button className='buttons button-join' onClick={this.addMember}>
                             Join
                         </button>
                     )

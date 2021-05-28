@@ -61,7 +61,7 @@ class CreateSugg extends React.Component {
         if (!this.props.currentUser) {
             createButton = (
                 <button value='Sign In'
-                    className='sugg-buttons'
+                    className='buttons-add-sugg'
                     onClick={this.handleButton}>
                     Post a suggestion
                 </button>

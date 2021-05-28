@@ -45,7 +45,9 @@ router.get('/:id', (req, res) => {
     Plan.findById(req.params.id)
         .populate({path: 'members', model: 'User'})
         .populate({ path: 'suggestions', model: 'Suggestion', populate: {
-            path: 'comments' , model: 'Comment'
+            path: 'comments' , model: 'Comment', populate: {
+                path: 'author', model: 'User'
+            }
         }})
         .exec((error, plan) => {
             res.json(plan)

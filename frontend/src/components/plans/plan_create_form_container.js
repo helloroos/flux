@@ -5,7 +5,7 @@ import PlanCreateForm from "./plan_create_form";
 // import { withRouter } from 'react-router';
 
 const mapSTP = state => {
-    debugger
+    
     return ({
         currentUser: state.session.user,
         plan: state.main.plans.new

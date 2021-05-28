@@ -1,26 +1,32 @@
 import React from 'react';
 
 class SuggComments extends React.Component {
+    
+    // componentDidMount() {
+    //     this.props.fetchSuggComments(this.props.sugg._id)
+    // }
+    
     render() {
-        debugger
-        if (!this.props.comments) return null;
 
-        let comments;
+        const { comments } = this.props.sugg
+        // if (!comments) return null;
+
+        let arrComments;
         
-        if (this.props.comments.length > 0) {
+        if (comments.length > 0) {
             
-            comments = this.props.comments.map(comment => (
+            arrComments = comments.map(comment => (
             <div>
                 <div>{comment}</div>
             </div>
         ))
         } else {
-            comments = (<div>No comments yet</div>)
+            arrComments = (<div>No comments yet</div>)
         }
 
         return (
             <div>
-                {comments}
+                {arrComments}
             </div>
         )
     }

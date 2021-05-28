@@ -1,6 +1,4 @@
 import React from 'react';
-// import PlanSuggestions from './plan_suggs';
-// import PlanSuggestionsContainer from './plan_suggs_container';
 import '../css/plan_sugg.scss'
 import '../css/create_sugg.scss'
 
@@ -22,11 +20,8 @@ class CreateSugg extends React.Component {
         this.handleSelect = this.handleSelect.bind(this);
     }
 
-    componentDidMount() {
-        this.props.fetchPlanSuggs(this.props.planId)
-    }
-
     handleButton(e) {
+        
         e.preventDefault();
         this.props.openModal('Sign In')
     }
@@ -44,15 +39,15 @@ class CreateSugg extends React.Component {
             user: this.props.currentUser.id,
             plan: this.props.planId
         }
-
+        
         this.props.createSugg(sugg, this.props.planId)
-            .then(() => this.setState({
+            .then(() => {this.setState({
                 title: '',
                 description: '',
                 budget: '',
                 dates: '',
                 created: true
-            })
+            })}
         )
     }
 

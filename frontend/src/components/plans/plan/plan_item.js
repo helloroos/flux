@@ -1,12 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import PlanSuggestions from '../../suggestions/plan_suggs';
+import PlanSuggestionsCont from '../../suggestions/plan_suggs_container';
 import '../../css/plan_page.scss'
-import CreateSugg from '../../suggestions/create_sugg';
+import CreateSuggContainer from '../../suggestions/create_sugg_container';
 import { DateRange } from 'react-date-range';
 import '../../css/plan_page.scss'
 import '../../css/date-range.scss'
-import Upvote from '../../suggestions/upvote';
 import Suggestion from '../../suggestions/suggestion_item';
 
 class PlanItem extends React.Component {
@@ -23,7 +22,6 @@ class PlanItem extends React.Component {
 
         this.handleClick = this.handleClick.bind(this);
         this.addMember = this.addMember.bind(this);
-        // this.refreshPage = this.refreshPage.bind(this);
         this.updateDates = this.updateDates.bind(this);
     }
 
@@ -40,23 +38,10 @@ class PlanItem extends React.Component {
         })
     }
 
-    // componentWillReceiveProps(nextProps) {
-    // //     // if (nextProps.planSuggs !== this.props.planSuggs) {
-    // //     //     this.props.fetchPlan(this.props.match.params.planId)
-    //     this.props.fetchPlanSuggs(this.props.match.params.planId)
-    // //     // }
-    // }
-
     componentDidMount() {
-        debugger
+        
         this.props.fetchPlan(this.props.match.params.planId)
-            .then(plan => this.props.fetchPlanSuggs(plan.plan.data._id))
-            // .then(plans => {debugger})
-        // if (!this.props.currentUser) {
-        //     this.props.openModal('Sign In')
-        // } else {
-        //     this.setState({ loggedIn: false })
-        // }
+            // .then(plan => this.props.fetchPlanSuggs(plan.plan.data._id))
     }
 
     update(field) {
@@ -79,7 +64,6 @@ class PlanItem extends React.Component {
     }
 
     render() {
-
         if (!this.props.plan) return null;
         let joinButton;
 
@@ -110,36 +94,34 @@ class PlanItem extends React.Component {
                     <h5 key={`user-${i}`} className='member-name'>{user.firstName} {user.lastName}</h5>
             ))
         }
-        debugger
-        const suggs = this.props.planSuggs.map((sugg, i) => {
-            if (sugg) {
-                return (
-                    <div key={`sugg-item-${i}`} className='each-sugg-cont'>
-                        <div className='sugg-left'>
-                            <p className='sugg-title'>{sugg.title}</p>
-                            <p className='sugg-desc'>{sugg.description}</p>
-                            <p className='sugg-budget'>{sugg.budget}</p>
-                            <p className='sugg-author'>{sugg.user}</p>
-                        </div>
-                        <Suggestion sugg={sugg}
-                            createComment={this.props.createComment}
-                            currentUser={this.props.currentUser}
-                            openModal={this.props.openModal}
-                            fetchPlan={this.props.fetchPlan}
-                            fetchSugg={this.props.fetchSugg}
-                            fetchSuggComments={this.props.fetchSuggComments}/>
-                    </div>
-                )
-            }
-        })
+        
+        // const suggs = this.props.planSuggs.map((sugg, i) => {
+        //     if (sugg) {
+        //         return (
+        //             <div key={`sugg-item-${i}`} className='each-sugg-cont'>
+        //                 <div className='sugg-left'>
+        //                     <p className='sugg-title'>{sugg.title}</p>
+        //                     <p className='sugg-desc'>{sugg.description}</p>
+        //                     <p className='sugg-budget'>{sugg.budget}</p>
+        //                     <p className='sugg-author'>{sugg.user}</p>
+        //                 </div>
+        //                 <Suggestion sugg={sugg}
+        //                     createComment={this.props.createComment}
+        //                     currentUser={this.props.currentUser}
+        //                     openModal={this.props.openModal}
+        //                     fetchPlan={this.props.fetchPlan}
+        //                     fetchSugg={this.props.fetchSugg}
+        //                     fetchSuggComments={this.props.fetchSuggComments}/>
+        //             </div>
+        //         )
+        //     }
+        // })
 
         const dateRange = {
             startDate: this.state.startDate,
             endDate: this.state.endDate,
             key: 'selection',
         }
-
-        if (!this.props.planSuggs) return null;
         
         return (
             <div className='body-4'>
@@ -197,18 +179,20 @@ class PlanItem extends React.Component {
                     <div className='right-side'>
                         <div className='plan-sugg-cont'>
                             <div className='create-sugg'>
-                                <CreateSugg suggs={this.props.planSuggs}
-                                    planId={this.props.plan._id}
-                                    createSugg={this.props.createSugg}
-                                    fetchPlanSuggs={this.props.fetchPlanSuggs}
-                                    createComment={this.props.createComment}
-                                    currentUser={this.props.currentUser}
-                                    openModal={this.props.openModal}
-                                    fetchSugg={this.props.fetchSugg}
-                                />
+                                <CreateSuggContainer />
+                                    {/* // suggs={this.props.planSuggs}
+                                    // planId={this.props.plan._id}
+                                    // createSugg={this.props.createSugg}
+                                    // fetchPlanSuggs={this.props.fetchPlanSuggs}
+                                    // createComment={this.props.createComment}
+                                    // currentUser={this.props.currentUser}
+                                    // openModal={this.props.openModal}
+                                    // fetchSugg={this.props.fetchSugg} */}
+                                
                             </div>
                             <div className='all-suggs'>
-                                {suggs}
+                                <PlanSuggestionsCont />
+                                {/* {suggs} */}
                                 {/* <PlanSuggestions suggs={this.props.planSuggs}
                                     planId={this.props.planId}
                                     currentUser={this.props.currentUser}

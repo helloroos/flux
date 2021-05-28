@@ -8,11 +8,10 @@ import PlanItem from "./plan_item";
 
 
 const mapSTP = (state) => {
-    debugger
+    
     return ({
-        plan: state.main.plans.new,
+        plan: state.main.plans.plan,
         currentUser: state.session.user,
-        planSuggs: state.main.suggs.all,
         comments: state.main.comments
     })
 };
@@ -27,8 +26,6 @@ const mapDTP = dispatch => {
         fetchPlanSuggs: planId => dispatch(fetchPlanSuggs(planId)),
         fetchSugg: suggId => dispatch(fetchSugg(suggId)),
         createSugg: (sugg, planId) => dispatch(createSugg(sugg, planId)),
-        createComment: (comment, suggId) => dispatch(createComment(comment, suggId)),
-        fetchSuggComments: suggId => dispatch(fetchSuggComments(suggId))
     })
 };
 

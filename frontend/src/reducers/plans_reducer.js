@@ -2,10 +2,9 @@ import { RECEIVE_EMAIL, RECEIVE_PLAN, RECEIVE_USER_PLANS } from "../actions/plan
 
 
 const initialState = {
+    plan: undefined,
     userPlans: undefined,
-    new: undefined,
     email: undefined,
-    members: undefined
 }
 
 const plansReducer = (state = initialState, action) => {
@@ -13,7 +12,7 @@ const plansReducer = (state = initialState, action) => {
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_PLAN:
-            newState.new = action.plan.data;
+            newState.plan = action.plan.data;
             return newState;
         case RECEIVE_USER_PLANS:
             newState.userPlans = action.plans.data;

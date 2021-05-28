@@ -6,7 +6,7 @@ import EditPlan from './edit_item';
 
 
 const mapSTP = (state, ownProps) => {
-    debugger
+    
     return ({
         planId: ownProps.match.params.planId,
         plan: state.main.plans.new,

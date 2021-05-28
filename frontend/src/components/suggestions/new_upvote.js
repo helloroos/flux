@@ -8,7 +8,7 @@ export const NewVote = (props) => {
     const numDownvotes = useSelector(state => state.suggs.new.downvotes)
     const [upvotes, setUpvotes] = useState(numUpvotes)
     const [downVotes, setDownvotes] = useState(numDownvotes)
-    debugger
+    
     const handleUpvote = e => {
         if (e.target.value === 'up') {   
             setUpvotes(upvotes.concat(currentUser))

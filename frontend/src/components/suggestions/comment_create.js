@@ -10,15 +10,10 @@ class CreateComment extends React.Component {
             suggestion: props.suggId,
             created: false
         }
-
+        debugger
         this.handleClick = this.handleClick.bind(this);
         this.handleButton = this.handleButton.bind(this);
     }
-
-    // componentDidUpdate() {
-    //     debugger
-    //     this.props.fetchSuggComments(this.props.suggId)
-    // }
 
     update(field) {
         return e => this.setState({ [field]: e.target.value })
@@ -36,9 +31,8 @@ class CreateComment extends React.Component {
             author: this.state.author,
             suggestion: this.state.suggestion
         }
-
-        this.props.createComment(sugg, this.props.suggId)
-            .then((data) => this.props.fetchSuggComments(data.comment.data.comment.suggestion[0]))
+        debugger
+        this.props.createComment(sugg, this.props.sugg._id)
         this.setState({
             body: '',
             author: this.props.currentUser,
@@ -51,7 +45,7 @@ class CreateComment extends React.Component {
     render() {
 
         let createButton;
-
+        debugger
         if (!this.props.currentUser) {
             createButton = (
                 <button value='Sign In'

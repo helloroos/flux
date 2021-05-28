@@ -6,10 +6,11 @@ const Footer = () => {
     <footer>
       <div className='footer-cont'>
         <p className='foot-desc'>
-          Flux allows you to connect with your friends and upvote/downvote
-          trip suggestions (complete with dates, destination, accommodation and 
-          activities). Once you've decided on a trip you can stay organized with
-          your logistics. 
+          Traveling with friends or family can be amazing. What’s not so fun? 
+          Figuring out the travel logistics. Whether you’re planning a weekend 
+          trip, bachelorette party or family reunion, Flux helps you get on 
+          the same page using smart organizing and polling to plan the 
+          perfect getaway.
         </p>
         <div className='teammates'>
           <p>Evan Leon</p>

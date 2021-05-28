@@ -31,30 +31,18 @@ import '../css/footer.scss'
 class Footer extends React.Component {
   constructor(props) {
     super(props)
+    console.log(props);
   }
 
   render() {
     let { currentUser } = this.props;
+    const path = this.props.route;
     let footerObjects;
 
-    if (currentUser) {
+    // if (!currentUser && path == "/") {
+    if (!currentUser) {
       footerObjects = (
         <div className='footer-cont'>
-          <p className='foot-desc'>
-      </p>
-          <div className='teammates'>
-            <p>Evan Leon</p>
-            <p>Michelle Roos</p>
-            <p>Jessica Uphoff</p>
-            <p>Syldys Khomushku</p>
-          </div>
-        </div>
-      )
-      // } else if ( path ) {
-        
-      } else {
-        footerObjects = (
-          <div className='footer-cont'>
           <p className='foot-desc'>
             Traveling with friends or family can be amazing. What’s not so fun?
             Figuring out the travel logistics. Whether you’re planning a weekend
@@ -69,6 +57,21 @@ class Footer extends React.Component {
             <p>Syldys Khomushku</p>
           </div>
         </div>
+      )
+      // } else if () {
+      } else {
+      footerObjects = (
+        <div className='footer-cont'>
+          <p className='foot-desc'>
+      </p>
+          <div className='teammates'>
+            <p>Evan Leon</p>
+            <p>Michelle Roos</p>
+            <p>Jessica Uphoff</p>
+            <p>Syldys Khomushku</p>
+          </div>
+        </div>
+
       )
     }
 

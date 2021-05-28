@@ -28,9 +28,7 @@ class UserPlans extends React.Component {
                     <div className='plan-info'>
                         <h6>{plan.description}</h6>
                         
-                        {/* <h5>{plan.startDate.toString().slice(0,10)} - {plan.startDate.toString().slice(0,10)}</h5> */}
                         <h5>{format(new Date(plan.startDate.toString().slice(0,10)), "MMM d Y")} - {format(new Date(plan.endDate.toString().slice(0,10)), "MMM d Y")}</h5>
-                        {/* <h5>{plan.startDate} - {plan.startDate}</h5> */}
                     </div>
                 </div>
             </NavLink>

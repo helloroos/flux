@@ -16,15 +16,11 @@ class PlanSuggestions extends React.Component {
         
         
         let mapped = this.props.suggs.map((sugg, i) => {
-            debugger
+            
             return (
             <div key={`sugg-item-${i}`}>
                 <Suggestion key={`sugg-${i}`}
                     sugg={sugg} />
-                    {/* // createComment={this.props.createComment}
-                    // currentUser={this.props.currentUser}
-                    // openModal={this.props.openModal}
-                    // fetchPlan={this.props.fetchPlan} */}
                 <div><UpvoteContainer sugg={sugg._id}/></div>
             </div>
         )})

@@ -53,14 +53,6 @@ class PlanCreateForm extends React.Component {
             .then(plan => this.props.history.push(`/${plan.plan.data._id}`))
         }
         
-    // this.setState({
-    //     created: true
-    // })
-    // refreshPage() {
-    //     if (!this.props.plan) return null;
-    //     this.props.history.push(`/${this.props.plan._id}`)
-    // }
-
     render() {
         
         const dateRange = {
@@ -94,7 +86,6 @@ class PlanCreateForm extends React.Component {
        
         return (
             <div className='body-2'>
-                {/* <h2>Create a plan...</h2> */}
             <div className='main-cont'>
                 <form className='form-cont'>
                     <input type='text'
@@ -124,8 +115,6 @@ class PlanCreateForm extends React.Component {
                         />
 
                     </div>
-                    {/* <p>{format(this.state.startDate, "MMM d Y")} - {format(this.state.endDate, "MMM d Y")}</p> */}
-                    {/* <p>Length of trip: {formatDistance(this.state.startDate, this.state.endDate)}</p> */}
                     <p>
                         {tripLength}
                     </p>

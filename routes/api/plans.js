@@ -80,7 +80,6 @@ router.patch('/:id/addmember',
                     plan.members.push(currUser);
                     plan.save();
                     res.json(req.user);
-                    // res.json(plan)
                 } else {
                     res.json({alreadythere: 'You are already added to this travel plan.'})
                 };
@@ -100,7 +99,6 @@ router.patch('/:id/removemember',
                 if (plan.members.includes(currUser.id)) {
                     plan.members.pop(currUser).then(() => plan.save());
                     res.json(req.user);
-                    // res.json(plan)
                 } else {
                     res.json({ notthere: 'User is not added to this travel plan.' })
                 };
@@ -172,24 +170,6 @@ router.patch('/:id', (req, res) => {
         { new: true , select: "members"}
     ).then(plan => res.json(plan));
 });
-
-// router.patch('/:id/date',
-//     (req, res) => {
-//         const startDate = new Date(req.body.startDate);
-//         const endDate = new Date(req.body.endDate);
-//         const planId = { _id: req.params.id };
-//         Plan.update(
-//             { _id: planId },
-//             {
-//               $set: {
-//                 startDate: startDate,
-//                 endDate: endDate
-//               }
-//             }
-//          ).then(plan => res.json({message: `Dates updates to start: ${startDate} and end ${endDate}`}));
-          
-//     }   
-// );
 
 module.exports = router;
 

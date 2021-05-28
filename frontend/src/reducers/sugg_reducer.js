@@ -1,11 +1,6 @@
 import { REMOVE_COMMENT, RECEIVE_COMMENT, RECEIVE_SUGG_COMMENTS } from "../actions/comment_actions";
 import { RECEIVE_PLAN_SUGGS, RECEIVE_SUGG } from "../actions/sugg_actions";
 
-// const initialState = {
-//     all: [],
-//     new: []
-// };
-
 const suggReducer = (state = [], action) => {
     Object.freeze(state);
     let newState = state.slice()

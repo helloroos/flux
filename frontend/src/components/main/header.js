@@ -14,7 +14,6 @@ class Header extends React.Component {
 
   handleClick(e) {
     
-    // e.preventDefault();
     let target = e.currentTarget.innerHTML
     this.props.openModal(target)
   }
@@ -79,17 +78,6 @@ class Header extends React.Component {
             <Link className='logo-link' to="/" ><h1 className='logo'>flux</h1></Link>
           </div>
           <div className='right-head'>
-            {/* <div className='dropdown'> */}
-            {/* <Link> */}
-              {/* <i className="drop-icon icons fas fa-chevron-circle-down fa-2x"></i> */}
-              {/* arrow icon to see trips */}
-            {/* </Link> */}
-              {/* <div className='drop-cont'> */}
-                {/* <p>Example1</p> */}
-                {/* <p>really long example</p> */}
-              {/* </div> */}
-            {/* </div> */}
-
             {accountButtons}
             <Link to='/about'>
               <i class="icons fas fa-question-circle fa-2x"></i>

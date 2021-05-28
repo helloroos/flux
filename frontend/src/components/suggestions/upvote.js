@@ -10,7 +10,7 @@ class Upvote extends React.Component {
         let upUsers = props.users;
         let downUsers = props.users;
         let numDiff;
-        debugger
+        
         if (Object.keys(props.votes).length === 0) {
             up = 0
             down = 0
@@ -34,7 +34,7 @@ class Upvote extends React.Component {
     handleUpvote(e) {
         e.preventDefault();
         this.props.upvote(this.props.sugg)
-        debugger
+        
         if (!this.state.votes) {
             this.props.upvote(this.props.sugg)
                 .then(this.setState({
@@ -61,7 +61,7 @@ class Upvote extends React.Component {
 
     handleDownvote(e) {
         e.preventDefault();
-        debugger
+        
         if (!this.state.votes) {
             this.props.downvote(this.props.sugg)
                 .then(this.setState({
@@ -102,5 +102,4 @@ class Upvote extends React.Component {
 };
 
 export default Upvote;
-// export default withRouter(Upvote);
 

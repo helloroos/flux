@@ -13,25 +13,11 @@ const voteReducer = (state = {}, action) => {
 
         switch (action.type) {
             case RECEIVE_DOWNVOTES:
-                
                 newState.downvotes =  action.downvotes.data;
                 return newState
             case RECEIVE_UPVOTES:
-                
-                
                 newState.upvotes = action.upvotes.data;
                 return newState;
-            // case REMOVE_SUGG:
-                
-            //     delete newState.comments[action.comment.data];
-            //     return newState;
-            // case RECEIVE_PLAN_SUGGS:
-            //     action.suggs.data.forEach(suggestion => {
-            //         newState.comments.push({ [suggestion._id]: suggestion.comments })
-            //     })
-            //     // action.suggs.data.comments;
-                
-            //     return newState;
             default:
                 return state;
         }

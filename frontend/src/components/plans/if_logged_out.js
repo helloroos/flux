@@ -20,12 +20,6 @@ class IfLoggedOut extends React.Component {
                 <div onClick={() => this.props.openModal('Sign In')}>
                     <h3>Sign In</h3>
                 </div>
-                {/* <button className='buttons' onClick={this.handleAuth}>
-                    Sign In
-                </button> */}
-                {/* <button className='buttons' onClick={this.handleAuth}>
-                    Sign Up
-                </button> */}
             </div>
         )
     }

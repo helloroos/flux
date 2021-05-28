@@ -12,9 +12,4 @@ const mapSTP = (state, ownProps) => {
     })
 };
 
-// const mapDTP = dispatch => ({
-//     createComment: (comment, suggId) => dispatch(createComment(comment, suggId)),
-//     openModal: modal => dispatch(openModal(modal))
-// })
-
 export default withRouter(connect(mapSTP)(Suggestion));

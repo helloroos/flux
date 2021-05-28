@@ -2,14 +2,13 @@ import { connect } from "react-redux";
 import { openModal, hideModal } from "../../actions/modal_actions";
 import Header from './header';
 import { logout } from "../../actions/session_actions";
-
-
-// const { openModal, hideModal } = require('../../actions/modal_actions')
+import { withRouter } from "react-router";
 
 const mapSTP = (state, ownProps) => {
   return ({
     currentUser: state.session.user, 
-    route: ownProps.location
+    route: ownProps.location,
+    history: ownProps.history,
   })
 };
 
@@ -21,4 +20,4 @@ const mapDTP = dispatch => {
   })
 };
 
-export default connect(mapSTP, mapDTP)(Header);
+export default withRouter(connect(mapSTP, mapDTP)(Header));

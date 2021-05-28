@@ -3,8 +3,6 @@ import { withRouter } from "react-router";
 import { editPlan, fetchPlan } from "../../../actions/plan_actions";
 import EditPlan from './edit_item';
 
-
-
 const mapSTP = (state, ownProps) => {
     
     return ({

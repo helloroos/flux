@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-import { createComment } from "../../actions/comment_actions";
+import { createComment, fetchSuggComments } from "../../actions/comment_actions";
 import { openModal } from "../../actions/modal_actions";
+import { fetchPlanSuggs } from "../../actions/sugg_actions";
 import CreateComment from "./comment_create";
 
 const mapSTP = (state, ownProps) => {
@@ -14,7 +15,9 @@ const mapSTP = (state, ownProps) => {
 
 const mapDTP = dispatch => ({
     createComment: (comment, suggId) => dispatch(createComment(comment, suggId)),
-    openModal: modal => dispatch(openModal(modal))
+    openModal: modal => dispatch(openModal(modal)),
+    fetchSuggComments: suggId => dispatch(fetchSuggComments(suggId)),
+    fetchPlanSuggs: planId => dispatch(fetchPlanSuggs(planId))
 });
 
 export default withRouter(connect(mapSTP, mapDTP)(CreateComment));

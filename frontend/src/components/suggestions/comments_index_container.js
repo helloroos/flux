@@ -5,11 +5,13 @@ import SuggComments from "./sugg_comments";
 
 
 const mapSTP = (state, ownProps) => {
-    
+    debugger
+
     return ({
         suggs: state.main.suggs,
         planId: ownProps.match.params.planId,
         currentUser: state.session.user,
+        comments: state.main.comments.comments
     })
 };
 

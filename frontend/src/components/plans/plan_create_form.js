@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 import { DateRange } from 'react-date-range';
 import '../css/create_plan.scss'
 import '../css/date-range.scss'
-import {formatDistance, format} from 'date-fns';
+import {formatDistance, format, formatDistanceStrict, addDays} from 'date-fns';
 
 
 class PlanCreateForm extends React.Component {
@@ -87,7 +87,7 @@ class PlanCreateForm extends React.Component {
         let tripLength;
         if ((this.state.endDate - this.state.startDate) > 0) {
             tripLength = (
-                <p>{formatDistance(this.state.startDate, this.state.endDate)}</p>
+                <p>{formatDistanceStrict(this.state.startDate, addDays(this.state.endDate, 1))}</p>
             )
         }
        

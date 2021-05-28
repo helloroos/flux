@@ -82,7 +82,7 @@ router.patch('/:suggestion_id/upvote',
                 if (!suggestion.upvotes.includes(currUser.id)) {
                     if (suggestion.downvotes.includes(currUser.id)) {
                         suggestion.downvotes.pop(currUser)
-                            .then(() => suggestion.save());
+                        suggestion.save()
                         console.log('User removed from downvotes');
                     }
                     suggestion.upvotes.push(currUser);

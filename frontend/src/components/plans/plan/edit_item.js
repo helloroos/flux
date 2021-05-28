@@ -7,11 +7,17 @@ class EditPlan extends React.Component {
     constructor(props) {
         super(props)
         debugger
+        // this.state = {
+        //     title: props.plan.title,
+        //     description: props.plan.description,
+        //     startDate: props.plan.startDate,
+        //     endDate: props.plan.endDate
+        // }
         this.state = {
-            title: props.plan.title,
-            description: props.plan.description,
-            startDate: props.plan.startDate,
-            endDate: props.plan.endDate
+            title: '',
+            description: '',
+            startDate: '',
+            endDate: ''
         }
 
         this.handleEdit = this.handleEdit.bind(this);
@@ -20,6 +26,14 @@ class EditPlan extends React.Component {
 
     componentDidMount() {
         this.props.fetchPlan(this.props.planId)
+            .then(plan => 
+                this.setState({
+                title: plan.plan.data.title,
+                description: plan.plan.data.description,
+                startDate: plan.plan.data.startDate,
+                endDate: plan.plan.data.endDate
+            }))
+            // {debugger})
     }
 
     update(field) {
@@ -41,7 +55,7 @@ class EditPlan extends React.Component {
     }
 
     render() {
-        // if (!this.props.plan) return null;
+        if (!this.props.plan) return null;
 
         const dateRange = {
             startDate: this.state.startDate, 

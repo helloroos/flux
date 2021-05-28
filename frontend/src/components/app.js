@@ -8,6 +8,7 @@ import FooterContainer from './main/footer_container';
 import PlanItemContainer from './plans/plan/plan_item_container';
 import PlanCreateFormContainer from './plans/plan_create_form_container';
 import EditPlanContainer from './plans/plan/edit_item_container';
+import PlanSuggestionContainer from  './suggestions/plan_suggs_container'
 import About from "./main/about";
 
 const App = () => (

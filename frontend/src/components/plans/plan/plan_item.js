@@ -25,10 +25,6 @@ class PlanItem extends React.Component {
         this.updateDates = this.updateDates.bind(this);
     }
 
-    // componentWillReceiveProps(nextProps) {
-      
-    // }
-
     addMember(e) {
         e.preventDefault();
         
@@ -41,6 +37,13 @@ class PlanItem extends React.Component {
                 }
         })
     }
+
+    // componentWillReceiveProps(nextProps) {
+    //     // if (nextProps.planSuggs !== this.props.planSuggs) {
+    //     //     this.props.fetchPlan(this.props.match.params.planId)
+    //     this.props.fetchPlanSuggs(this.props.match.params.planId)
+    //     // }
+    // }
 
     componentDidMount() {
         debugger

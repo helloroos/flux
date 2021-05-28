@@ -1,8 +1,8 @@
 import React from 'react';
 import Upvote from './upvote';
-import Downvote from './downvote';
 import SuggComments from './sugg_comments';
 import CreateComment from './comment_create';
+import { withRouter } from 'react-router';
 
 class Suggestion extends React.Component {
     constructor(props) {
@@ -15,9 +15,9 @@ class Suggestion extends React.Component {
         this.toggleComments = this.toggleComments.bind(this)
     }
 
-    // componentDidUpdate() {
-    //     this.props.fetchPlanSuggs(this.props.planId)
-    // }
+    componentDidUpdate() {
+        this.props.fetchPlanSuggs(this.props.planId)
+    }
 
     toggleComments(e) {
         e.preventDefault();
@@ -46,7 +46,7 @@ class Suggestion extends React.Component {
                                 currentUser={this.props.currentUser}
                                 openModal={this.props.openModal}
                                 fetchSugg={this.props.fetchSugg}/>
-                            <SuggComments sugg={sugg}
+                        <SuggComments sugg={sugg}
                             comments={sugg.comments}
                             fetchSugg={this.props.fetchSugg}/>
                             </>
@@ -54,7 +54,7 @@ class Suggestion extends React.Component {
                     </div>
                 </div>
 
-                <div className='sugg-right'>
+                {/* <div className='sugg-right'>
                     <Upvote sugg={sugg}
                         currentUser={this.props.currentUser}
                         upvote={this.props.upvote}
@@ -62,10 +62,10 @@ class Suggestion extends React.Component {
                         downvote={this.props.downvote}
                         downvoteRemove={this.props.downvoteRemove}
                         />
-                </div>
+                </div> */}
             </div>
         )
     }
 };
 
-export default Suggestion;
+export default withRouter(Suggestion);

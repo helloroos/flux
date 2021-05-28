@@ -1,4 +1,4 @@
-import { RECEIVE_COMMENT, RECEIVE_SUGG_COMMENTS, REMOVE_COMMENT } from "../actions/comment_actions";
+import { REMOVE_COMMENT } from "../actions/comment_actions";
 import { RECEIVE_PLAN_SUGGS, RECEIVE_SUGG } from "../actions/sugg_actions";
 
 const initialState = {

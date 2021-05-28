@@ -5,16 +5,16 @@ import Suggestion from './suggestion_item';
 
 class PlanSuggestions extends React.Component {
     
-    // componentDidMount() {
-    //     this.props.fetchPlanSuggs(this.props.planId)
-    // }
+    componentDidMount() {
+        this.props.fetchPlanSuggs(this.props.planId)
+    }
     
     render() {
-        // if (!this.props.planSuggs) return null;
+        if (this.props.suggs) return null;
         
         const mapped = this.props.suggs.map((sugg, i) => (
             <div key={`sugg-item-${i}`}>
-                <Suggestion sugg={sugg} 
+                <Suggestion key={`sugg-${i}`} sugg={sugg} 
                     upvote={this.props.upvote}
                     upvoteRemove={this.props.upvoteRemove}
                     downvote={this.props.downvote}

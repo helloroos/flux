@@ -48,17 +48,17 @@ class Header extends React.Component {
       )
     } else if (path.includes("users")) {
       accountButtons = (
-      <div>
+      <>
           <Link to='/plans/create'>
             {/* plus icon for add new trip */}
             <i className="icons fas fa-plus-circle fa-2x"></i>
           </Link>
           <button className='buttons' onClick={this.handleLogout}>Log Out</button>
-      </div>
+      </>
       )
     } else {
       accountButtons = (
-        <div>
+        <>
           <Link to='/plans/create'>
             {/* plus icon for add new trip */}
             <i className="icons fas fa-plus-circle fa-2x"></i>
@@ -67,7 +67,7 @@ class Header extends React.Component {
             <i className="icons fas fa-user-circle fa-2x"></i>
           </Link>
           <button className='buttons' onClick={this.handleLogout}>Log Out</button>
-        </div>
+        </>
       )
     }
 

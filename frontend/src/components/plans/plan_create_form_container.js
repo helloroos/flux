@@ -2,7 +2,6 @@ import { connect } from "react-redux";
 import { openModal } from "../../actions/modal_actions";
 import { createPlan } from "../../actions/plan_actions";
 import PlanCreateForm from "./plan_create_form";
-// import { withRouter } from 'react-router';
 
 const mapSTP = state => {
     

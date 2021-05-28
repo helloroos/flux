@@ -6,13 +6,7 @@ import '../../css/date-range.scss'
 class EditPlan extends React.Component {
     constructor(props) {
         super(props)
-        
-        // this.state = {
-        //     title: props.plan.title,
-        //     description: props.plan.description,
-        //     startDate: props.plan.startDate,
-        //     endDate: props.plan.endDate
-        // }
+
         this.state = {
             title: '',
             description: '',

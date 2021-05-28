@@ -2,7 +2,6 @@ import { connect } from "react-redux";
 import { withRouter } from 'react-router';
 import { downvote, downvoteRemove, upvote, upvoteRemove } from "../../actions/vote_actions";
 import Upvote from './upvote';
-import React from 'react';
 
 const mapSTP = (state, ownProps) => {
     
@@ -19,8 +18,6 @@ const mapDTP = dispatch => ({
     upvoteRemove: (suggId) => dispatch(upvoteRemove(suggId)),
     downvote: (suggId) => dispatch(downvote(suggId)),
     downvoteRemove: (suggId) => dispatch(downvoteRemove(suggId)),
-    // fetchPlanSuggs: 
 });
 
-// export default connect(mapSTP, mapDTP)(Upvote);
 export default withRouter(connect(mapSTP, mapDTP)(Upvote));

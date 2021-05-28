@@ -3,7 +3,6 @@ const router = express.Router();
 const Suggestion = require('../../models/Suggestion');
 const Comment = require('../../models/Comment');
 const passport = require('passport');
-// const db = require('../../config/keys').mongoURI;
 
 // Create a comment on suggestion's page
 router.post('/suggestion/:id/create',

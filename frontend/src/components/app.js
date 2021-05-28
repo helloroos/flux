@@ -10,6 +10,7 @@ import PlanCreateFormContainer from './plans/plan_create_form_container';
 import EditPlanContainer from './plans/plan/edit_item_container';
 import PlanSuggestionContainer from  './suggestions/plan_suggs_container'
 import About from "./main/about";
+import { AuthRoute, ProtectedRoute } from "../util/route_utils";
 
 const App = () => (
     <div>
@@ -19,7 +20,7 @@ const App = () => (
             <Route exact path='/' component={MainPageContainer} />
             <Route exact path='/about' component={About} />
             <Route exact path='/:planId' component={PlanItemContainer} />
-            <Route exact path='/users/:userId' component={UserPlansContainer} />
+            <AuthRoute exact path='/users/:userId' component={UserPlansContainer} />
             <Route exact path='/plans/create' component={PlanCreateFormContainer} />
             <Route exact path='/:planId/edit' component={EditPlanContainer} />
         </Switch>

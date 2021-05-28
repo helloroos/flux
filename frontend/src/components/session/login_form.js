@@ -22,7 +22,8 @@ class LoginForm extends React.Component {
         return e => this.setState({ [field]: e.currentTarget.value })
     }
 
-    demoLogin() {
+    demoLogin(e) {
+        e.preventDefault();
         const demoUser = {
             email: "waldo@odlaw.com",
             password: "123456"

@@ -148,6 +148,7 @@
     background-color: rgb(255, 255, 255, 0.75);
     border-radius: 15px;
     margin-left: 23px;
+    padding: 5px;
     
     
     .top-invite {
@@ -161,6 +162,8 @@
       color: rgb(8, 159, 123);
       margin: 8px;
       margin-left: 0;
+      margin-right: 0;
+
     }
   }
   
@@ -288,11 +291,14 @@
   color: rgb(0, 97, 176);
   width: 150px;
   border: none;
+  border: 1px solid rgb(166, 208, 242, .3);
   margin-top: 12px;
   margin-bottom: 15px;
   height: 32px;
   padding: 7px;
 }
+
+
 
 .button-comments:hover {
   background-color: rgb(0, 97, 176);
@@ -366,4 +372,8 @@ background-color: rgb(235, 206, 110);
 
     .email-input:valid {
       background-color: white;
+    }
+
+    .button-join {
+      width: fit-content;
     }

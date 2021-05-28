@@ -36,9 +36,9 @@ class Suggestion extends React.Component {
                         <p className='sugg-desc'>{sugg.description}</p>
                         <p className='sugg-budget'>{sugg.budget}</p>
                         <p className='sugg-author'>{sugg.user}</p>
-                        <div onClick={this.toggleComments}>
+                        <button className='button-comments' onClick={this.toggleComments}>
                             Open comments
-                        </div>
+                        </button>
                     <div className='create-comment-cont'>
                         {this.state.commentsVisible ? (
                             <>

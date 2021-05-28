@@ -31,10 +31,10 @@ class Header extends React.Component {
 
     if (!currentUser) {
       accountButtons = (
-        <div>
+        <>
           <button className='buttons' onClick={this.handleClick}>Sign In</button>
           <button className='buttons' onClick={this.handleClick}>Sign Up</button>
-        </div>
+        </>
       )
     } else {
       
@@ -75,6 +75,9 @@ class Header extends React.Component {
             {/* </div> */}
 
             {accountButtons}
+            <Link to='/about'>
+              <i class="icons fas fa-question-circle fa-2x"></i>
+            </Link>
           </div>
 
         </div>

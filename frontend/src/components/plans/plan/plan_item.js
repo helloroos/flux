@@ -40,6 +40,7 @@ class PlanItem extends React.Component {
     }
 
     componentDidMount() {
+        debugger
         this.props.fetchPlan(this.props.match.params.planId)
     }
 

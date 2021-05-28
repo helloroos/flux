@@ -5,7 +5,7 @@ import SuggComments from "./sugg_comments";
 
 
 const mapSTP = (state, ownProps) => {
-    debugger
+    
 
     return ({
         suggs: state.main.suggs,

@@ -3,24 +3,24 @@ import { RECEIVE_PLAN_SUGGS } from "../actions/sugg_actions";
 import { RECEIVE_DOWNVOTES, RECEIVE_UPVOTES } from "../actions/vote_actions";
 
 const initialState = {
-    all: [],
-    new: [],
-    comments: []
+    upvotes: [],
+    downvotes: [],
 };
 
-const commentsReducer = (state = initialState, action) => {
+const voteReducer = (state = {}, action) => {
         Object.freeze(state);
-        let newState = Object.assign({}, state);
+        let newState = Object.assign({}, state)
 
         switch (action.type) {
             case RECEIVE_DOWNVOTES:
-                debugger
-                newState.comments = action.comments.data;
+                
+                newState.downvotes =  action.downvotes.data;
                 return newState
             case RECEIVE_UPVOTES:
-                debugger
-                newState.comments.concat({[action.comment.data.comment.suggestion[0]]: [action.comment.data.comment]});
-                return newState
+                
+                
+                newState.upvotes = action.upvotes.data;
+                return newState;
             // case REMOVE_SUGG:
                 
             //     delete newState.comments[action.comment.data];
@@ -37,4 +37,4 @@ const commentsReducer = (state = initialState, action) => {
         }
 };
 
-export default commentsReducer;
+export default voteReducer;

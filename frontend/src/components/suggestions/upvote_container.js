@@ -5,11 +5,12 @@ import Upvote from './upvote';
 import React from 'react';
 
 const mapSTP = (state, ownProps) => {
-    debugger
+    
     return ({
         suggs: state.main.suggs,
         planId: ownProps.match.params.planId,
         currentUser: state.session.user,
+        votes: state.main.votes
     })
 };
 
@@ -17,7 +18,8 @@ const mapDTP = dispatch => ({
     upvote: (suggId) => dispatch(upvote(suggId)),
     upvoteRemove: (suggId) => dispatch(upvoteRemove(suggId)),
     downvote: (suggId) => dispatch(downvote(suggId)),
-    downvoteRemove: (suggId) => dispatch(downvoteRemove(suggId))
+    downvoteRemove: (suggId) => dispatch(downvoteRemove(suggId)),
+    // fetchPlanSuggs: 
 });
 
 // export default connect(mapSTP, mapDTP)(Upvote);

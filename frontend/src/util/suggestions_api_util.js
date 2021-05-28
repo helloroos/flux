@@ -36,7 +36,7 @@ export const deleteComment = id => {
 };
 
 export const upvote = (suggId) => {
-    debugger
+    
     return axios.patch(`/api/suggestions/${suggId}/upvote`)
 };
 

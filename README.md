@@ -30,23 +30,6 @@ You will also see any lint errors in the console.
 
 ## Authors
 
-Michelle Roos - Team Lead
-Github: [@helloroos](https://github.com/helloroos) 
-LinkedIn: [@Linkedin](https://linkedin.com/in/Linkedin) | 
-Evan Leon - Backend Lead 
-Github: [@helloroos](https://github.com/helloroos) 
-LinkedIn: [@Linkedin](https://linkedin.com/in/Linkedin)
+Michelle Roos - Team Lead | Evan Leon - Backend Lead 
 :-----:|:-----:
-hi|hi
-
-## 👤 Authors
-
-**Syldys Khomushku Frontend Lead**
-* Website: helloroos
-* Github: [@helloroos](https://github.com/helloroos)
-* LinkedIn: [@Linkedin](https://linkedin.com/in/Linkedin)
-
-**Jessica Uphoff - Flex & Design Lead**
-* Website: helloroos
-* Github: [@helloroos](https://github.com/helloroos)
-* LinkedIn: [@Linkedin](https://linkedin.com/in/Linkedin)
+Jessica Uphoff - Flex & Design Lead | Syldys Khomushku Frontend Lead

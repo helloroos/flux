@@ -1,15 +1,6 @@
 import React from 'react';
 
 class SuggComments extends React.Component {
-    // constructor(props) {
-    //     super(props)
-    // }
-
-    componentDidMount() {
-        debugger
-        this.props.fetchSugg(this.props.sugg._id)
-    }
-
     render() {
         debugger
         if (!this.props.comments) return null;
@@ -21,8 +12,6 @@ class SuggComments extends React.Component {
             comments = this.props.comments.map(comment => (
             <div>
                 <div>{comment}</div>
-                {/* <div>{comment.body}</div>
-                <div>{comment.author}</div> */}
             </div>
         ))
         } else {

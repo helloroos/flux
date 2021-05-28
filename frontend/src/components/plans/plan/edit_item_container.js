@@ -9,7 +9,7 @@ const mapSTP = (state, ownProps) => {
     debugger
     return ({
         planId: ownProps.match.params.planId,
-        plan: state.plans.new,
+        plan: state.main.plans.new,
         currentUser: state.session.user
     })
 };

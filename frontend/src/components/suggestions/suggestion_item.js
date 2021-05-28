@@ -31,11 +31,6 @@ class Suggestion extends React.Component {
         
         return (
             <div className='each-sugg-cont'>
-                {/* <div className='sugg-left'>
-                    <p className='sugg-title'>{sugg.title}</p>
-                    <p className='sugg-desc'>{sugg.description}</p>
-                    <p className='sugg-budget'>{sugg.budget}</p>
-                    <p className='sugg-author'>{sugg.user}</p> */}
                     <button className='button-comments' onClick={this.toggleComments}>
                         Open comments
                     </button>
@@ -46,24 +41,14 @@ class Suggestion extends React.Component {
                                 createComment={this.props.createComment}
                                 currentUser={this.props.currentUser}
                                 openModal={this.props.openModal}
-                                fetchSugg={this.props.fetchSugg}/>
+                                fetchSugg={this.props.fetchSugg}
+                                fetchSuggComments={this.props.fetchSuggComments}/>
                         <SuggComments sugg={sugg}
                             comments={sugg.comments}
                             fetchSugg={this.props.fetchSugg}/>
                             </>
-                            ) : null }
-                    {/* </div> */}
+                        ) : null }
                 </div>
-
-                {/* <div className='sugg-right'>
-                    <Upvote sugg={sugg}
-                        currentUser={this.props.currentUser}
-                        upvote={this.props.upvote}
-                        upvoteRemove={this.props.upvoteRemove}
-                        downvote={this.props.downvote}
-                        downvoteRemove={this.props.downvoteRemove}
-                        />
-                </div> */}
             </div>
         )
     }

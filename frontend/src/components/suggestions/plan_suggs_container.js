@@ -10,9 +10,9 @@ const mapSTP = (state, ownProps) => {
     
     return ({
         planId: ownProps.match.params.planId,
-        planSuggs: state.plans.new.suggestions,
+        planSuggs: state.main.plans.new.suggestions,
         currentUser: state.session.user,
-        sugg: state.plans.new,
+        sugg: state.main.plans.new,
         
     })
 };

@@ -52,8 +52,8 @@ class Footer extends React.Component {
       </p>
           <div className='teammates'>
             <p>Evan Leon 
-              <a className="our-links" target="_blank" href={"http://.google.com"}><i class="fa fa-linkedin" aria-hidden="true"></i></a> 
-              <a className="our-links" target="_blank" href={"http://.google.com"}><i class="fab fa-github"></i></a>               
+              {/* <a className="our-links" target="_blank" href={"http://.google.com"}><i class="fa fa-linkedin" aria-hidden="true"></i></a> 
+              <a className="our-links" target="_blank" href={"http://.google.com"}><i class="fab fa-github"></i></a>                */}
             </p>
             <p>Michelle Roos</p>
             <p>Jessica Uphoff</p>

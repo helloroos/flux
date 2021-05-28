@@ -149,8 +149,218 @@ function seedDB() {
         })
     }
 
+    const suggestions = () => {
+        const suggestion1 = new Suggestion({
+            title: "Weekend in wine country",
+            description: 'Lets have a weekend in Tuscany',
+            budget:'1',
+            plan: [],
+            user: [],
+            comments: [],
+            upvotes: [],
+            downvotes: [],
+        })
 
-    Promise.all([pass1, pass2, pass3]).then((values) => {
+        const suggestion2 = new Suggestion({
+            title: "Weekend in wine country",
+            description: 'Lets have a weekend in Tuscany',
+            budget:'1',
+            plan: [],
+            user: [],
+            comments: [],
+            upvotes: [],
+            downvotes: [],
+        })
+
+        const suggestion3 = new Suggestion({
+            title: "Weekend in wine country",
+            description: 'Lets have a weekend in Tuscany',
+            budget:'1',
+            plan: [],
+            user: [],
+            comments: [],
+            upvotes: [],
+            downvotes: [],
+        })
+
+        const suggestion4 = new Suggestion({
+            title: "Weekend in wine country",
+            description: 'Lets have a weekend in Tuscany',
+            budget:'1',
+            plan: [],
+            user: [],
+            comments: [],
+            upvotes: [],
+            downvotes: [],
+        })
+
+        const suggestion5 = new Suggestion({
+            title: "Weekend in wine country",
+            description: 'Lets have a weekend in Tuscany',
+            budget:'1',
+            plan: [],
+            user: [],
+            comments: [],
+            upvotes: [],
+            downvotes: [],
+        })
+
+        const suggestion6 = new Suggestion({
+            title: "Weekend in wine country",
+            description: 'Lets have a weekend in Tuscany',
+            budget:'1',
+            plan: [],
+            user: [],
+            comments: [],
+            upvotes: [],
+            downvotes: [],
+        })
+
+        const suggestion7 = new Suggestion({
+            title: "Weekend in wine country",
+            description: 'Lets have a weekend in Tuscany',
+            budget:'1',
+            plan: [],
+            user: [],
+            comments: [],
+            upvotes: [],
+            downvotes: [],
+        })
+
+        const suggestion8 = new Suggestion({
+            title: "Weekend in wine country",
+            description: 'Lets have a weekend in Tuscany',
+            budget:'1',
+            plan: [],
+            user: [],
+            comments: [],
+            upvotes: [],
+            downvotes: [],
+        })
+
+        const suggestion9 = new Suggestion({
+            title: "Weekend in wine country",
+            description: 'Lets have a weekend in Tuscany',
+            budget:'1',
+            plan: [],
+            user: [],
+            comments: [],
+            upvotes: [],
+            downvotes: [],
+        })
+
+        const suggestion10 = new Suggestion({
+            title: "Weekend in wine country",
+            description: 'Lets have a weekend in Tuscany',
+            budget:'1',
+            plan: [],
+            user: [],
+            comments: [],
+            upvotes: [],
+            downvotes: [],
+        })
+
+        const suggestion11 = new Suggestion({
+            title: "Weekend in wine country",
+            description: 'Lets have a weekend in Tuscany',
+            budget:'1',
+            plan: [],
+            user: [],
+            comments: [],
+            upvotes: [],
+            downvotes: [],
+        })
+    }
+
+    const comments = () => {
+
+        const comment1 = {
+            body: 'What a terrible suggestion',
+            author: [],
+            suggestion: []
+        }
+
+        const comment2 = {
+            body: 'What a terrible suggestion',
+            author: [],
+            suggestion: []
+        }
+
+        const comment3 = {
+            body: 'What a terrible suggestion',
+            author: [],
+            suggestion: []
+        }
+
+        const comment4 = {
+            body: 'What a terrible suggestion',
+            author: [],
+            suggestion: []
+        }
+
+        const comment5 = {
+            body: 'What a terrible suggestion',
+            author: [],
+            suggestion: []
+        }
+
+        const comment6 = {
+            body: 'What a terrible suggestion',
+            author: [],
+            suggestion: []
+        }
+
+        const comment7 = {
+            body: 'What a terrible suggestion',
+            author: [],
+            suggestion: []
+        }
+
+        const comment8 = {
+            body: 'What a terrible suggestion',
+            author: [],
+            suggestion: []
+        }
+
+        const comment9 = {
+            body: 'What a terrible suggestion',
+            author: [],
+            suggestion: []
+        }
+
+        const comment10 = {
+            body: 'What a terrible suggestion',
+            author: [],
+            suggestion: []
+        }
+
+        const comment11 = {
+            body: 'What a terrible suggestion',
+            author: [],
+            suggestion: []
+        }
+
+        const comment12 = {
+            body: 'What a terrible suggestion',
+            author: [],
+            suggestion: []
+        }
+
+        const comment13 = {
+            body: 'What a terrible suggestion',
+            author: [],
+            suggestion: []
+        }
+
+        const comment14 = {
+            body: 'What a terrible suggestion',
+            author: [],
+            suggestion: []
+        }
+    }
+
+
+    Promise.all([pass1, pass2, pass3, ]).then((values) => {
         console.log(values);
     });
 }

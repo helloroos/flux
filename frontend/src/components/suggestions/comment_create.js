@@ -33,6 +33,7 @@ class CreateComment extends React.Component {
         }
         
         this.props.createComment(sugg, this.props.sugg._id)
+            .then(() => this.props.fetchPlanSuggs(this.props.planId))
         this.setState({
             body: '',
             author: this.props.currentUser,

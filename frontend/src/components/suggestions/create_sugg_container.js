@@ -3,7 +3,7 @@ import { createSugg, fetchPlanSuggs } from "../../actions/sugg_actions";
 import { openModal } from '../../actions/modal_actions';
 import CreateSugg from "./create_sugg";
 import { withRouter } from 'react-router';
-import { createComment } from '../../actions/comment_actions';
+import { createComment, fetchSuggComments } from '../../actions/comment_actions';
 
 const mapSTP = (state, ownProps) => {
     
@@ -17,7 +17,8 @@ const mapSTP = (state, ownProps) => {
 const mapDTP = dispatch => ({
     openModal: modal => dispatch(openModal(modal)),
     createComment: (sugg, planId) => dispatch(createComment(sugg, planId)),
-    createSugg: (suggData, planId) => dispatch(createSugg(suggData, planId))
+    createSugg: (suggData, planId) => dispatch(createSugg(suggData, planId)),
+    
 });
 
 export default withRouter(connect(mapSTP, mapDTP)(CreateSugg));

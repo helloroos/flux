@@ -12,11 +12,11 @@ class SuggComments extends React.Component {
         // if (!comments) return null;
         
         let arrComments;
-        
+        debugger
         if (comments.length > 0) {
             
             arrComments = comments.map(comment => {
-                debugger
+                
                 return (
                     <div>
                         <div>{comment.author[0].firstName}</div>

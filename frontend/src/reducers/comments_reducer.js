@@ -1,4 +1,5 @@
 import { REMOVE_COMMENT, RECEIVE_COMMENT, RECEIVE_SUGG_COMMENTS } from "../actions/comment_actions";
+import { RECEIVE_PLAN_SUGGS } from "../actions/sugg_actions";
 
 const initialState = {
     all: [],
@@ -23,6 +24,9 @@ const commentsReducer = (state = initialState, action) => {
                 
                 delete newState.comments[action.commentId];
                 return newState;
+            // case RECEIVE_PLAN_SUGGS:
+                
+            //     // action.suggs.data.comments;
             
             default:
                 return state;

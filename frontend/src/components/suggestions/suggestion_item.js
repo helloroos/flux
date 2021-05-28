@@ -38,7 +38,8 @@ class Suggestion extends React.Component {
                             <p className='sugg-title'>{sugg.title}</p>
                             <p className='sugg-desc'>{sugg.description}</p>
                             <p className='sugg-budget'>{sugg.budget}</p>
-                            <p className='sugg-author'>{sugg.user}</p>
+                            <p className='sugg-author'>{sugg.user[0].firstName}</p>
+                            <p className='sugg-author'>{sugg.user[0].lastName}</p>
                         </div>
                         <div className='create-comment-cont'>
                         {this.state.commentsVisible ? (

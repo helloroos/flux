@@ -15,7 +15,7 @@ class PlanSuggestions extends React.Component {
         
         
         let mapped = this.props.suggs.map((sugg, i) => {
-            
+            debugger
             return (
             <div key={`sugg-item-${i}`}>
                 <Suggestion key={`sugg-${i}`}

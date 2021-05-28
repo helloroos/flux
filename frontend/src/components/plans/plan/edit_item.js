@@ -6,7 +6,7 @@ import '../../css/date-range.scss'
 class EditPlan extends React.Component {
     constructor(props) {
         super(props)
-        
+        debugger
         this.state = {
             title: props.plan.title,
             description: props.plan.description,
@@ -41,7 +41,7 @@ class EditPlan extends React.Component {
     }
 
     render() {
-        if (!this.props.plan) return null;
+        // if (!this.props.plan) return null;
 
         const dateRange = {
             startDate: this.state.startDate, 

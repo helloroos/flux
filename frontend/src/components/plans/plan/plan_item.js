@@ -13,10 +13,13 @@ class PlanItem extends React.Component {
             email: '',
             joined: false,
             errors: {},
-            loggedIn: true
+            loggedIn: true,
+            startDate: new Date(),
+            endDate: new Date()
         }
         this.handleClick = this.handleClick.bind(this);
         this.addMember = this.addMember.bind(this);
+        this.updateDates = this.updateDates.bind(this);
         this.refreshPage = this.refreshPage.bind(this);
     }
 
@@ -47,6 +50,14 @@ class PlanItem extends React.Component {
 
     update(field) {
         return e => this.setState({ [field]: e.target.value })
+    }
+
+    updateDates(e) {
+        let { startDate, endDate } = e.selection;
+        this.setState({
+            startDate: startDate,
+            endDate: endDate
+        })
     }
 
     handleClick(e) {
@@ -88,6 +99,15 @@ class PlanItem extends React.Component {
                     <h5 className='member-name'>{user.firstName} {user.lastName}</h5>
             ))
         }
+
+        const dateRange = {
+            startDate: this.state.startDate,
+            endDate: this.state.endDate,
+            key: 'selection',
+        }
+
+
+        debugger
         return (
             <div className='body-4'>
                     <h2 className='plan-title'>{this.props.plan.title}</h2>
@@ -103,7 +123,7 @@ class PlanItem extends React.Component {
 
                     <div className='calendar-cont'>
                         <DateRange
-                            // ranges={[this.props.plan.dateRange]}
+                            ranges={[dateRange]}
                             onChange={this.updateDates}
                             editableDateInputs={true}
                             showSelectionPreview={true}

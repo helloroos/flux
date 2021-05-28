@@ -60,15 +60,11 @@ class Upvote extends React.Component {
 
     render() {
         return (
-            <div>
-                <button onClick={this.handleUpvote}>
-                    up
-                </button>
-                {this.state.numDiff}
-                <button onClick={this.handleDownvote}>
-                    down
-                </button>
-            </div>
+            <>
+                <i onClick={this.handleUpvote} className="button-updown fas fa-arrow-alt-circle-up fa-2x"></i>
+                {/* {this.state.numDiff} */}
+                <i onClick={this.handleDownvote} className="button-updown fas fa-arrow-alt-circle-down fa-2x"></i>
+            </>
         )
     }
 };

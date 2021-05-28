@@ -38,14 +38,14 @@ router.post('/:id/send',
                     accessToken: accessToken,
                 },
             });
-            
+            const user = req.user.firstName.slice(0, 1).toUpperCase() + req.user.firstName.slice(1);
             const planId = req.params.id;
             const email  = req.body.email;
             const mailOptions = {
                 from: 'FLUX ☀️🌴 <stateoffluxapp@gmail.com>',
                 to: email,
-                subject: "Let's go somewhere nice ✈️",
-                text: `Someone has invited you to join their travel plan on Flux. Please join the plan at https://state-of-flux.herokuapp.com/#/${planId}.`,
+                subject: `${user} wants to go on a trip with you ✈️`,
+                text: `${user} has invited you to join their travel plan on Flux. Please join the plan at https://state-of-flux.herokuapp.com/#/${planId}.`,
                 html: `<head> <style>\
                              .link {color: red;}  \
                              Style goes in here <----\
@@ -55,13 +55,13 @@ router.post('/:id/send',
                              \
                              </style> </head>\
                     <div class='background'>\
-                    <h2>Hi friend,</h2>\
+                    <p>Hi friend,</p>\
                     <br>\
-                    <p><NAME> has invited you to join their travel plan on Flux. Flux helps you to get on the same page using smart organizing and polling to plan the perfect getaway.</p>\
+                    <p>${user} has invited you to join their travel plan on Flux. Flux helps you to get on the same page using smart organizing and polling to plan the perfect getaway.</p>\
                     <br>\
-                    <p>Follow the below link to see <NAME>’s travel plan and start discussing the details of your upcoming trip.</p>\
+                    <p>Follow the below link to see ${user}’s travel plan and start discussing the details of your upcoming trip.</p>\
                     <br>\
-                    <a href=https://state-of-flux.herokuapp.com/#/${planId}><button>Click to join<button></a>\
+                    <a href=https://state-of-flux.herokuapp.com/#/${planId}><button>Click to view plan<button></a>\
                     <br>\
                     <p>Have a wonderful trip :)</p>\
                     <p>The Flux team</p>\

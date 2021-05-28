@@ -1,5 +1,6 @@
 import React from 'react';
 import UpvoteContainer from './upvote_container'
+import '../css/sugg_comments.scss'
 
 class SuggComments extends React.Component {
     
@@ -19,10 +20,9 @@ class SuggComments extends React.Component {
             arrComments = comments.map(comment => {
                 
                 return (
-                    <div>
-                        <div>{comment.author[0].firstName}</div>
-                        <div>{comment.author[0].lastName}</div>
-                        <div>{comment.body}</div>
+                    <div className='sugg-comment-cont'>
+                        <div className='comment-author'>{comment.author[0].firstName} {comment.author[0].lastName}</div>
+                        <div className='comment-body'>{comment.body}</div>
                         <div><UpvoteContainer sugg={comment.suggestion}/></div>
                     </div>
         )})

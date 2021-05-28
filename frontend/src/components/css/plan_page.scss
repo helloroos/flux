@@ -49,12 +49,19 @@
     left: 75px;
     width: 600px;
     height: 215px;
-    border: 5px solid rgb(255, 255, 255, 0.5);
+    border: 7px solid rgb(255, 255, 255, 0.5);
+    background-color: rgb(255, 255, 255, 0.3);
     border-radius: 15px;
   }
 
   .button-edit {
     margin: 5px;
+    // color: rgb(235, 206, 110);
+    color: none;
+  }
+
+  .button-edit:hover {
+    color: white;
   }
 
   .main-desc {
@@ -156,6 +163,7 @@
       flex-direction: row;
       justify-content: space-between;
       margin-top: 8px;
+      width: 205px;
     }
     
     .invite-ppl {
@@ -201,12 +209,12 @@
   
   .radio-cont {
     width: fit-content;
-    background-color: rgb(166, 208, 242);
+    // background-color: rgb(166, 208, 242);
     padding: 10px;
     border-radius: 40px;
     font-size: 18px;
     padding-left: 17px;
-    margin-top: 5px;
+    // margin-top: 5px;
 
     label {
       color: white;
@@ -215,17 +223,22 @@
     }
 
     .radio-cont:first-child {
-      margin-left: 5px;
+      margin-left: 6px;
     }
 
     label:hover {
-      color: rgb(0, 97, 176);
+      color: rgb(177, 222, 238);
     }
     
     input {
       margin-left: 10px;
       color: white;
     }
+
+    input:checked label {
+      color: rgb(0, 97, 176);
+    }
+
     
     input[type="radio"] {
       opacity: 0;
@@ -296,6 +309,8 @@
   margin-bottom: 15px;
   height: 32px;
   padding: 7px;
+  justify-self: center;
+  margin-left: 110px;
 }
 
 
@@ -321,6 +336,7 @@ padding: 7px;
 
 .buttons-add-sugg:hover {
 background-color: rgb(235, 206, 110);
+color: white;
 }
 
 .invited-title {
@@ -333,12 +349,13 @@ background-color: rgb(235, 206, 110);
 
 .joined {
   color: rgb(8, 159, 123);
-  margin: 8px;
+  margin: 0;
+  margin-top: 8px;
 }
 
 .email-input {
       // margin: 8px;
-      width: 135px;
+      width: 155px;
       height: 15px;
       border-radius: 5px;
       border: none;

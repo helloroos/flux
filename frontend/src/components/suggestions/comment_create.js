@@ -1,4 +1,6 @@
 import React from 'react';
+import '../css/sugg_comments.scss'
+
 
 class CreateComment extends React.Component {
     constructor(props) {
@@ -49,26 +51,31 @@ class CreateComment extends React.Component {
         
         if (!this.props.currentUser) {
             createButton = (
-                <button value='Sign In'
+                <button 
+                    className='comment-submit-button'
+                    value='Sign In'
                     onClick={this.handleButton}>
-                    Post a comment
+                    Post
                 </button>
             )
         } else {
             createButton = (
-                <button value='Post'
+                <button 
+                    className='comment-submit-button'
+                    value='Post'
                     onClick={this.handleClick}>
-                    Post a comment
+                    Post
                 </button>
             )
         }
 
         return (
             <div>
-                <form>
+                <form className='comment-form-cont'>
                     <textarea
+                        className='input-comment'
                         value={this.state.body}
-                        placeholder='Body'
+                        placeholder='Post a comment...'
                         onChange={this.update('body')}
                         />
             

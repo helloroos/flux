@@ -33,9 +33,11 @@ class Suggestion extends React.Component {
                     <div className='each-sugg-cont'>
                         <div className='sugg-left'>
                             <p className='sugg-title'>{sugg.title}</p>
+                            <div className='sugg-border'>
                             <p className='sugg-desc'>{sugg.description}</p>
                             <p className='sugg-budget'>{sugg.budget}</p>
                             <p className='sugg-author'>{sugg.user[0].firstName} {sugg.user[0].lastName}</p>
+                            </div>
                         </div>
                         <div className='create-comment-cont'>
                     <button className='button-comments' onClick={this.toggleComments}>

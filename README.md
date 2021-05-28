@@ -12,11 +12,15 @@ Flux is built using the MERN stack which consists of MongoDB Atlas as a NoSQL da
 
 In the project directory, you can install by running:
 
-### `npm install`
+```sh
+npm install
+```
 
 Start the server:
 
-### `npm run dev`
+```sh
+npm run dev
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -32,30 +36,24 @@ You will also see any lint errors in the console.
 * Github: [@helloroos](https://github.com/helloroos)
 * LinkedIn: [@Linkedin](https://linkedin.com/in/Linkedin)
 
-## Install
-
-```sh
-npm install
-```
-
 ## 👤 Authors
 
-**Michelle Roos**
+**Michelle Roos - Team Lead**
 * Website: helloroos
 * Github: [@helloroos](https://github.com/helloroos)
 * LinkedIn: [@Linkedin](https://linkedin.com/in/Linkedin)
 
-**Michelle Roos**
+**Evan Leon - Backend Lead**
 * Website: helloroos
 * Github: [@helloroos](https://github.com/helloroos)
 * LinkedIn: [@Linkedin](https://linkedin.com/in/Linkedin)
 
-**Michelle Roos**
+**Syldys Khomushku Frontend Lead**
 * Website: helloroos
 * Github: [@helloroos](https://github.com/helloroos)
 * LinkedIn: [@Linkedin](https://linkedin.com/in/Linkedin)
 
-**Michelle Roos**
+**Jessica Uphoff - Flex & Design Lead**
 * Website: helloroos
 * Github: [@helloroos](https://github.com/helloroos)
 * LinkedIn: [@Linkedin](https://linkedin.com/in/Linkedin)

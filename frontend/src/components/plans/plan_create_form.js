@@ -49,15 +49,16 @@ class PlanCreateForm extends React.Component {
         }
         
         this.props.createPlan(plan)
-        this.setState({
-            created: true
-        })
-    }
-
-    refreshPage() {
-        if (!this.props.plan) return null;
-        this.props.history.push(`/${this.props.plan._id}`)
-    }
+            .then(plan => this.props.history.push(`/${plan.plan.data._id}`))
+        }
+        
+    // this.setState({
+    //     created: true
+    // })
+    // refreshPage() {
+    //     if (!this.props.plan) return null;
+    //     this.props.history.push(`/${this.props.plan._id}`)
+    // }
 
     render() {
         
@@ -101,7 +102,7 @@ class PlanCreateForm extends React.Component {
                         placeholder='tell us about the plan...'
                         />
                     <p>Select a broad date range:</p>
-                {this.state.created ? this.refreshPage() : null }
+                {/* {this.state.created ? this.refreshPage() : null } */}
                     <div className='calendar-cont'>
                         <DateRange
                             ranges={[dateRange]}

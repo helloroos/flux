@@ -5,11 +5,10 @@ import CreateSugg from "./create_sugg";
 import { withRouter } from 'react-router';
 
 const mapSTP = (state, ownProps) => {
-    
     return ({
         currentUser: state.session.user,
         planId: ownProps.match.params.planId,
-        planSuggs: state.suggs.planSuggs
+        planSuggs: state.suggs.planSuggs,
     })
 };
 

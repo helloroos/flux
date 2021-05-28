@@ -13,11 +13,12 @@ const suggReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case RECEIVE_PLAN_SUGGS:
-            newState = action.suggs.data;
+            
+            newState.all = action.suggs.data;
             return newState
         case RECEIVE_SUGG:
-            debugger
-            newState.new = action.sugg.data;
+            
+            newState.new = [action.sugg.data.newSuggestion];
             return newState
         // case RECEIVE_SUGG_COMMENTS:
         //     newState.comments = action.comments.data;

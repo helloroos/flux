@@ -4,7 +4,6 @@ class Upvote extends React.Component {
 
     constructor(props) {
         super(props)
-        debugger
         let up = props.sugg.upvotes.length;
         let down = props.sugg.downvotes.length;
         
@@ -22,7 +21,7 @@ class Upvote extends React.Component {
 
     handleUpvote(e) {
         e.preventDefault();
-        debugger
+        
         if (!this.state.upvotes.includes(this.props.currentUser._id)) {
             this.props.upvote(this.props.sugg._id)
                 .then(this.setState({
@@ -30,6 +29,7 @@ class Upvote extends React.Component {
                 numUpvotes: (this.state.numUpvotes + 1),
             }))
         } else {
+            
             this.props.upvoteRemove(this.props.sugg._id)
             .then(this.setState({
                 upvotes: this.state.upvotes.filter(id => id !== this.props.currentUser._id),
@@ -40,7 +40,7 @@ class Upvote extends React.Component {
 
     handleDownvote(e) {
         e.preventDefault();
-        debugger
+        
         if (!this.state.downvotes.includes(this.props.currentUser._id)) {
             this.props.downvote(this.props.sugg._id)
                 .then(this.setState({
@@ -59,6 +59,7 @@ class Upvote extends React.Component {
     }
 
     render() {
+        console.log('renedering')
         return (
             <div>
                 <button onClick={this.handleUpvote}>
@@ -74,3 +75,4 @@ class Upvote extends React.Component {
 };
 
 export default Upvote;
+

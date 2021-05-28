@@ -7,11 +7,10 @@ import { downvote, downvoteRemove, upvote, upvoteRemove } from '../../actions/vo
 import PlanSuggestions from './plan_suggs';
 
 const mapSTP = (state, ownProps) => {
-    debugger
+    
     return ({
         planId: ownProps.match.params.planId,
-        // suggs: Object.values(state.suggs),
-        suggs: state.plans.new.suggestions,
+        planSuggs: state.plans.new.suggestions,
         currentUser: state.session.user,
         sugg: state.plans.new
     })

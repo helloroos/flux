@@ -10,6 +10,7 @@ export const showSugg = (suggId) => {
 };
 
 export const showPlanSugg = (planId) => {
+    
     return axios.get(`/api/suggestions/plan/${planId}`)
 };
 

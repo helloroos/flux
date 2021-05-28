@@ -117,10 +117,18 @@ class PlanItem extends React.Component {
         //     }
         // })
 
-        const dateRange = {
+        let dateRange = {
             startDate: this.state.startDate,
             endDate: this.state.endDate,
             key: 'selection',
+        }
+        debugger
+        if (this.props.plan.startDate){
+            dateRange = {
+                startDate: new Date(this.props.plan.startDate.toString().slice(0,10)) ,
+                endDate: new Date(this.props.plan.endDate.toString().slice(0,10)),
+                key: 'selection',
+            }
         }
         
         return (

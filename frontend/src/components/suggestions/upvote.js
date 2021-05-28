@@ -71,6 +71,6 @@ class Upvote extends React.Component {
     }
 };
 
-export default (Upvote);
+export default Upvote;
 // export default withRouter(Upvote);
 

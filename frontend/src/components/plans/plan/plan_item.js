@@ -98,7 +98,7 @@ class PlanItem extends React.Component {
             endDate: this.state.endDate,
             key: 'selection',
         }
-        debugger
+        
         if (this.props.plan.startDate){
             dateRange = {
                 startDate: new Date(this.props.plan.startDate.toString().slice(0,10)) ,

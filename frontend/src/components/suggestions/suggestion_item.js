@@ -41,18 +41,18 @@ class Suggestion extends React.Component {
                             <p className='sugg-author'>{sugg.user[0].firstName} {sugg.user[0].lastName}</p>
                             </div>
                         </div>
-                        <div className='create-comment-cont'>
+                    <div className='create-comment-cont'>
                     <button className='button-comments' onClick={this.toggleComments}>
                         Comments
                     </button>
                         <div className='voting-cont'><UpvoteContainer sugg={this.props.sugg._id} /></div>
+                        </div>
                         {this.state.commentsVisible ? (
                             <>
                             <CreateCommentContainer sugg={sugg} />
                             <SuggCommentsContainer sugg={sugg} />
                             </>
                         ) : null }
-                        </div>
                     </div>
             </div>
         )

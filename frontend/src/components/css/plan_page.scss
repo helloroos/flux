@@ -395,6 +395,12 @@ color: white;
       width: fit-content;
     }
 
+    .create-comment-cont {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
     .vote-count {
       color: rgb(166, 208, 242);
       margin: 0;

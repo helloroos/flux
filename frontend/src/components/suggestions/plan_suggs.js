@@ -3,11 +3,12 @@ import '../css/plan_sugg.scss'
 import Suggestion from './suggestion_item';
 
 
+
 class PlanSuggestions extends React.Component {
     
-    componentDidMount() {
-        this.props.fetchPlanSuggs(this.props.planId)
-    }
+    // componentDidMount() {
+    //     this.props.fetchPlanSuggs(this.props.planId)
+    // }
     
     render() {
         if (this.props.suggs) return null;
@@ -22,7 +23,7 @@ class PlanSuggestions extends React.Component {
                     createComment={this.props.createComment}
                     currentUser={this.props.currentUser}
                     openModal={this.props.openModal}
-                    fetchSugg={this.props.fetchSugg}
+                    fetchPlan={this.props.fetchPlan}
                 />
             </div>
         ))

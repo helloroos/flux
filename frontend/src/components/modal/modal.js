@@ -19,8 +19,8 @@ class Modal extends React.Component {
             case 'Sign Up':
                 modalForm = <SignupContainer />
                 break
-            case 'Suggestions':
-                modalForm = <PlanSuggsContainer />
+            // case 'Suggestions':
+            //     modalForm = <PlanSuggsContainer />
             default:
                 return null
         }

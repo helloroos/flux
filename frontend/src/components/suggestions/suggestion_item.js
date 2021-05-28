@@ -15,9 +15,10 @@ class Suggestion extends React.Component {
         this.toggleComments = this.toggleComments.bind(this)
     }
 
-    componentDidUpdate() {
-        this.props.fetchPlanSuggs(this.props.planId)
-    }
+    // componentDidUpdate() {
+    //     debugger
+    //     this.props.fetchSugg(this.props.sugg._id)
+    // }
 
     toggleComments(e) {
         e.preventDefault();
@@ -30,11 +31,11 @@ class Suggestion extends React.Component {
         
         return (
             <div className='each-sugg-cont'>
-                <div className='sugg-left'>
+                {/* <div className='sugg-left'>
                     <p className='sugg-title'>{sugg.title}</p>
                     <p className='sugg-desc'>{sugg.description}</p>
                     <p className='sugg-budget'>{sugg.budget}</p>
-                    <p className='sugg-author'>{sugg.user}</p>
+                    <p className='sugg-author'>{sugg.user}</p> */}
                     <button className='button-comments' onClick={this.toggleComments}>
                         Open comments
                     </button>
@@ -51,7 +52,7 @@ class Suggestion extends React.Component {
                             fetchSugg={this.props.fetchSugg}/>
                             </>
                             ) : null }
-                    </div>
+                    {/* </div> */}
                 </div>
 
                 {/* <div className='sugg-right'>

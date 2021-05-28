@@ -15,9 +15,9 @@ class CreateComment extends React.Component {
         this.handleButton = this.handleButton.bind(this);
     }
 
-    updateProps() {
-        this.props.fetchSugg(this.props.suggId)
-    }
+    // updateProps() {
+    //     this.props.fetchSugg(this.props.suggId)
+    // }
 
     update(field) {
         return e => this.setState({ [field]: e.target.value })
@@ -76,7 +76,7 @@ class CreateComment extends React.Component {
             
                     { createButton }
                 </form>
-                {this.state.created ? this.updateProps() : null }
+                {/* {this.state.created ? this.updateProps() : null } */}
             </div>
         )
     }

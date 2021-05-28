@@ -6,6 +6,8 @@ import CreateSugg from '../../suggestions/create_sugg';
 import { DateRange } from 'react-date-range';
 import '../../css/plan_page.scss'
 import '../../css/date-range.scss'
+import Upvote from '../../suggestions/upvote';
+import Suggestion from '../../suggestions/suggestion_item';
 
 class PlanItem extends React.Component {
     constructor(props) {
@@ -39,17 +41,17 @@ class PlanItem extends React.Component {
     }
 
     // componentWillReceiveProps(nextProps) {
-    //     // if (nextProps.planSuggs !== this.props.planSuggs) {
-    //     //     this.props.fetchPlan(this.props.match.params.planId)
+    // //     // if (nextProps.planSuggs !== this.props.planSuggs) {
+    // //     //     this.props.fetchPlan(this.props.match.params.planId)
     //     this.props.fetchPlanSuggs(this.props.match.params.planId)
-    //     // }
+    // //     // }
     // }
 
     componentDidMount() {
         debugger
         this.props.fetchPlan(this.props.match.params.planId)
             .then(plan => this.props.fetchPlanSuggs(plan.plan.data._id))
-
+            // .then(plans => {debugger})
         // if (!this.props.currentUser) {
         //     this.props.openModal('Sign In')
         // } else {
@@ -108,6 +110,33 @@ class PlanItem extends React.Component {
                     <h5 key={`user-${i}`} className='member-name'>{user.firstName} {user.lastName}</h5>
             ))
         }
+
+        const suggs = this.props.planSuggs.map((sugg, i) => (
+            <div key={`sugg-item-${i}`} className='each-sugg-cont'>
+                <div className='sugg-left'>
+                    <p className='sugg-title'>{sugg.title}</p>
+                    <p className='sugg-desc'>{sugg.description}</p>
+                    <p className='sugg-budget'>{sugg.budget}</p>
+                    <p className='sugg-author'>{sugg.user}</p>
+                </div>
+                <Suggestion sugg={sugg}
+                    createComment={this.props.createComment}
+                    currentUser={this.props.currentUser}
+                    openModal={this.props.openModal}
+                    fetchPlan={this.props.fetchPlan}
+                    fetchSugg={this.props.fetchSugg}/>
+                {/* <div className='sugg-right'>
+                <Upvote sugg={sugg}
+                    currentUser={this.props.currentUser}
+                    upvote={this.props.upvote}
+                    upvoteRemove={this.props.upvoteRemove}
+                    downvote={this.props.downvote}
+                    downvoteRemove={this.props.downvoteRemove}
+                    />
+                </div> */}
+
+            </div>
+        ))
 
         const dateRange = {
             startDate: this.state.startDate,
@@ -188,7 +217,8 @@ class PlanItem extends React.Component {
                                 />
                             </div>
                             <div className='all-suggs'>
-                                <PlanSuggestions suggs={this.props.planSuggs}
+                                {suggs}
+                                {/* <PlanSuggestions suggs={this.props.planSuggs}
                                     planId={this.props.planId}
                                     currentUser={this.props.currentUser}
                                     upvote={this.props.upvote}
@@ -198,7 +228,8 @@ class PlanItem extends React.Component {
                                     createComment={this.props.createComment}
                                     openModal={this.props.openModal}
                                     fetchSugg={this.props.fetchSugg}
-                                />
+                                /> */}
+                            
                             </div>
                         </div>
                     </div>

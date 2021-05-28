@@ -11,11 +11,12 @@ const mapSTP = (state) => {
     let all = state.suggs.all;
     let newSug = state.suggs.new;
     let suggs = all.concat(newSug)
-    
+    debugger
     return ({
         plan: state.plans.new,
         currentUser: state.session.user,
-        planSuggs: suggs
+        planSuggs: suggs,
+        // comment: state.sugg.comments
     })
 };
 

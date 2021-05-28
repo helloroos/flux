@@ -52,11 +52,12 @@ router.get('/user/:user_id', (req, res) => {
 router.get('/plan/:plan_id',
     (req, res) =>  {
     Suggestion.find({plan: req.params.plan_id})
-        .then(sugg => res.json(sugg))
-        .catch(err =>
-            res.status(404).json({ noplansfound: 'No suggestions can be found for this user' }
-        )
-    );
+    .populate({path: 'comments', model: 'Comment', populate: {
+        path: "author", model: "User"
+    }})
+    .exec((error, plan) => {
+        res.json(plan)
+    })
 });
 
 router.get('/:id', (req, res) => {

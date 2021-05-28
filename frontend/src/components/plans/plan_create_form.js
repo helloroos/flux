@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 import { DateRange } from 'react-date-range';
 import '../css/create_plan.scss'
 import '../css/date-range.scss'
-import {formatDistance, format} from 'date-fns';
+import {formatDistance, format, formatDistanceStrict, addDays} from 'date-fns';
 
 
 class PlanCreateForm extends React.Component {
@@ -84,25 +84,32 @@ class PlanCreateForm extends React.Component {
                 </button>
             )
         }
+
+        let tripLength;
+        if ((this.state.endDate - this.state.startDate) > 0) {
+            tripLength = (
+                <p>{formatDistanceStrict(this.state.startDate, addDays(this.state.endDate, 1))}</p>
+            )
+        }
        
         return (
             <div className='body-2'>
-                <h2>Create a plan...</h2>
+                {/* <h2>Create a plan...</h2> */}
             <div className='main-cont'>
                 <form className='form-cont'>
                     <input type='text'
                         className='form-inputs'
                         value={this.state.title}
                         onChange={this.update('title')}
-                        placeholder='Name'
+                        placeholder='First name this plan'
                         />
                     <textarea
                         className='form-inputs'
                         value={this.state.description}
                         onChange={this.update('description')}
-                        placeholder='tell us about the plan...'
+                        placeholder='then tell us a little about it'
                         />
-                    <p>Select a broad date range:</p>
+                    <p>Roughly when are you thinking?</p>
                 {/* {this.state.created ? this.refreshPage() : null } */}
                     <div className='calendar-cont'>
                         <DateRange
@@ -117,9 +124,11 @@ class PlanCreateForm extends React.Component {
                         />
 
                     </div>
-                    <p>{format(this.state.startDate, "MMM d Y")} - {format(this.state.endDate, "MMM d Y")}</p>
-                    <p>Length of trip: {formatDistance(this.state.startDate, this.state.endDate)}</p>
-                
+                    {/* <p>{format(this.state.startDate, "MMM d Y")} - {format(this.state.endDate, "MMM d Y")}</p> */}
+                    {/* <p>Length of trip: {formatDistance(this.state.startDate, this.state.endDate)}</p> */}
+                    <p>
+                        {tripLength}
+                    </p>
                 { createForm }
                 </form>
             </div>

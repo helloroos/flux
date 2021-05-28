@@ -22,7 +22,7 @@ router.post('/suggestion/:id/create',
                     if (suggestion) {
                         suggestion.comments.push(newComment);
                         suggestion.save()
-                        .then(() => res.json({comment: newComment, author: req.user}));
+                        .then(() => res.json({comment: newComment, author: { firstName: req.user.firstName, lastName: req.user.lastName}}));
                     }
                 })
             })

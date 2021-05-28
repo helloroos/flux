@@ -8,6 +8,10 @@ div.header-cont {
   div.left-head {
     margin: 0;
 
+    .logo-link{
+      text-decoration: none;
+    }
+
     h1.logo {
       font-family: 'Anton', sans-serif;
       margin: 10px;

@@ -6,9 +6,10 @@ import { logout } from "../../actions/session_actions";
 
 // const { openModal, hideModal } = require('../../actions/modal_actions')
 
-const mapSTP = (state) => {
+const mapSTP = (state, ownProps) => {
   return ({
     currentUser: state.session.user, 
+    route: ownProps.location
   })
 };
 

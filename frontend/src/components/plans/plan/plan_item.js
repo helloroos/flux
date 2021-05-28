@@ -20,9 +20,9 @@ class PlanItem extends React.Component {
         // this.refreshPage = this.refreshPage.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
+    // componentWillReceiveProps(nextProps) {
       
-    }
+    // }
 
     // refreshPage() {
         

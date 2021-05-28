@@ -115,15 +115,12 @@ class PlanCreateForm extends React.Component {
                             showMonthAndYearPickers={false}
                         />
 
-                        
-
                     </div>
+                    <p>{format(this.state.startDate, "MMM d Y")} - {format(this.state.endDate, "MMM d Y")}</p>
+                    <p>Length of trip: {formatDistance(this.state.startDate, this.state.endDate)}</p>
+                
                 { createForm }
                 </form>
-                <div>
-                            <p> Start Date: {format(this.state.startDate, "MMM d Y")} End Date: {format(this.state.endDate, "MMM d Y")}</p>
-                            <p> Length of trip: {formatDistance(this.state.startDate, this.state.endDate)}</p>
-                        </div>
             </div>
             </div>
         )

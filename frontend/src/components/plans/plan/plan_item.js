@@ -111,17 +111,17 @@ class PlanItem extends React.Component {
         debugger
         return (
             <div className='body-4'>
-                    <h2 className='plan-title'>{this.props.plan.title}</h2>
+            <div className='total-main'>
+                    <div className='left-side'>
                         <div className='info-cont'>
+                            <p className='plan-title'>{this.props.plan.title}</p>
                             <p className='main-desc'>{this.props.plan.description}</p>
                             {this.state.loggedIn ? this.refreshPage() : null}
                             <NavLink to={`/${this.props.plan._id}/edit`}>
                                 <button className='buttons button-edit'>Edit Plan</button>
                             </NavLink>
                         </div>
-            <div className='total-main'>
-                    <div className='left-side'>
-
+            <div className='bottom-left'>
                     <div className='calendar-cont'>
                         <DateRange
                             ranges={[dateRange]}
@@ -138,6 +138,7 @@ class PlanItem extends React.Component {
                         <div className='right-left'>
                         <div className='members-cont'>
                             <div className='member-list-scroll'>
+                                <p className='invited-title'>Invited members</p>
                                 { members }
                             </div>
                         </div>
@@ -148,12 +149,15 @@ class PlanItem extends React.Component {
                                 <p className='invite-ppl'>Invite people</p>
                                 {joinButton}
                                 </div>
-                                <input onChange={this.update('email')}
-                                        placeholder='Email'
+                                <input 
+                                    className='email-input'
+                                    onChange={this.update('email')}
+                                    placeholder='Email'
                                 />
                                  <i onClick={this.handleClick} className="add-icon icons fas fa-plus-circle"></i>
 
                             </form>
+                        </div>
                         </div>
                         </div>
 

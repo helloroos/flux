@@ -27,7 +27,7 @@ class Suggestion extends React.Component {
     render() {
         if (!this.props.sugg) return null;
         // const sugg = this.props
-        debugger
+        
         return (
             <div>
                 <div className='sugg-item-cont'>

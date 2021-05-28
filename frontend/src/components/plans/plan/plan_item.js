@@ -99,7 +99,7 @@ class PlanItem extends React.Component {
             ))
         }
         if (!this.props.planSuggs) return null;
-        debugger
+        
         return (
             <div className='body-4'>
                     <p className='plan-title'>{this.props.plan.title}</p>

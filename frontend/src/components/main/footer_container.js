@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
 import Footer from './footer';
 
-const mapSTP = (state) => {
+const mapSTP = (state, ownProps) => {
     return ({
         currentUser: state.session.user,
+        route: ownProps.location
     })
 };
 

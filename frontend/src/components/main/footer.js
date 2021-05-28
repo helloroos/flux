@@ -36,7 +36,7 @@ class Footer extends React.Component {
   render() {
     let { currentUser } = this.props;
     let footerObjects;
-    console.log(currentUser);
+
     if (currentUser) {
       footerObjects = (
         <div className='footer-cont'>
@@ -50,9 +50,11 @@ class Footer extends React.Component {
           </div>
         </div>
       )
-    } else {
-      footerObjects = (
-        <div className='footer-cont'>
+      // } else if ( path ) {
+        
+      } else {
+        footerObjects = (
+          <div className='footer-cont'>
           <p className='foot-desc'>
             Traveling with friends or family can be amazing. What’s not so fun?
             Figuring out the travel logistics. Whether you’re planning a weekend
@@ -69,6 +71,7 @@ class Footer extends React.Component {
         </div>
       )
     }
+
     return (
       <footer>
         {footerObjects}

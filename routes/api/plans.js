@@ -109,60 +109,6 @@ router.patch('/:id/removemember',
 
 router.patch('/:id', (req, res) => {
 
-        // const title = req.body.title;
-        // const description = req.body.description;
-        // const startDate = req.body.startDate;
-        // const endDate = req.body.endDate;
-        // const planId = { _id: req.params.id };
-
-        // console.log(req.body);
-
-        // let update = { 
-        //     title: title,
-        //     description: description,
-        //     startDate: startDate,
-        //     endDate: endDate
-        // }
-        
-        // if (!title) {
-        //     update = {
-        //         description: description,
-        //         startDate: startDate,
-        //         endDate: endDate
-        //     }
-        // } else if (!description) {
-        //     update = {
-        //         title: title,
-        //         startDate: startDate,
-        //         endDate: endDate
-        //     }
-        // } else if (!description && !title) {
-        //     update = {
-        //         startDate: startDate,
-        //         endDate: endDate
-        //     }
-        // } else if (!startDate && !title) {
-        //     update = {
-        //         description: description
-        //     }
-        // } else if (!description && !startDate) {
-        //     update = {
-        //         title: title,
-        //     }
-        // } else if (!startDate) {
-        //     update = {
-        //         title: title,
-        //         description: description,
-        //     }
-        // } 
-        
-        // Plan.findOneAndUpdate(
-        //     planId, update, { new: true })
-        //         .then(plan => res.json(plan))
-        //         .catch(err =>
-        //             res.status(404).json({ noplanfound: 'No plan found with that id, please try again' })
-        //         );
-
     const planId = { _id: req.params.id };
     Plan.update(
         { _id: planId },

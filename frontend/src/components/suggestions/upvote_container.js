@@ -5,6 +5,7 @@ import Upvote from './upvote';
 import React from 'react';
 
 const mapSTP = (state, ownProps) => {
+    debugger
     return ({
         suggs: state.main.suggs,
         planId: ownProps.match.params.planId,

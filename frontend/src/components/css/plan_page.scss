@@ -310,7 +310,7 @@
   height: 32px;
   padding: 7px;
   justify-self: center;
-  margin-left: 110px;
+  // margin-left: 110px;
 }
 
 
@@ -393,4 +393,16 @@ color: white;
 
     .button-join {
       width: fit-content;
+    }
+
+    .vote-count {
+      color: rgb(166, 208, 242);
+      margin: 0;
+      width: fit-content;
+      margin-top: 25px;
+    }
+
+    .voting-cont {
+      display: flex;
+      flex-direction: row;
     }

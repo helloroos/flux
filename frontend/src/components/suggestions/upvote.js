@@ -94,7 +94,7 @@ class Upvote extends React.Component {
         return (
             <>
                 <i onClick={this.handleUpvote} value='up' className="button-updown fas fa-arrow-alt-circle-up fa-2x"></i>
-                {this.state.numDiff}
+                <h5 className='vote-count'>{this.state.numDiff}</h5>
                 <i onClick={this.handleDownvote} value='down' className="button-updown fas fa-arrow-alt-circle-down fa-2x"></i>
             </>
         )

@@ -2,7 +2,6 @@ import React from 'react';
 import '../css/plan_sugg.scss'
 import SuggestionContainer from './suggestion_container';
 import Suggestion from './suggestion_item';
-import UpvoteContainer from './upvote_container'
 
 
 
@@ -25,7 +24,6 @@ class PlanSuggestions extends React.Component {
                     // currentUser={this.props.currentUser}
                     // openModal={this.props.openModal}
                     // fetchPlan={this.props.fetchPlan} */}
-                <div><UpvoteContainer sugg={sugg._id}/></div>
             </div>
         )})
         

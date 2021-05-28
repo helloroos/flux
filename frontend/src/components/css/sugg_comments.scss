@@ -7,6 +7,12 @@
 
 }
 
+.create-comment-cont{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .comment-author {
   color: white;
   text-align: right;
@@ -68,5 +74,6 @@
     .comment-submit-button:hover {
       background-color: rgb(166, 208, 242);
     }
+
 
   

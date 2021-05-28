@@ -84,12 +84,12 @@ class EditPlan extends React.Component {
 
                     <textarea
                         className='form-inputs'
-                            value={this.state.description}
+                        value={this.state.description}
                         onChange={this.update('description')}
                         />
                     <p>Edit the date range:</p>
                     <div className='calendar-cont'>
-        //             <DateRange
+                    <DateRange
                             ranges={[dateRange]}
                             onChange={this.updateDates}
                             editableDateInputs={true}
@@ -101,8 +101,8 @@ class EditPlan extends React.Component {
                         />
                 </div>
                 <button className='buttons' onClick={this.handleEdit}>
-//                      Submit
-//              </button>
+                    Submit
+                 </button>
 
                     </form>
                 </div>

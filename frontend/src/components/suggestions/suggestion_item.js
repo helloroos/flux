@@ -3,6 +3,8 @@ import Upvote from './upvote';
 import SuggCommentsContainer from './comments_index_container';
 import CreateCommentContainer from './comment_container';
 import { withRouter } from 'react-router';
+import UpvoteContainer from './upvote_container'
+
 
 class Suggestion extends React.Component {
     constructor(props) {
@@ -43,6 +45,7 @@ class Suggestion extends React.Component {
                     <button className='button-comments' onClick={this.toggleComments}>
                         Comments
                     </button>
+                        <div className='voting-cont'><UpvoteContainer sugg={this.props.sugg._id} /></div>
                         {this.state.commentsVisible ? (
                             <>
                             <CreateCommentContainer sugg={sugg} />

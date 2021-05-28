@@ -36,11 +36,11 @@ class Footer extends React.Component {
 
   render() {
     let { currentUser } = this.props;
-    const path = this.props.route;
+    let { path } = this.props;
     let footerObjects;
 
-    // if (!currentUser && path == "/") {
-    if (!currentUser) {
+    if (!currentUser && path == "/") {
+    // if (!currentUser) {
       footerObjects = (
         <div className='footer-cont'>
           <p className='foot-desc'>

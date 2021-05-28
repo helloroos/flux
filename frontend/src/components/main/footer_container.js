@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
+import { withRouter } from 'react-router';
 import Footer from './footer';
 
 const mapSTP = (state, ownProps) => {
     return ({
         currentUser: state.session.user,
-        route: ownProps.location
+        path: ownProps.location.pathname
     })
 };
 
-export default connect(mapSTP)(Footer);
+export default withRouter(connect(mapSTP)(Footer));

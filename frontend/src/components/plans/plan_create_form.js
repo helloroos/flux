@@ -125,7 +125,9 @@ class PlanCreateForm extends React.Component {
                     </div>
                     {/* <p>{format(this.state.startDate, "MMM d Y")} - {format(this.state.endDate, "MMM d Y")}</p> */}
                     {/* <p>Length of trip: {formatDistance(this.state.startDate, this.state.endDate)}</p> */}
-                    {tripLength}
+                    <p>
+                        {tripLength}
+                    </p>
                 { createForm }
                 </form>
             </div>

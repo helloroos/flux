@@ -1,8 +1,12 @@
-# Getting Started with Create React App
+# Flux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Flux is a travel planner that solves two common trip challenges; the dates and the destination. Users can initiate a travel plan and invite their friends and family to join. Collaborators can nominate their suggestions and upvote, downvote and comment on others’ suggestions. 
 
-## Available Scripts
+See it live at [Flux](https://state-of-flux.herokuapp.com/).
+
+## Architecture and Technology
+
+<!-- ## Available Scripts
 
 In the project directory, you can run:
 
@@ -67,4 +71,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->

@@ -51,9 +51,9 @@ class EditPlan extends React.Component {
 
         return (
             <div className='body-2'>
-                <h2>Edit your plan...</h2>
+                {/* <h2>Edit your plan...</h2> */}
             <div className='main-cont'>
-                <form className='form-cont'>
+                {/* <form className='form-cont'>
                     <input type='text'
                         className='form-inputs'
                         value={this.state.title}
@@ -80,7 +80,7 @@ class EditPlan extends React.Component {
                     <button className='buttons' onClick={this.handleEdit}>
                         Submit
                     </button>
-            </form>
+            </form> */}
         </div>
         </div>
         )

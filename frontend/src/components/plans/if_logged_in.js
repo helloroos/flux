@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-// import PlantItemContainer from './plan/plan_item_container';
 
 class IfLoggedIn extends React.Component {
     constructor(props) {

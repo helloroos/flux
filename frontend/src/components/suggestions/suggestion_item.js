@@ -44,15 +44,7 @@ class Suggestion extends React.Component {
                         {this.state.commentsVisible ? (
                             <>
                             <CreateCommentContainer sugg={sugg} />
-                                    {/* // createComment={this.props.createComment}
-                                    // currentUser={this.props.currentUser}
-                                    // openModal={this.props.openModal}
-                                    // fetchSugg={this.props.fetchSugg}
-                                    // fetchSuggComments={this.props.fetchSuggComments}/> */}
                             <SuggCommentsContainer sugg={sugg} />
-                                {/* comments={sugg.comments}
-                                fetchSugg={this.props.fetchSugg}
-                                fetchSuggComments={this.props.fetchSuggComments}/> */}
                             </>
                         ) : null }
                         </div>

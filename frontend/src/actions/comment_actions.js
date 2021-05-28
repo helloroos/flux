@@ -27,7 +27,6 @@ export const receiveSugg = sugg => ({
 export const fetchSuggComments = (suggId) => dispatch => (
     APIUtil.showSuggComments(suggId)
         .then(sugg => dispatch(receiveSugg(sugg)))
-        // .catch(err => dispatch(receiveSuggErrors(err)))
 );
 
 export const createComment = (comment, suggId) => dispatch => (

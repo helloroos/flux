@@ -2,14 +2,9 @@ import React from 'react';
 
 class SuggComments extends React.Component {
     
-    // componentDidMount() {
-    //     this.props.fetchSuggComments(this.props.sugg._id)
-    // }
-    
     render() {
 
         const { comments } = this.props.sugg
-        // if (!comments) return null;
         
         let arrComments;
         

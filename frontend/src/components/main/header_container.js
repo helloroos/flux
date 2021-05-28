@@ -3,9 +3,6 @@ import { openModal, hideModal } from "../../actions/modal_actions";
 import Header from './header';
 import { logout } from "../../actions/session_actions";
 
-
-// const { openModal, hideModal } = require('../../actions/modal_actions')
-
 const mapSTP = (state, ownProps) => {
   return ({
     currentUser: state.session.user, 

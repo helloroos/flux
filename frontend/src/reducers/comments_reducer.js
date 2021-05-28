@@ -28,7 +28,6 @@ const commentsReducer = (state = initialState, action) => {
                 action.suggs.data.forEach(suggestion => {
                     newState.comments.push({ [suggestion._id]: suggestion.comments })
                 })
-                // action.suggs.data.comments;
                 
                 return newState;
             default:

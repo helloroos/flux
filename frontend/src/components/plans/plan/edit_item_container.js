@@ -7,7 +7,7 @@ const mapSTP = (state, ownProps) => {
     
     return ({
         planId: ownProps.match.params.planId,
-        plan: state.main.plans.new,
+        plan: state.main.plans,
         currentUser: state.session.user
     })
 };

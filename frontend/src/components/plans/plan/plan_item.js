@@ -1,9 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import CreateSuggContainer from '../../suggestions/create_sugg_container';
 import PlanSuggestions from '../../suggestions/plan_suggs';
 import '../../css/plan_page.scss'
 import CreateSugg from '../../suggestions/create_sugg';
+import { DateRange } from 'react-date-range';
+import '../../css/plan_page.scss'
+import '../../css/date-range.scss'
 
 class PlanItem extends React.Component {
     constructor(props) {
@@ -12,20 +14,19 @@ class PlanItem extends React.Component {
             email: '',
             joined: false,
             errors: {},
-            loggedIn: true
+            loggedIn: true,
+            startDate: new Date(),
+            endDate: new Date()
         }
 
         this.handleClick = this.handleClick.bind(this);
         this.addMember = this.addMember.bind(this);
         // this.refreshPage = this.refreshPage.bind(this);
+        this.updateDates = this.updateDates.bind(this);
     }
 
     // componentWillReceiveProps(nextProps) {
       
-    // }
-
-    // refreshPage() {
-        
     // }
 
     addMember(e) {
@@ -42,6 +43,7 @@ class PlanItem extends React.Component {
     }
 
     componentDidMount() {
+        debugger
         this.props.fetchPlan(this.props.match.params.planId)
             .then(plan => this.props.fetchPlanSuggs(plan.plan.data._id))
 
@@ -56,14 +58,20 @@ class PlanItem extends React.Component {
         return e => this.setState({ [field]: e.target.value })
     }
 
+    updateDates(e) {
+        let { startDate, endDate } = e.selection;
+        this.setState({
+            startDate: startDate,
+            endDate: endDate
+        })
+    }
+
     handleClick(e) {
         e.preventDefault();
         let email = this.state.email;
         this.props.sendInvite(email, this.props.plan._id)
         this.setState({ email: '' })
     }
-
-    // const something = this.state.loggedIn ? this.refreshPage() : null;
 
     render() {
 
@@ -74,12 +82,11 @@ class PlanItem extends React.Component {
         if (this.props.currentUser) {
             if (this.props.plan.members) {
                 mapped = this.props.plan.members
-                    .filter(plan => plan._id === this.props.currentUser.id)
+                    .filter(plan => plan._id === this.props.currentUser._id)
 
                 if (mapped.length > 0) {
                     joinButton = (
-                        // <></>
-                        <p>Joined!</p> 
+                        <p className='joined'>Joined!</p> 
                     )
                 } else {
                     joinButton = (
@@ -98,26 +105,45 @@ class PlanItem extends React.Component {
                     <h5 key={`user-${i}`} className='member-name'>{user.firstName} {user.lastName}</h5>
             ))
         }
+
+        const dateRange = {
+            startDate: this.state.startDate,
+            endDate: this.state.endDate,
+            key: 'selection',
+        }
+
         if (!this.props.planSuggs) return null;
         
         return (
             <div className='body-4'>
-                    <p className='plan-title'>{this.props.plan.title}</p>
-
+            <div className='total-main'>
                     <div className='left-side'>
-
-                        <div className='plan-info-cont'>
-
-                            <p>{this.props.plan.description}</p>
-
+                        <div className='info-cont'>
+                            <p className='plan-title'>{this.props.plan.title}</p>
+                            <p className='main-desc'>{this.props.plan.description}</p>
+                            {this.state.loggedIn ? this.refreshPage() : null}
                             <NavLink to={`/${this.props.plan._id}/edit`}>
-                                Edit Plan
+                                <button className='buttons button-edit'>Edit Plan</button>
                             </NavLink>
                         </div>
+            <div className='bottom-left'>
+                    <div className='calendar-cont'>
+                        <DateRange
+                            ranges={[dateRange]}
+                            onChange={this.updateDates}
+                            editableDateInputs={true}
+                            showSelectionPreview={true}
+                            direction='horizontal'
+                            months={1}
+                            showDateDisplay={false}
+                            showMonthAndYearPickers={false}
+                        />
+                    </div>
 
                         <div className='right-left'>
                         <div className='members-cont'>
                             <div className='member-list-scroll'>
+                                <p className='invited-title'>Invited members</p>
                                 { members }
                             </div>
                         </div>
@@ -128,12 +154,15 @@ class PlanItem extends React.Component {
                                 <p className='invite-ppl'>Invite people</p>
                                 {joinButton}
                                 </div>
-                                <input onChange={this.update('email')}
-                                        placeholder='Email *'
+                                <input 
+                                    className='email-input'
+                                    onChange={this.update('email')}
+                                    placeholder='Email'
                                 />
-                                 <i onClick={this.handleClick} className="icons fas fa-plus-circle"></i>
+                                 <i onClick={this.handleClick} className="add-icon icons fas fa-plus-circle"></i>
 
                             </form>
+                        </div>
                         </div>
                         </div>
 
@@ -170,7 +199,7 @@ class PlanItem extends React.Component {
                             </div>
                         </div>
                     </div>
-
+                </div>
             </div>
         )
     }

@@ -1,5 +1,8 @@
 import React from 'react';
-import PlanSuggestions from './plan_suggs';
+// import PlanSuggestions from './plan_suggs';
+// import PlanSuggestionsContainer from './plan_suggs_container';
+import '../css/plan_sugg.scss'
+import '../css/create_sugg.scss'
 
 class CreateSugg extends React.Component {
     constructor(props) {
@@ -70,17 +73,16 @@ class CreateSugg extends React.Component {
             )
         } else {
             createButton = (
-                <button value='Post'
-                    className='sugg-buttons'
+                <button className='buttons-add-sugg' value='Post'
                     onClick={this.handleClick}>
-                    Post a suggestion
+                    Add suggestion
                 </button>
             )
         }
 
         return (
             <div className='sugg-cont'>
-                 <form>
+                 <form className='sugg-form-create'>
                     <input type='text'
                         className='sugg-input'
                         value={this.state.title}

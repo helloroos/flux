@@ -3,6 +3,7 @@ import { withRouter } from 'react-router';
 import { DateRange } from 'react-date-range';
 import '../css/create_plan.scss'
 import '../css/date-range.scss'
+import {formatDistance, format} from 'date-fns';
 
 
 class PlanCreateForm extends React.Component {
@@ -114,7 +115,11 @@ class PlanCreateForm extends React.Component {
                             showDateDisplay={false}
                             showMonthAndYearPickers={false}
                         />
+
                     </div>
+                    <p>{format(this.state.startDate, "MMM d Y")} - {format(this.state.endDate, "MMM d Y")}</p>
+                    <p>Length of trip: {formatDistance(this.state.startDate, this.state.endDate)}</p>
+                
                 { createForm }
                 </form>
             </div>

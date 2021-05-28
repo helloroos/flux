@@ -1,0 +1,36 @@
+.about-background {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -2;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../../assets/background5.jpg');
+}
+
+.header-about {
+  color: white;
+  width: 60%;
+  font-size: 30px;
+  text-align: center;
+}
+
+.header-about2 {
+  color: white;
+  width: 60%;
+  font-size: 24px;
+  text-align: center;
+}
+
+.about-desc {
+  color: white;
+  width: 60%;
+  // font-size: 18px;
+
+}

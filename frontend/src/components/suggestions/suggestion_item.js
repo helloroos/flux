@@ -29,33 +29,40 @@ class Suggestion extends React.Component {
         // const sugg = this.props
         
         return (
-            <div>
-                <div className='sugg-item-cont'>
-                    <h2>{this.props.sugg._id}</h2>
-                    <p>{this.props.sugg.description}</p>
-                    <h4>{this.props.sugg.budget}</h4>
-                    <div>{this.props.sugg.user}</div>
+            <div className='each-sugg-cont'>
+                <div className='sugg-left'>
+                    <p className='sugg-title'>{sugg.title}</p>
+                    <p className='sugg-desc'>{sugg.description}</p>
+                    <p className='sugg-budget'>{sugg.budget}</p>
+                    <p className='sugg-author'>{sugg.user}</p>
+                    <button className='button-comments' onClick={this.toggleComments}>
+                        Open comments
+                    </button>
+                    <div className='create-comment-cont'>
+                        {this.state.commentsVisible ? (
+                            <>
+                        <CreateComment suggId={sugg._id}
+                                createComment={this.props.createComment}
+                                currentUser={this.props.currentUser}
+                                openModal={this.props.openModal}
+                                fetchSugg={this.props.fetchSugg}/>
+                            <SuggComments sugg={sugg}
+                            comments={sugg.comments}
+                            fetchSugg={this.props.fetchSugg}/>
+                            </>
+                            ) : null }
+                    </div>
                 </div>
-                <Upvote sugg={this.props.sugg}
-                    currentUser={this.props.currentUser}
-                    upvote={this.props.upvote}
-                    upvoteRemove={this.props.upvoteRemove}
-                    downvote={this.props.downvote}
-                    downvoteRemove={this.props.downvoteRemove}
-                    />
-                <CreateComment suggId={this.props.sugg._id}
-                        createComment={this.props.createComment}
+
+                <div className='sugg-right'>
+                    <Upvote sugg={sugg}
                         currentUser={this.props.currentUser}
-                        openModal={this.props.openModal}
-                        fetchSugg={this.props.fetchSugg}/>
-                <div onClick={this.toggleComments}>
-                    Open comments
+                        upvote={this.props.upvote}
+                        upvoteRemove={this.props.upvoteRemove}
+                        downvote={this.props.downvote}
+                        downvoteRemove={this.props.downvoteRemove}
+                        />
                 </div>
-                {this.state.commentsVisible ? (
-                    <SuggComments sugg={this.props.sugg}
-                        comments={this.props.sugg.comments}
-                        fetchSugg={this.props.fetchSugg}/>
-                ) : null }
             </div>
         )
     }

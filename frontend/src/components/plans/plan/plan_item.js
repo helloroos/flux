@@ -40,6 +40,11 @@ class PlanItem extends React.Component {
 
     componentDidMount() {
         this.props.fetchPlan(this.props.match.params.planId)
+            .then(plan => 
+                this.setState({
+                    startDate: plan.plan.data.startDate,
+                    endDate: plan.plan.data.endDate
+            }))
     }
 
     update(field) {
@@ -124,7 +129,7 @@ class PlanItem extends React.Component {
                         <DateRange
                             ranges={[dateRange]}
                             onChange={this.updateDates}
-                            editableDateInputs={true}
+                            editableDateInputs={false}
                             showSelectionPreview={true}
                             direction='horizontal'
                             months={1}

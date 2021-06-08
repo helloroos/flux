@@ -36,12 +36,14 @@ class EditPlan extends React.Component {
 
     handleEdit(e) {
         e.preventDefault();
+        debugger
         this.props.editPlan(this.state, this.props.planId)
         this.props.history.push(`/${this.props.planId}`)
     }
 
     updateDates(e) {
         let { startDate, endDate } = e.selection;
+        debugger
         this.setState({
             startDate: startDate,
             endDate: endDate
@@ -59,8 +61,8 @@ class EditPlan extends React.Component {
       
         if (this.props.plan.plan.startDate){
             dateRange = {
-                startDate: new Date(this.props.plan.plan.startDate.toString().slice(0,10)) ,
-                endDate: new Date(this.props.plan.plan.endDate.toString().slice(0,10)),
+                startDate: new Date(this.state.startDate.toString()),
+                endDate: new Date(this.state.endDate.toString()),
                 key: 'selection',
             }
         }

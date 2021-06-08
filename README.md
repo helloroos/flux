@@ -1,6 +1,6 @@
 # Flux
 
-Flux is a travel planner that solves two common trip challenges; the dates and the destination. Users can initiate a travel plan and invite their friends and family to join. Collaborators can nominate their suggestions and upvote, downvote and comment on others’ suggestions. 
+Flux is a travel planner that solves two common trip challenges; the dates and the destination. Users can initiate a travel plan and invite participants to join. Collaborators can nominate suggestions and upvote, downvote and comment on others’ suggestions. 
 
 Demo Flux [here](https://state-of-flux.herokuapp.com/).
 
@@ -10,23 +10,19 @@ Flux is built using the MERN stack which consists of MongoDB Atlas as a NoSQL da
 
 ## Available Scripts
 
-In the project directory, you can install by running:
+In the project directory, you can install dependencies by running:
 
 ```sh
 npm install
 ```
 
-Start the server:
+Start the server by running:
 
 ```sh
 npm run dev
 ```
 
-Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
 ## Authors
 

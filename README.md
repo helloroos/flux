@@ -25,7 +25,21 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Authors
+* Evan Leon - Backend Lead 
+ * [AngelList]
+ * [GitHub]
+ * [Website]
+* Jessica Uphoff - Flex & Design Lead
+ * [AngelList]
+ * [GitHub]
+ * [Website]
+* Michelle Roos - Team Lead
+ * AngelList - WIP
+ * [GitHub](https://github.com/helloroos)
+ * Website - WIP
+* Syldys Khomushku Frontend Lead
+ * [AngelList]
+ * [GitHub]
+ * [Website]
 
-Michelle Roos - Team Lead | Evan Leon - Backend Lead 
-:-----:|:-----:
-Jessica Uphoff - Flex & Design Lead | Syldys Khomushku Frontend Lead
+ ![ae](https://github.com/helloroos/flux/main/team_phot.png?raw=true)

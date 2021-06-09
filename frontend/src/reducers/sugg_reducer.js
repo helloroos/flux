@@ -7,6 +7,7 @@ const suggReducer = (state = [], action) => {
 
     switch (action.type) {
         case RECEIVE_PLAN_SUGGS:
+            
             return action.suggs.data;
         case RECEIVE_SUGG:
             newState.push(action.sugg.data.newSuggestion);

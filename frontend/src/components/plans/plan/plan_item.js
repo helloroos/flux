@@ -119,7 +119,6 @@ class PlanItem extends React.Component {
                         <div className='info-cont'>
                             <p className='plan-title'>{this.props.plan.title}</p>
                             <p className='main-desc'>{this.props.plan.description}</p>
-                            {/* {this.state.loggedIn ? this.refreshPage() : null} */}
                             <NavLink to={`/${this.props.plan._id}/edit`}>
                                 <button className='buttons button-edit'>Edit Plan</button>
                             </NavLink>

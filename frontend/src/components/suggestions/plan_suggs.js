@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/plan_sugg.scss'
-import SuggestionContainer from './suggestion_container';
 import Suggestion from './suggestion_item';
 
 
@@ -12,18 +11,14 @@ class PlanSuggestions extends React.Component {
     }
     
     render() {
-        
-        
-        let mapped = this.props.suggs.map((sugg, i) => {
-            
+        let { suggs } = this.props;
+
+        let mapped = suggs.map((sugg, i) => {
+            debugger
             return (
             <div key={`sugg-item-${i}`}>
                 <Suggestion key={`sugg-${i}`}
                     sugg={sugg} />
-                    {/* // createComment={this.props.createComment}
-                    // currentUser={this.props.currentUser}
-                    // openModal={this.props.openModal}
-                    // fetchPlan={this.props.fetchPlan} */}
             </div>
         )})
         

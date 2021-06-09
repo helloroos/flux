@@ -6,7 +6,7 @@ Demo Flux [here](https://state-of-flux.herokuapp.com/).
 
 ## Architecture and Technology
 
-Flux is built using the MERN stack which consists of MongoDB Atlas as a NoSQL database, Express.js as a framework for Node.js, and React/Redux for state management. A Gmail API is used to interact with users' Gmail inboxes. 
+Flux is built using the MERN stack which consists of MongoDB Atlas as a NoSQL database, Express.js as a framework for Node.js, and React/Redux for state management. Mongoose is used as an Object Data Modeling (ODM) Library for MongoDb and Node.js. A Gmail API is used to interact with users' Gmail inboxes. Flux is styled using SCSS. 
 
 ## Available Scripts
 
@@ -26,20 +26,20 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Authors
 * Evan Leon - Backend Lead 
- * [AngelList]
- * [GitHub]
- * [Website]
+    * [AngelList]
+    * [GitHub]
+    * [Website]
 * Jessica Uphoff - Flex & Design Lead
- * [AngelList]
- * [GitHub]
- * [Website]
+    * [AngelList]
+    * [GitHub]
+    * [Website]
 * Michelle Roos - Team Lead
- * AngelList - WIP
- * [GitHub](https://github.com/helloroos)
- * Website - WIP
+    * AngelList - WIP
+    * [GitHub](https://github.com/helloroos)
+    * Website - WIP
 * Syldys Khomushku Frontend Lead
- * [AngelList]
- * [GitHub]
- * [Website]
+    * [AngelList]
+    * [GitHub]
+    * [Website]
 
  ![ae](https://github.com/helloroos/flux/main/team_photo.png?raw=true)

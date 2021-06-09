@@ -28,7 +28,10 @@ export const receiveSessionErrors = (errors) => ({
 export const signup = user => dispatch => (
     APIUtil.signup(user)
         .then(user => dispatch(receiveUserSignIn(user.data))) 
-        .catch(err => dispatch(receiveSessionErrors(err.response.data)))
+        .catch(err => {
+            debugger
+            dispatch(receiveSessionErrors(err.response.data))
+        })
 );
 
 export const login = user => dispatch => (

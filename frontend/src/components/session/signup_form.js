@@ -12,7 +12,7 @@ class SignupForm extends React.Component {
             password2: '',
             errors: []
         }
-        debugger
+        
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleErrors = this.handleErrors.bind(this);
     }
@@ -27,14 +27,19 @@ class SignupForm extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
+        debugger
         if (prevProps.signedIn !== this.props.signedIn) {
-          this.props.login({email: this.state.email, password: this.state.password}).then(
-            this.props.hideModal()
-          )
+            let user = {
+                email: this.state.email,
+                password: this.state.password
+            }
+            this.props.login(user)
+                .then(() => this.props.hideModal())
         }
     
         if (prevProps.errors !== this.props.errors) {
-          this.setState({ errors: this.props.errors });
+            debugger
+            this.setState({ errors: this.props.errors });
         }
       }
 
@@ -69,7 +74,7 @@ class SignupForm extends React.Component {
                         type='text'
                         placeholder='First Name'
                 />
-                {this.state.errored ? (
+                {this.state.errors ? (
                         <div className='errors'>{this.handleErrors('First')}</div>
                         ) : null
                     }
@@ -78,7 +83,7 @@ class SignupForm extends React.Component {
                         type='text'
                         placeholder='Last Name'
                 />
-                {this.state.errored ? (
+                {this.state.errors ? (
                         <div className='errors'>{this.handleErrors('Last')}</div>
                         ) : null
                     }
@@ -87,11 +92,11 @@ class SignupForm extends React.Component {
                         type='text'
                         placeholder='Email'
                 />
-                {this.state.errored ? (
+                {this.state.errors ? (
                         <div className='errors'>{this.handleErrors('Email')}</div>
                         ) : null
                     }
-                {this.state.errored ? (
+                {this.state.errors ? (
                         <div className='errors'>{this.handleErrors('A')}</div>
                         ) : null
                     }
@@ -100,7 +105,7 @@ class SignupForm extends React.Component {
                         type='password'
                         placeholder='Enter a password'
                 />
-                {this.state.errored ? (
+                {this.state.errors ? (
                         <div className='errors' >{this.handleErrors('Password')}</div>
                         ) : null
                     }
@@ -109,11 +114,11 @@ class SignupForm extends React.Component {
                         type='password'
                         placeholder='Re-enter a password'
                 />
-                {this.state.errored ? (
+                {this.state.errors ? (
                         <div className='errors' >{this.handleErrors('Confirm')}</div>
                         ) : null
                     }
-                {this.state.errored ? (
+                {this.state.errors ? (
                         <div className='errors'>{this.handleErrors('Passwords')}</div>
                         ) : null
                     }

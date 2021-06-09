@@ -2,7 +2,6 @@ import React from 'react';
 import Upvote from './upvote';
 import SuggCommentsContainer from './comments_index_container';
 import CreateCommentContainer from './comment_container';
-import { withRouter } from 'react-router';
 import UpvoteContainer from './upvote_container'
 
 
@@ -16,10 +15,6 @@ class Suggestion extends React.Component {
 
         this.toggleComments = this.toggleComments.bind(this)
     }
-
-    // componentDidUpdate() {
-    //     this.props.fetchSugg(this.props.sugg._id)
-    // }
 
     toggleComments(e) {
         e.preventDefault();

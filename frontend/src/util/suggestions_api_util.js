@@ -41,6 +41,7 @@ export const upvote = (suggId) => {
 };
 
 export const upvoteRemove = (suggId) => {
+    debugger
     return axios.patch(`/api/suggestions/${suggId}/removeupvote`)
 };
 
@@ -49,5 +50,6 @@ export const downvote = (suggId) => {
 };
 
 export const downvoteRemove = (suggId) => {
+    debugger
     return axios.patch(`/api/suggestions/${suggId}/removedownvote`)
 };

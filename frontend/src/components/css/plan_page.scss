@@ -1,6 +1,6 @@
 .body-4 {
   position: absolute;
-  display: flex;
+  display: grid;
   flex-direction: row;
   top: 0;
   bottom: 0;
@@ -9,15 +9,15 @@
   z-index: -2;
   background-image: url('../../assets/background4.jpg');
   background-size: cover;
-  display: flex;
-  flex-direction: row;
+
   align-items: center;
   justify-content: center;
 
   .total-main {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    
   }
 
   .bottom-left {
@@ -25,6 +25,11 @@
     flex-direction: row;
     margin-bottom: 0;
     justify-items: flex-end;
+
+    grid-column-start: 2; 
+    grid-row-start: 2;
+
+    
     // align-content: flex-end;
   }
   .page-stretch {
@@ -52,6 +57,12 @@
     border: 7px solid rgb(255, 255, 255, 0.5);
     background-color: rgb(255, 255, 255, 0.3);
     border-radius: 15px;
+      // grid-column: 
+      // grid-row: 
+
+    grid-column-start: 2;
+    grid-row-start: 1;
+
   }
 
   .button-edit {
@@ -112,6 +123,10 @@
   .plan-sugg-cont {
     display: flex;
     flex-direction: column;
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    // justify-self: ;
   }
 
   .form-inputs {
@@ -207,44 +222,7 @@
     
   }
   
-  .radio-cont {
-    width: fit-content;
-    // background-color: rgb(166, 208, 242);
-    padding: 10px;
-    border-radius: 40px;
-    font-size: 18px;
-    padding-left: 17px;
-    // margin-top: 5px;
-
-    label {
-      color: white;
-      margin: 8px;
-      justify-content: center;
-    }
-
-    .radio-cont:first-child {
-      margin-left: 6px;
-    }
-
-    label:hover {
-      color: rgb(177, 222, 238);
-    }
-    
-    input {
-      margin-left: 10px;
-      color: white;
-    }
-
-    input:checked label {
-      color: rgb(0, 97, 176);
-    }
-
-    
-    input[type="radio"] {
-      opacity: 0;
-      width: 0;
-    }
-  }
+  
   
 }
 
@@ -271,6 +249,7 @@
   height: 315px;
   margin-top: 20px;
   border-radius: 15px;
+  grid-column-start: col-start 4;
 }
 
 .add-icon {
@@ -321,22 +300,22 @@
 }
 
 .buttons-add-sugg {
-background-color: white;
-border-radius: 15px;
-font-family: sans-serif;
-color: rgb(0, 97, 176);
-width: 150px;
-border: none;
-margin-top: 12px;
-margin-bottom: 15px;
-height: 32px;
-padding: 7px;
-
+  background-color: white;
+  border-radius: 15px;
+  font-family: sans-serif;
+  color: rgb(0, 97, 176);
+  width: 150px;
+  border: none;
+  margin-top: 12px;
+  margin-bottom: 15px;
+  height: 32px;
+  padding: 7px;
+  
 }
 
 .buttons-add-sugg:hover {
-background-color: rgb(235, 206, 110);
-color: white;
+  background-color: rgb(150, 221, 194);
+  color: white;
 }
 
 .invited-title {
@@ -354,43 +333,43 @@ color: white;
 }
 
 .email-input {
-      // margin: 8px;
-      width: 155px;
-      height: 15px;
-      border-radius: 5px;
-      border: none;
-      color: rgb(8, 159, 123);
-      padding: 8px;
-      background-color: rgb(150, 221, 194);
+  // margin: 8px;
+  width: 155px;
+  height: 15px;
+  border-radius: 5px;
+  border: none;
+  color: rgb(8, 159, 123);
+  padding: 8px;
+  background-color: rgb(150, 221, 194);
+  
+}
 
-    }
-    
-    .email-input:first-child {
-      margin-top: 20px;
-    }
+.email-input:first-child {
+  margin-top: 20px;
+}
 
-    .email-input::placeholder {
-      color: rgb(150, 221, 194);
-      font-family: lato;
-    }
-    .email-input:hover::placeholder {
-      color: rgb(8, 159, 123);
-    }
+.email-input::placeholder {
+  color: rgb(150, 221, 194);
+  font-family: lato;
+}
+.email-input:hover::placeholder {
+  color: rgb(8, 159, 123);
+}
 
-    .email-input:focus {
-      // border: 5px solid ;
-      outline: rgb(8, 159, 123) solid 5px;
-      background-color: white;
-    }
+.email-input:focus {
+  // border: 5px solid ;
+  outline: rgb(8, 159, 123) solid 5px;
+  background-color: white;
+}
 
-    .email-input:hover {
-      background-color: white;
-    }
+.email-input:hover {
+  background-color: white;
+}
 
-    .email-input:valid {
-      background-color: white;
-    }
+.email-input:valid {
+  background-color: white;
+}
 
-    .button-join {
-      width: fit-content;
-    }
+.button-join {
+  width: fit-content;
+}

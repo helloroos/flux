@@ -38,6 +38,55 @@
   
 }
 
+.radio-cont {
+    width: fit-content;
+    // background-color: rgb(166, 208, 242);
+    padding: 10px;
+    border-radius: 40px;
+    font-size: 18px;
+    padding-right: 17px;
+    // margin-top: 5px;
+
+    label {
+      color: white;
+      margin: 8px;
+      justify-content: center;
+    }
+
+    // .radio-cont:first-child {
+    //   margin-left: 6px;
+    // }
+
+    label:hover {
+      color: rgb(177, 222, 238);
+    }
+    
+    input {
+      margin-left: 10px;
+      color: white;
+    }
+
+    
+    
+    input[type="radio"] {
+      opacity: 0;
+      width: 0;
+    }
+  }
+
+
+.radio-btn:checked {
+  color: rgb(0, 97, 176);
+}
+
+label {
+  cursor: pointer;
+}
+input[type="radio"]:checked+label { 
+  // border: 1px solid white;
+  color: rgb(150, 221, 194);
+}
+
 .each-sugg-cont {
   width: 370px;
 }

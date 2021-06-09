@@ -21,14 +21,21 @@ class CreateSugg extends React.Component {
     }
 
     handleButton(e) {
-        
         e.preventDefault();
         this.props.openModal('Sign In')
     }
 
-    update(field) {
-        return e => this.setState({ [field]: e.target.value })
+    update(field, value) {
+        return e => {
+            this.setState({ [field]: e.target.value })
+        }
     }
+
+    // radioClick(e) {
+    //     let oldEle = document.getElementById(`radio-${value}`);
+    //     oldEle.classList.toggle('checked');
+    //     e.target.classList.toggle('checked');
+    // }
 
     handleClick(e) {
         e.preventDefault();
@@ -52,7 +59,8 @@ class CreateSugg extends React.Component {
     }
 
     handleSelect(value) {
-        return (this.state.budget === value)
+        return (this.state.budget === value) 
+
     }
 
     render() {
@@ -91,27 +99,34 @@ class CreateSugg extends React.Component {
                         onChange={this.update('description')}
                         />
                     <div className='radio-cont'>
-                        <label>$
                         <input type='radio' 
+                            className='radio-btn'
+                            id='radio-1'
                             value='$'
                             name='$'
-                            onChange={this.update('budget')}
+                            onChange={this.update('budget', 1)}
                             checked={this.handleSelect('$')}
-                            /></label>
-                        <label>$$
+                            />
+                        <label for='radio-1'>$</label>
+                        
                         <input type='radio' 
+                            className='radio-btn' 
+                            id='radio-2'
                             value='$$'
                             name='$$'
-                            onChange={this.update('budget')}
+                            onChange={this.update('budget', 2)}
                             checked={this.handleSelect('$$')}
-                            /></label>
-                        <label>$$$
+                            />
+                        <label for='radio-2'>$$</label>
                         <input type='radio' 
+                            className='radio-btn'
+                            id='radio-3'
                             value='$$$'
                             name='$$$'
-                            onChange={this.update('budget')}
+                            onChange={this.update('budget', 3)}
                             checked={this.handleSelect('$$$')}
-                            /></label>
+                            />
+                        <label for='radio-3'>$$$</label>
                     </div>
             
                     { createButton }

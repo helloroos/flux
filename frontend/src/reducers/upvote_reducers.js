@@ -21,7 +21,7 @@ const voteReducer = (state = {}, action) => {
                 newState.upvotes = action.upvotes.data;
                 return newState;
             case RECEIVE_VOTES:
-                debugger
+                
                 return action.votes.data
             default:
                 return state;

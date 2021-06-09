@@ -19,7 +19,7 @@ class Vote extends React.Component {
         const { sugg } = this.props;
         const { currentUser } = this.props;
         let suggVotes = votes[sugg];
-        debugger
+        
         if (suggVotes && suggVotes.upUsers.includes(currentUser._id)) {
             this.props.upvoteRemove(sugg)
                 .then(this.setState({ changed: !this.state.changed }))
@@ -35,7 +35,7 @@ class Vote extends React.Component {
         const { sugg } = this.props;
         const { currentUser } = this.props;
         let suggVotes = votes[sugg];
-        debugger
+        
         if (suggVotes && suggVotes.downUsers.includes(currentUser._id)) {
             this.props.downvoteRemove(sugg)
                 .then(this.setState({ changed: !this.state.changed }))
@@ -46,7 +46,7 @@ class Vote extends React.Component {
     }
 
     render() {
-        debugger
+
         const { votes } = this.props;
         const { sugg } = this.props;
         let suggVotes = votes[sugg];
@@ -57,7 +57,7 @@ class Vote extends React.Component {
             votesNum = 0;
         }
         
-
+        
         return (
             <>
                 <i onClick={this.handleUpvote} value='up' className="button-updown fas fa-arrow-alt-circle-up fa-2x"></i>

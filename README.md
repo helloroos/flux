@@ -99,21 +99,17 @@ module.exports = router;
 
 ## Authors
 * Evan Leon - Backend Lead 
-    * [AngelList]
-    * [GitHub]
-    * [Website]
+    * [GitHub](https://github.com/Evan-Leon)
+    * [LinkedIn](https://www.linkedin.com/in/evan-leon-737918211/)
 * Jessica Uphoff - Flex & Design Lead
-    * [AngelList]
-    * [GitHub]
-    * [Website]
+    * [GitHub](https://github.com/jessicaUP)
+    * [LinkedIn](https://www.linkedin.com/in/jessica-uphoff-b2584b69/)
 * Michelle Roos - Team Lead
-    * AngelList - WIP
     * [GitHub](https://github.com/helloroos)
-    * Website - WIP
+    * LinkedIn - WIP
 * Syldys Khomushku Frontend Lead
-    * [AngelList]
-    * [GitHub]
-    * [Website]
+    * [GitHub](https://github.com/syldysnya)
+    * [LinkedIn](https://www.linkedin.com/in/syldysvkhomushku/)
 
  ![team_photo](frontend/src/assets/team_photo.png)
  <!-- ![team_photo](https://github.com/helloroos/flux/main/team_photo.png?raw=true) -->

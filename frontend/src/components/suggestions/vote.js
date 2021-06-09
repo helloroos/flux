@@ -1,5 +1,4 @@
 import React from 'react';
-import { receieveVotes } from '../../actions/vote_actions';
 
 class Vote extends React.Component {
 
@@ -20,7 +19,7 @@ class Vote extends React.Component {
         const { sugg } = this.props;
         const { currentUser } = this.props;
         let suggVotes = votes[sugg];
-
+        debugger
         if (suggVotes && suggVotes.upUsers.includes(currentUser._id)) {
             this.props.upvoteRemove(sugg)
                 .then(this.setState({ changed: !this.state.changed }))
@@ -36,8 +35,8 @@ class Vote extends React.Component {
         const { sugg } = this.props;
         const { currentUser } = this.props;
         let suggVotes = votes[sugg];
-
-        if (suggVotes && suggVotes.upUsers.includes(currentUser._id)) {
+        debugger
+        if (suggVotes && suggVotes.downUsers.includes(currentUser._id)) {
             this.props.downvoteRemove(sugg)
                 .then(this.setState({ changed: !this.state.changed }))
         } else {
@@ -47,6 +46,7 @@ class Vote extends React.Component {
     }
 
     render() {
+        debugger
         const { votes } = this.props;
         const { sugg } = this.props;
         let suggVotes = votes[sugg];
@@ -56,7 +56,7 @@ class Vote extends React.Component {
         } else {
             votesNum = 0;
         }
-        debugger
+        
 
         return (
             <>

@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { withRouter } from 'react-router';
 import { downvote, downvoteRemove, upvote, upvoteRemove } from "../../actions/vote_actions";
-import Upvote from './upvote';
 import Vote from "./vote";
 
 const mapSTP = (state, ownProps) => {

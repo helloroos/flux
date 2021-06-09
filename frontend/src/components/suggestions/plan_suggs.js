@@ -12,9 +12,10 @@ class PlanSuggestions extends React.Component {
     
     render() {
         let { suggs } = this.props;
+        let reversed = suggs.reverse();
 
-        let mapped = suggs.map((sugg, i) => {
-            debugger
+        let mapped = reversed.map((sugg, i) => {
+            
             return (
             <div key={`sugg-item-${i}`}>
                 <Suggestion key={`sugg-${i}`}

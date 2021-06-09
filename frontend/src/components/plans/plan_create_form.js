@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 import { DateRange } from 'react-date-range';
 import '../css/create_plan.scss'
 import '../css/date-range.scss'
-import {formatDistance, format, formatDistanceStrict, addDays} from 'date-fns';
+import {formatDistanceStrict, addDays} from 'date-fns';
 
 
 class PlanCreateForm extends React.Component {

@@ -6,7 +6,7 @@ module.exports = function validatePlanInput(data) {
   
 
   data.text = validText(data.title) ? data.title : '';
-
+  
   if (Validator.isEmpty(data.title)) {
     errors.title = 'title field is required';
   }

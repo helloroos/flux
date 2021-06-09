@@ -31,7 +31,8 @@ class PlanCreateForm extends React.Component {
     }
 
     handleErrors(field) {
-        return this.props.errors.filter(error => error.includes(field))
+        
+        return 'title field is required'
     }
 
     update(field) {
@@ -57,7 +58,6 @@ class PlanCreateForm extends React.Component {
         
         this.props.createPlan(plan)
             .then(plan => {
-                debugger
                 if (typeof plan !== 'undefined') {
                     return this.setState({ errored: true })
                 } else {
@@ -116,7 +116,6 @@ class PlanCreateForm extends React.Component {
                         placeholder='then tell us a little about it'
                         />
                     <p>Roughly when are you thinking?</p>
-                {/* {this.state.created ? this.refreshPage() : null } */}
                     <div className='calendar-cont'>
                         <DateRange
                             ranges={[dateRange]}

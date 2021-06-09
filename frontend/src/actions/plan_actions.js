@@ -24,6 +24,7 @@ export const receiveEmail = email => {
 };
 
 export const receiveErrors = (errors) => {
+    
     return ({
         type: RECEIVE_PLAN_ERRORS,
         errors
@@ -55,6 +56,7 @@ export const sendInvite = (email, id) => dispatch => {
 export const createPlan = data => dispatch => (
     PlanApiUtil.createPlan(data)
         .then(plan => dispatch(receivePlan(plan)))
+        .catch(err => dispatch(receiveErrors(err)))
 );
 
 export const fetchUserPlans = id => dispatch => (

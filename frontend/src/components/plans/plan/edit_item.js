@@ -36,14 +36,14 @@ class EditPlan extends React.Component {
 
     handleEdit(e) {
         e.preventDefault();
-        debugger
+        
         this.props.editPlan(this.state, this.props.planId)
         this.props.history.push(`/${this.props.planId}`)
     }
 
     updateDates(e) {
         let { startDate, endDate } = e.selection;
-        debugger
+        
         this.setState({
             startDate: startDate,
             endDate: endDate

@@ -27,7 +27,7 @@ class SignupForm extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        debugger
+        
         if (prevProps.signedIn !== this.props.signedIn) {
             let user = {
                 email: this.state.email,
@@ -38,14 +38,14 @@ class SignupForm extends React.Component {
         }
     
         if (prevProps.errors !== this.props.errors) {
-            debugger
+            
             this.setState({ errors: this.props.errors });
         }
       }
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
+        
         let user = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -55,14 +55,6 @@ class SignupForm extends React.Component {
         }
 
         this.props.signup(user)
-            // .then(res => {
-            //     debugger
-            //     if (typeof res === 'object' && typeof res !== "RECEIVE_USER_SIGN_IN") {
-            //         return this.setState({ errored: true })
-            //     } else {
-            //         this.props.hideModal()
-            //     }
-            // })
     }
 
     render() {

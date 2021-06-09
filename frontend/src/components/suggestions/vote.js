@@ -4,7 +4,7 @@ class Vote extends React.Component {
 
     constructor(props) {
         super(props)
-        debugger
+        
         this.state = {
             changed: false,
             votesDiff: (props.sugg.upvotes.length - props.sugg.downvotes.length)

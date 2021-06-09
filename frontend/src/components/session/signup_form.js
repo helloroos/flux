@@ -19,7 +19,7 @@ class SignupForm extends React.Component {
 
     handleErrors(field) {
         
-        return this.props.errors.filter(error => error.includes(field))
+        return this.props.errors.filter(error => error.includes(field))[0];
     }
 
     update(field) {

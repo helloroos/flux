@@ -25,6 +25,7 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 # Notable Features
+## Inviting participants
 Flux allows users to invite participants to join their travel plan. Emails are sent using the Nodemailer module as a transporter combined with the Google server. Start by installing [Nodemailer](https://www.npmjs.com/package/nodemailer) and setting up your backend route using [Express](https://expressjs.com/). Set up oAuth and security using Google Cloud Console and use [Passport and JWT](http://www.passportjs.org/packages/passport-jwt/) to access the current user. [This](https://www.youtube.com/watch?v=-rcRf7yswfM) is a very helpful YouTube tutorial on integrating OAuth2 and Nodemailer.
 
 ```sh
@@ -114,4 +115,5 @@ module.exports = router;
     * [GitHub]
     * [Website]
 
- ![ae](https://github.com/helloroos/flux/main/team_photo.png?raw=true)
+ ![team_photo](frontend/src/assets/team_photo.png)
+ <!-- ![team_photo](https://github.com/helloroos/flux/main/team_photo.png?raw=true) -->

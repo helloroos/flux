@@ -4,9 +4,10 @@ class Vote extends React.Component {
 
     constructor(props) {
         super(props)
-
+        debugger
         this.state = {
-            changed: false
+            changed: false,
+            votesDiff: (props.sugg.upvotes.length - props.sugg.downvotes.length)
         }
 
         this.handleUpvote = this.handleUpvote.bind(this);
@@ -16,7 +17,7 @@ class Vote extends React.Component {
     handleUpvote(e) {
         e.preventDefault();
         const { votes } = this.props;
-        const { sugg } = this.props;
+        let sugg = this.props.sugg._id;
         const { currentUser } = this.props;
         let suggVotes = votes[sugg];
         debugger
@@ -24,7 +25,7 @@ class Vote extends React.Component {
             this.props.upvoteRemove(sugg)
                 .then(this.setState({ changed: !this.state.changed }))
         } else {
-            this.props.upvote(this.props.sugg)
+            this.props.upvote(sugg)
                 .then(this.setState({ changed: !this.state.changed }))
         }
     }
@@ -32,7 +33,7 @@ class Vote extends React.Component {
     handleDownvote(e) {
         e.preventDefault();
         const { votes } = this.props;
-        const { sugg } = this.props;
+        let sugg = this.props.sugg._id;
         const { currentUser } = this.props;
         let suggVotes = votes[sugg];
         debugger
@@ -49,12 +50,12 @@ class Vote extends React.Component {
         debugger
         const { votes } = this.props;
         const { sugg } = this.props;
-        let suggVotes = votes[sugg];
+        let suggVotes = votes[sugg._id];
         let votesNum;
         if (suggVotes) {
             votesNum = suggVotes.upvotes - suggVotes.downvotes
         } else {
-            votesNum = 0;
+            votesNum = this.state.votesDiff;
         }
         
 

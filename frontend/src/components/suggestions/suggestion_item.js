@@ -1,5 +1,4 @@
 import React from 'react';
-import Upvote from './upvote';
 import SuggCommentsContainer from './comments_index_container';
 import CreateCommentContainer from './comment_container';
 import UpvoteContainer from './upvote_container'

@@ -10,48 +10,70 @@ class Footer extends React.Component {
   render() {
     let { currentUser } = this.props;
     let { path } = this.props;
-    let footerObjects;
+    let description;
 
     if (!currentUser && path == "/") {
-      footerObjects = (
-        <div className='footer-cont'>
-          <p className='foot-desc'>
-            Traveling with friends or family can be amazing. What’s not so fun?
-            Figuring out the travel logistics. Whether you’re planning a weekend
-            trip, bachelorette party or family reunion, Flux helps you get on
-            the same page using smart organizing and polling to plan the
-            perfect getaway.
-      </p>
-          <div className='teammates'>
-            <p>Evan Leon 
-              {/* <a className="our-links" target="_blank" href={"http://.google.com"}><i class="fa fa-linkedin" aria-hidden="true"></i></a> 
-              <a className="our-links" target="_blank" href={"http://.google.com"}><i class="fab fa-github"></i></a>                */}
-            </p>
-            <p>Michelle Roos</p>
-            <p>Jessica Uphoff</p>
-            <p>Syldys Khomushku</p>
-          </div>
-        </div>
+      description = (
+        <p className='foot-desc'>
+          Traveling with friends or family can be amazing. What’s not so fun?
+          Figuring out the travel logistics. Whether you’re planning a weekend
+          trip, bachelorette party or family reunion, Flux helps you get on
+          the same page using smart organizing and polling to plan the
+          perfect getaway.
+        </p>
       )
       } else {
-      footerObjects = (
-        <div className='footer-cont'>
+        description = (
           <p className='foot-desc'>
-      </p>
-          <div className='teammates'>
-            <p>Evan Leon</p>
-            <p>Michelle Roos</p>
-            <p>Jessica Uphoff</p>
-            <p>Syldys Khomushku</p>
-          </div>
-        </div>
-
-      )
-    }
+          </p>
+        )
+      }
 
     return (
       <footer>
-        {footerObjects}
+        <div className='footer-cont'>
+          {description}
+          <div className='teammates'>
+            <div className='member'>
+              {/* <a href='' className='link' target="_blank">
+                <i className="social-icons fab fa-linkedin"></i>
+              </a>
+              <a href='https://github.com/helloroos' className='link' target="_blank">
+                <i className="social-icons fab fa-github"></i>
+              </a> */}
+              <p>Michelle Roos</p>
+            </div>
+
+            <div className='member'>
+              <a href='https://www.linkedin.com/in/evan-leon-737918211/' className='link' target="_blank">
+                <i className="social-icons fab fa-linkedin"></i>
+              </a>
+              <a href="https://www.github.com/Evan-Leon" className='link' target="_blank">
+                <i className="social-icons fab fa-github"></i>
+              </a>
+              <p>Evan Leon</p>
+            </div>
+
+            <div className='member'>
+              <a href='https://www.linkedin.com/in/jessica-uphoff-b2584b69/' className='link' target="_blank">
+                <i className="social-icons fab fa-linkedin"></i>
+              </a>
+              <a href='https://github.com/jessicaUP' className='link' target="_blank">
+                <i className="social-icons fab fa-github"></i>
+              </a>
+              <p>Jessica Uphoff</p>
+            </div>
+            <div className='member'>
+              <a href='https://www.linkedin.com/in/syldysvkhomushku/' className='link' target="_blank">
+                <i className="social-icons fab fa-linkedin"></i>
+              </a>
+              <a href='https://github.com/syldysnya' className='link' target="_blank">
+                <i className="social-icons fab fa-github"></i>
+              </a>
+              <p>Syldys Khomushku</p>
+            </div>
+          </div>
+        </div>
       </footer>
     )
   }

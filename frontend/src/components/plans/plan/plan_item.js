@@ -115,7 +115,7 @@ class PlanItem extends React.Component {
         return (
             <div className='body-4'>
             <div className='total-main'>
-                    <div className='left-side'>
+                    {/* <div className='left-side'> */}
                         <div className='info-cont'>
                             <p className='plan-title'>{this.props.plan.title}</p>
                             <p className='main-desc'>{this.props.plan.description}</p>
@@ -165,8 +165,8 @@ class PlanItem extends React.Component {
                         </div>
                         </div>
 
-                    </div>
-                    <div className='right-side'>
+                    {/* </div>
+                    <div className='right-side'> */}
                         <div className='plan-sugg-cont'>
                             <div className='create-sugg'>
                                 <CreateSuggContainer />                               
@@ -175,7 +175,7 @@ class PlanItem extends React.Component {
                                 <PlanSuggestionsCont />                            
                             </div>
                         </div>
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
         )

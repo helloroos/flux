@@ -42,4 +42,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
  * [GitHub]
  * [Website]
 
- ![ae](https://github.com/helloroos/flux/main/team_phot.png?raw=true)
+ ![ae](https://github.com/helloroos/flux/main/team_photo.png?raw=true)

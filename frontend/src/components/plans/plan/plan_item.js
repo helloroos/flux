@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PlanSuggestionsCont from '../../suggestions/plan_suggs_container';
-import '../../css/plan_page.scss'
+import '../../css/plan_page.scss';
 import CreateSuggContainer from '../../suggestions/create_sugg_container';
 import { DateRange } from 'react-date-range';
-import '../../css/plan_page.scss'
-import '../../css/date-range.scss'
+import '../../css/plan_page.scss';
+import '../../css/date-range.scss';
 import Suggestion from '../../suggestions/suggestion_item';
 
 class PlanItem extends React.Component {
@@ -106,8 +106,8 @@ class PlanItem extends React.Component {
         
         if (this.props.plan.startDate){
             dateRange = {
-                startDate: new Date(this.props.plan.startDate.toString().slice(0,10)) ,
-                endDate: new Date(this.props.plan.endDate.toString().slice(0,10)),
+                startDate: new Date(this.props.plan.startDate.toString()) ,
+                endDate: new Date(this.props.plan.endDate.toString()),
                 key: 'selection',
             }
         }

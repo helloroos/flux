@@ -28,6 +28,7 @@ class SignupForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        debugger
         let user = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -38,7 +39,8 @@ class SignupForm extends React.Component {
 
         this.props.signup(user)
             .then(res => {
-                if (typeof res === 'undefined') {
+                debugger
+                if (typeof res === 'object') {
                     return this.setState({ errored: true })
                 } else {
                     this.props.hideModal()

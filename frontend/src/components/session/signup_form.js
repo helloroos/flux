@@ -10,9 +10,9 @@ class SignupForm extends React.Component {
             email: '',
             password: '',
             password2: '',
-            errored: false
+            errors: []
         }
-
+        debugger
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleErrors = this.handleErrors.bind(this);
     }
@@ -26,6 +26,18 @@ class SignupForm extends React.Component {
         return e => this.setState({ [field]: e.currentTarget.value })
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.signedIn !== this.props.signedIn) {
+          this.props.login({email: this.state.email, password: this.state.password}).then(
+            this.props.hideModal()
+          )
+        }
+    
+        if (prevProps.errors !== this.props.errors) {
+          this.setState({ errors: this.props.errors });
+        }
+      }
+
     handleSubmit(e) {
         e.preventDefault();
         debugger
@@ -38,14 +50,14 @@ class SignupForm extends React.Component {
         }
 
         this.props.signup(user)
-            .then(res => {
-                debugger
-                if (typeof res === 'object' && typeof res !== "RECEIVE_USER_SIGN_IN") {
-                    return this.setState({ errored: true })
-                } else {
-                    this.props.hideModal()
-                }
-            })
+            // .then(res => {
+            //     debugger
+            //     if (typeof res === 'object' && typeof res !== "RECEIVE_USER_SIGN_IN") {
+            //         return this.setState({ errored: true })
+            //     } else {
+            //         this.props.hideModal()
+            //     }
+            // })
     }
 
     render() {

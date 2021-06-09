@@ -15,17 +15,23 @@ class PlanCreateForm extends React.Component {
             description: '',
             startDate: currDate,
             endDate: currDate,
-            created: false
+            created: false,
+            errored: false
         }
 
         this.handleClick = this.handleClick.bind(this);
         this.handleAuth = this.handleAuth.bind(this);
         this.updateDates = this.updateDates.bind(this);
+        this.handleErrors = this.handleErrors.bind(this);
     }
 
     handleAuth(e) {
         e.preventDefault();
         this.props.openModal('Sign In')
+    }
+
+    handleErrors(field) {
+        return this.props.errors.filter(error => error.includes(field))
     }
 
     update(field) {
@@ -50,7 +56,12 @@ class PlanCreateForm extends React.Component {
         }
         
         this.props.createPlan(plan)
-            .then(plan => this.props.history.push(`/${plan.plan.data._id}`))
+            .then(plan => {
+                debugger
+                if (typeof plan !== 'undefined') {
+                    return this.setState({ errored: true })
+                } else {
+                    this.props.history.push(`/${plan.plan.data._id}`)}})
         }
         
     render() {
@@ -94,6 +105,10 @@ class PlanCreateForm extends React.Component {
                         onChange={this.update('title')}
                         placeholder='First name this plan'
                         />
+                    {this.state.errored ? (
+                            <div className='errors' >{this.handleErrors('Title')}</div>
+                            ) : null
+                            }
                     <textarea
                         className='form-inputs'
                         value={this.state.description}

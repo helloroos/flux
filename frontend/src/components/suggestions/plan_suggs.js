@@ -11,8 +11,9 @@ class PlanSuggestions extends React.Component {
     }
     
     render() {
-        let { suggs } = this.props;
-        let reversed = suggs.reverse();
+        const { suggs } = this.props;
+        
+        let reversed = [...suggs].reverse();
 
         let mapped = reversed.map((sugg, i) => {
             

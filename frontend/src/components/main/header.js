@@ -80,7 +80,7 @@ class Header extends React.Component {
           <div className='right-head'>
             {accountButtons}
             <Link to='/about'>
-              <i class="icons fas fa-question-circle fa-2x"></i>
+              <i className="icons fas fa-question-circle fa-2x"></i>
             </Link>
           </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import UpvoteContainer from './upvote_container'
+// import UpvoteContainer from './upvote_container'
 import '../css/sugg_comments.scss'
 
 class SuggComments extends React.Component {

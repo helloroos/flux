@@ -1,11 +1,11 @@
-import { RECEIVE_DOWNVOTES, RECEIVE_VOTES, RECEIVE_UPVOTES } from "../actions/vote_actions";
+import { RECEIVE_VOTES } from "../actions/vote_actions";
 
-const initialState = {
-    upvotes: 0,
-    upUsers: [],
-    downvotes: 0,
-    downUsers: []
-};
+// const initialState = {
+//     upvotes: 0,
+//     upUsers: [],
+//     downvotes: 0,
+//     downUsers: []
+// };
 
 const voteReducer = (state = {}, action) => {
         Object.freeze(state);

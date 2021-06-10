@@ -6,7 +6,7 @@ import CreateSuggContainer from '../../suggestions/create_sugg_container';
 import { DateRange } from 'react-date-range';
 import '../../css/plan_page.scss';
 import '../../css/date-range.scss';
-import Suggestion from '../../suggestions/suggestion_item';
+// import Suggestion from '../../suggestions/suggestion_item';
 
 class PlanItem extends React.Component {
     constructor(props) {

@@ -30,8 +30,12 @@ class PlanCreateForm extends React.Component {
         this.props.openModal('Sign In')
     }
 
-    handleErrors(field) {
-        
+    componentDidUpdate(prev, next) {
+        debugger
+    }
+
+    handleErrors() {
+        debugger
         return 'title field is required'
     }
 
@@ -106,9 +110,9 @@ class PlanCreateForm extends React.Component {
                         placeholder='First name this plan'
                         />
                     {this.state.errored ? (
-                            <div className='errors' >{this.handleErrors('Title')}</div>
+                            <div className='errors' >{this.handleErrors()}</div>
                             ) : null
-                            }
+                        }
                     <textarea
                         className='form-inputs'
                         value={this.state.description}

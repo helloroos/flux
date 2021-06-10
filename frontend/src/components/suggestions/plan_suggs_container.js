@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { createComment, fetchSuggComments } from '../../actions/comment_actions';
+import { createComment } from '../../actions/comment_actions';
 import { openModal } from '../../actions/modal_actions';
 import { fetchPlanSuggs, fetchSugg } from '../../actions/sugg_actions';
 import { downvote, downvoteRemove, upvote, upvoteRemove } from '../../actions/vote_actions';

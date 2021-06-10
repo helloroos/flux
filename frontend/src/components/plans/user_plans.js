@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../css/user_plans.scss';
-import {format, toDate, toUTC} from 'date-fns';
+import {format} from 'date-fns';
 
 
 class UserPlans extends React.Component {
@@ -21,8 +21,8 @@ class UserPlans extends React.Component {
         if (!this.props.plans) return null;
         
         
-        const mapped = this.props.plans.map(plan => (
-            <NavLink to={`/${plan._id}`} className='plan-title-links'>
+        const mapped = this.props.plans.map((plan, i) => (
+            <NavLink key={i} to={`/${plan._id}`} className='plan-title-links'>
                 <div className='each-plan-cont' id={plan._id}>
                         <h3 className='plan-title' >{plan.title}</h3>
                     <div className='plan-info'>

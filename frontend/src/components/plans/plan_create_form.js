@@ -30,12 +30,7 @@ class PlanCreateForm extends React.Component {
         this.props.openModal('Sign In')
     }
 
-    componentDidUpdate(prev, next) {
-        debugger
-    }
-
     handleErrors() {
-        debugger
         return 'title field is required'
     }
 
@@ -62,11 +57,13 @@ class PlanCreateForm extends React.Component {
         
         this.props.createPlan(plan)
             .then(plan => {
-                if (typeof plan !== 'undefined') {
-                    return this.setState({ errored: true })
+                if (plan.type === 'RECEIVE_PLAN') {
+                    this.props.history.push(`/${plan.plan.data._id}`)
                 } else {
-                    this.props.history.push(`/${plan.plan.data._id}`)}})
-        }
+                    this.setState({ errored: true })
+                }
+            })
+    }
         
     render() {
         
@@ -109,7 +106,7 @@ class PlanCreateForm extends React.Component {
                         onChange={this.update('title')}
                         placeholder='First name this plan'
                         />
-                    {this.state.errored ? (
+                        {this.state.errored ? (
                             <div className='errors' >{this.handleErrors()}</div>
                             ) : null
                         }

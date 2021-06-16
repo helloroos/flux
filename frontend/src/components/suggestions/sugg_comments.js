@@ -21,7 +21,7 @@ class SuggComments extends React.Component {
                     </div>
         )})
         } else {
-            arrComments = (<div>No comments yet</div>)
+            arrComments = (<div className="no-comments" >No comments yet</div>)
         }
 
         return (

@@ -106,3 +106,14 @@ input[type="radio"]:checked+label {
   width: 370px;
 }
 
+.create-comment-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .voting-cont {
+    display: flex;
+    flex-direction: row;
+  }
+
+}

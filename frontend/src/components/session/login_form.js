@@ -77,7 +77,7 @@ class LoginForm extends React.Component {
                                 placeholder='Password'
                             />
                         {this.state.errored ? (
-                        <div className='errors' >{this.handleErrors('password')}</div>
+                        <div className='errors' >{this.handleErrors('Password')}</div>
                             ) : null
                         }
                         <button className='buttons' onClick={this.handleSubmit}

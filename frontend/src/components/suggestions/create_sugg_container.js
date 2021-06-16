@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { createSugg, fetchPlanSuggs } from "../../actions/sugg_actions";
+import { createSugg } from "../../actions/sugg_actions";
 import { openModal } from '../../actions/modal_actions';
 import CreateSugg from "./create_sugg";
 import { withRouter } from 'react-router';
-import { createComment, fetchSuggComments } from '../../actions/comment_actions';
+import { createComment } from '../../actions/comment_actions';
 
 const mapSTP = (state, ownProps) => {
     

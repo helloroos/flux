@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginFormContainer from '../session/login_form_container';
 import SignupContainer from '../session/signup_form_container';
-import PlanSuggsContainer from '../suggestions/plan_suggs_container';
+// import PlanSuggsContainer from '../suggestions/plan_suggs_container';
 import '../css/modal.scss'
 
 
@@ -19,8 +19,6 @@ class Modal extends React.Component {
             case 'Sign Up':
                 modalForm = <SignupContainer />
                 break
-            // case 'Suggestions':
-            //     modalForm = <PlanSuggsContainer />
             default:
                 return null
         }

@@ -6,18 +6,12 @@ import '../../css/date-range.scss'
 class EditPlan extends React.Component {
     constructor(props) {
         super(props)
-        
-        // this.state = {
-        //     title: props.plan.title,
-        //     description: props.plan.description,
-        //     startDate: props.plan.startDate,
-        //     endDate: props.plan.endDate
-        // }
+
         this.state = {
             title: '',
             description: '',
-            startDate: '',
-            endDate: ''
+            startDate: new Date(),
+            endDate: new Date()
         }
 
         this.handleEdit = this.handleEdit.bind(this);
@@ -25,6 +19,7 @@ class EditPlan extends React.Component {
     }
 
     componentDidMount() {
+      
         this.props.fetchPlan(this.props.planId)
             .then(plan => 
                 this.setState({
@@ -41,45 +36,56 @@ class EditPlan extends React.Component {
 
     handleEdit(e) {
         e.preventDefault();
+        
         this.props.editPlan(this.state, this.props.planId)
         this.props.history.push(`/${this.props.planId}`)
     }
 
     updateDates(e) {
-        let {startDate, endDate} = e.selection;
+        let { startDate, endDate } = e.selection;
+        
         this.setState({
             startDate: startDate,
             endDate: endDate
-        })  
+        }) 
     }
 
     render() {
-        if (!this.props.plan) return null;
+        if (!this.props.plan.plan) return null;
 
-        const dateRange = {
-            startDate: this.state.startDate, 
+        let dateRange = {
+            startDate: this.state.startDate,
             endDate: this.state.endDate,
             key: 'selection',
         }
-
+      
+        if (this.props.plan.plan.startDate){
+            dateRange = {
+                startDate: new Date(this.state.startDate.toString()),
+                endDate: new Date(this.state.endDate.toString()),
+                key: 'selection',
+            }
+        }
+      
         return (
             <div className='body-2'>
-                {/* <h2>Edit your plan...</h2> */}
-            <div className='main-cont'>
-                {/* <form className='form-cont'>
+                <h2>Edit your plan...</h2>
+                <div className='main-cont'>
+                    <form className='form-cont'>
                     <input type='text'
                         className='form-inputs'
                         value={this.state.title}
                         onChange={this.update('title')}
-                        />
+                     />
+
                     <textarea
                         className='form-inputs'
-                            value={this.state.description}
+                        value={this.state.description}
                         onChange={this.update('description')}
                         />
-                        <p>Edit the date range:</p>
+                    <p>Edit the date range:</p>
                     <div className='calendar-cont'>
-                        <DateRange
+                    <DateRange
                             ranges={[dateRange]}
                             onChange={this.updateDates}
                             editableDateInputs={true}
@@ -88,16 +94,17 @@ class EditPlan extends React.Component {
                             months={1}
                             showDateDisplay={false}
                             showMonthAndYearPickers={false}
-                            />
-                    </div>
-                    <button className='buttons' onClick={this.handleEdit}>
-                        Submit
-                    </button>
-            </form> */}
-        </div>
-        </div>
-        )
-    }
+                        />
+                </div>
+                <button className='buttons' onClick={this.handleEdit}>
+                    Submit
+                 </button>
+
+                    </form>
+                </div>
+            </div>
+    
+        )}
 };
 
 export default EditPlan;

@@ -2,12 +2,14 @@ import { RECEIVE_CURRENT_USER, RECEIVE_USER_LOGOUT, RECEIVE_USER_SIGN_IN } from 
 
 const initialState = {
   isAuthenticated: false,
-  user: undefined
+  user: undefined,
+  isSignedIn: false
 };
 
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
+      
       return {
         ...state,
         isAuthenticated: !!action.currentUser,
@@ -16,9 +18,11 @@ const sessionReducer = (state = initialState, action) => {
     case RECEIVE_USER_LOGOUT:
       return {
         isAuthenticated: false,
+        isSignedIn: false,
         user: undefined
       };
     case RECEIVE_USER_SIGN_IN:
+      
       return {
         ...state,
         isSignedIn: true,

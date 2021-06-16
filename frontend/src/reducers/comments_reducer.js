@@ -17,7 +17,7 @@ const commentsReducer = (state = initialState, action) => {
                 
                 return newState
             case RECEIVE_COMMENT:
-                debugger
+                
                 newState.comments.concat({[action.comment.data.comment.suggestion[0]]: [action.comment.data.comment]});
                 return newState
             case REMOVE_COMMENT:
@@ -28,7 +28,6 @@ const commentsReducer = (state = initialState, action) => {
                 action.suggs.data.forEach(suggestion => {
                     newState.comments.push({ [suggestion._id]: suggestion.comments })
                 })
-                // action.suggs.data.comments;
                 
                 return newState;
             default:

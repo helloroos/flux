@@ -36,10 +36,12 @@ export const deleteComment = id => {
 };
 
 export const upvote = (suggId) => {
+    
     return axios.patch(`/api/suggestions/${suggId}/upvote`)
 };
 
 export const upvoteRemove = (suggId) => {
+    
     return axios.patch(`/api/suggestions/${suggId}/removeupvote`)
 };
 
@@ -48,5 +50,6 @@ export const downvote = (suggId) => {
 };
 
 export const downvoteRemove = (suggId) => {
+    
     return axios.patch(`/api/suggestions/${suggId}/removedownvote`)
 };

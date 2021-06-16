@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PlanSuggestionsCont from '../../suggestions/plan_suggs_container';
-import '../../css/plan_page.scss'
+import '../../css/plan_page.scss';
 import CreateSuggContainer from '../../suggestions/create_sugg_container';
 import { DateRange } from 'react-date-range';
-import '../../css/plan_page.scss'
-import '../../css/date-range.scss'
-import Suggestion from '../../suggestions/suggestion_item';
+import '../../css/plan_page.scss';
+import '../../css/date-range.scss';
+// import Suggestion from '../../suggestions/suggestion_item';
 
 class PlanItem extends React.Component {
     constructor(props) {
@@ -39,9 +39,12 @@ class PlanItem extends React.Component {
     }
 
     componentDidMount() {
-        
         this.props.fetchPlan(this.props.match.params.planId)
-            // .then(plan => this.props.fetchPlanSuggs(plan.plan.data._id))
+            .then(plan => 
+                this.setState({
+                    startDate: plan.plan.data.startDate,
+                    endDate: plan.plan.data.endDate
+            }))
     }
 
     update(field) {
@@ -94,33 +97,19 @@ class PlanItem extends React.Component {
                     <h5 key={`user-${i}`} className='member-name'>{user.firstName} {user.lastName}</h5>
             ))
         }
-        
-        // const suggs = this.props.planSuggs.map((sugg, i) => {
-        //     if (sugg) {
-        //         return (
-        //             <div key={`sugg-item-${i}`} className='each-sugg-cont'>
-        //                 <div className='sugg-left'>
-        //                     <p className='sugg-title'>{sugg.title}</p>
-        //                     <p className='sugg-desc'>{sugg.description}</p>
-        //                     <p className='sugg-budget'>{sugg.budget}</p>
-        //                     <p className='sugg-author'>{sugg.user}</p>
-        //                 </div>
-        //                 <Suggestion sugg={sugg}
-        //                     createComment={this.props.createComment}
-        //                     currentUser={this.props.currentUser}
-        //                     openModal={this.props.openModal}
-        //                     fetchPlan={this.props.fetchPlan}
-        //                     fetchSugg={this.props.fetchSugg}
-        //                     fetchSuggComments={this.props.fetchSuggComments}/>
-        //             </div>
-        //         )
-        //     }
-        // })
 
-        const dateRange = {
+        let dateRange = {
             startDate: this.state.startDate,
             endDate: this.state.endDate,
             key: 'selection',
+        }
+        
+        if (this.props.plan.startDate){
+            dateRange = {
+                startDate: new Date(this.props.plan.startDate.toString()) ,
+                endDate: new Date(this.props.plan.endDate.toString()),
+                key: 'selection',
+            }
         }
         
         return (
@@ -130,7 +119,6 @@ class PlanItem extends React.Component {
                         <div className='info-cont'>
                             <p className='plan-title'>{this.props.plan.title}</p>
                             <p className='main-desc'>{this.props.plan.description}</p>
-                            {/* {this.state.loggedIn ? this.refreshPage() : null} */}
                             <NavLink to={`/${this.props.plan._id}/edit`}>
                                 <button className='buttons button-edit'>Edit Plan</button>
                             </NavLink>
@@ -140,7 +128,7 @@ class PlanItem extends React.Component {
                         <DateRange
                             ranges={[dateRange]}
                             onChange={this.updateDates}
-                            editableDateInputs={true}
+                            editableDateInputs={false}
                             showSelectionPreview={true}
                             direction='horizontal'
                             months={1}
@@ -167,6 +155,7 @@ class PlanItem extends React.Component {
                                     className='email-input'
                                     onChange={this.update('email')}
                                     placeholder='Email'
+                                    value={this.state.email}
                                 />
                                  <i onClick={this.handleClick} className="add-icon icons fas fa-plus-circle"></i>
 
@@ -179,32 +168,10 @@ class PlanItem extends React.Component {
                     <div className='right-side'> */}
                         <div className='plan-sugg-cont'>
                             <div className='create-sugg'>
-                                <CreateSuggContainer />
-                                    {/* // suggs={this.props.planSuggs}
-                                    // planId={this.props.plan._id}
-                                    // createSugg={this.props.createSugg}
-                                    // fetchPlanSuggs={this.props.fetchPlanSuggs}
-                                    // createComment={this.props.createComment}
-                                    // currentUser={this.props.currentUser}
-                                    // openModal={this.props.openModal}
-                                    // fetchSugg={this.props.fetchSugg} */}
-                                
+                                <CreateSuggContainer />                               
                             </div>
                             <div className='all-suggs'>
-                                <PlanSuggestionsCont />
-                                {/* {suggs} */}
-                                {/* <PlanSuggestions suggs={this.props.planSuggs}
-                                    planId={this.props.planId}
-                                    currentUser={this.props.currentUser}
-                                    upvote={this.props.upvote}
-                                    upvoteRemove={this.props.upvoteRemove}
-                                    downvote={this.props.downvote}
-                                    downvoteRemove={this.props.downvoteRemove}
-                                    createComment={this.props.createComment}
-                                    openModal={this.props.openModal}
-                                    fetchSugg={this.props.fetchSugg}
-                                /> */}
-                            
+                                <PlanSuggestionsCont />                            
                             </div>
                         </div>
                     {/* </div> */}

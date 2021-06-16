@@ -10,24 +10,42 @@ class SignupForm extends React.Component {
             email: '',
             password: '',
             password2: '',
-            errored: false
+            errors: []
         }
-
+        
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleErrors = this.handleErrors.bind(this);
     }
 
     handleErrors(field) {
         
-        return this.props.errors.filter(error => error.includes(field))
+        return this.props.errors.filter(error => error.includes(field))[0];
     }
 
     update(field) {
         return e => this.setState({ [field]: e.currentTarget.value })
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        
+        if (prevProps.signedIn !== this.props.signedIn) {
+            let user = {
+                email: this.state.email,
+                password: this.state.password
+            }
+            this.props.login(user)
+                .then(() => this.props.hideModal())
+        }
+    
+        if (prevProps.errors !== this.props.errors) {
+            
+            this.setState({ errors: this.props.errors });
+        }
+      }
+
     handleSubmit(e) {
         e.preventDefault();
+        
         let user = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -37,13 +55,6 @@ class SignupForm extends React.Component {
         }
 
         this.props.signup(user)
-            .then(res => {
-                if (typeof res === 'undefined') {
-                    return this.setState({ errored: true })
-                } else {
-                    this.props.hideModal()
-                }
-            })
     }
 
     render() {
@@ -55,7 +66,7 @@ class SignupForm extends React.Component {
                         type='text'
                         placeholder='First Name'
                 />
-                {this.state.errored ? (
+                {this.state.errors ? (
                         <div className='errors'>{this.handleErrors('First')}</div>
                         ) : null
                     }
@@ -64,7 +75,7 @@ class SignupForm extends React.Component {
                         type='text'
                         placeholder='Last Name'
                 />
-                {this.state.errored ? (
+                {this.state.errors ? (
                         <div className='errors'>{this.handleErrors('Last')}</div>
                         ) : null
                     }
@@ -73,11 +84,11 @@ class SignupForm extends React.Component {
                         type='text'
                         placeholder='Email'
                 />
-                {this.state.errored ? (
+                {this.state.errors ? (
                         <div className='errors'>{this.handleErrors('Email')}</div>
                         ) : null
                     }
-                {this.state.errored ? (
+                {this.state.errors ? (
                         <div className='errors'>{this.handleErrors('A')}</div>
                         ) : null
                     }
@@ -86,7 +97,7 @@ class SignupForm extends React.Component {
                         type='password'
                         placeholder='Enter a password'
                 />
-                {this.state.errored ? (
+                {this.state.errors ? (
                         <div className='errors' >{this.handleErrors('Password')}</div>
                         ) : null
                     }
@@ -95,11 +106,11 @@ class SignupForm extends React.Component {
                         type='password'
                         placeholder='Re-enter a password'
                 />
-                {this.state.errored ? (
+                {this.state.errors ? (
                         <div className='errors' >{this.handleErrors('Confirm')}</div>
                         ) : null
                     }
-                {this.state.errored ? (
+                {this.state.errors ? (
                         <div className='errors'>{this.handleErrors('Passwords')}</div>
                         ) : null
                     }

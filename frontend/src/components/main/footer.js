@@ -1,45 +1,15 @@
-// import React from 'react';
-// import '../css/footer.scss'
-
-// const Footer = () => {
-//   return (
-//     <footer>
-//       <div className='footer-cont'>
-//         <p className='foot-desc'>
-//           Traveling with friends or family can be amazing. What’s not so fun? 
-//           Figuring out the travel logistics. Whether you’re planning a weekend 
-//           trip, bachelorette party or family reunion, Flux helps you get on 
-//           the same page using smart organizing and polling to plan the 
-//           perfect getaway.
-//         </p>
-//         <div className='teammates'>
-//           <p>Evan Leon</p>
-//           <p>Michelle Roos</p>
-//           <p>Jessica Uphoff</p>
-//           <p>Syldys Khomushku</p>
-//         </div>
-//       </div>
-//     </footer>
-//   )
-// };
-
-// export default Footer;
-
 import React from 'react';
 import '../css/footer.scss'
-import { Link } from 'react-router-dom';
 
 class Footer extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+ 
 
   render() {
     let { currentUser } = this.props;
     let { path } = this.props;
     let description;
 
-    if (!currentUser && path == "/") {
+    if (!currentUser && path === "/") {
       description = (
         <p className='foot-desc'>
           Traveling with friends or family can be amazing. What’s not so fun?
@@ -72,29 +42,29 @@ class Footer extends React.Component {
             </div>
 
             <div className='member'>
-              <a href='https://www.linkedin.com/in/evan-leon-737918211/' className='link' target="_blank">
+              <a href='https://www.linkedin.com/in/evan-leon-737918211/' rel="noreferrer" className='link' target="_blank">
                 <i className="social-icons fab fa-linkedin"></i>
               </a>
-              <a href="https://www.github.com/Evan-Leon" className='link' target="_blank">
+              <a href="https://www.github.com/Evan-Leon" rel="noreferrer" className='link' target="_blank">
                 <i className="social-icons fab fa-github"></i>
               </a>
               <p>Evan Leon</p>
             </div>
 
             <div className='member'>
-              <a href='https://www.linkedin.com/in/jessica-uphoff-b2584b69/' className='link' target="_blank">
+              <a href='https://www.linkedin.com/in/jessica-uphoff-b2584b69/' rel="noreferrer" className='link' target="_blank">
                 <i className="social-icons fab fa-linkedin"></i>
               </a>
-              <a href='https://github.com/jessicaUP' className='link' target="_blank">
+              <a href='https://github.com/jessicaUP' className='link' rel="noreferrer" target="_blank">
                 <i className="social-icons fab fa-github"></i>
               </a>
               <p>Jessica Uphoff</p>
             </div>
             <div className='member'>
-              <a href='https://www.linkedin.com/in/syldysvkhomushku/' className='link' target="_blank">
+              <a href='https://www.linkedin.com/in/syldysvkhomushku/' rel="noreferrer" className='link' target="_blank">
                 <i className="social-icons fab fa-linkedin"></i>
               </a>
-              <a href='https://github.com/syldysnya' className='link' target="_blank">
+              <a href='https://github.com/syldysnya' className='link' rel="noreferrer" target="_blank">
                 <i className="social-icons fab fa-github"></i>
               </a>
               <p>Syldys Khomushku</p>

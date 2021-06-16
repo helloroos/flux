@@ -1,74 +1,115 @@
 # Flux
 
-Flux is a travel planner that solves two common trip challenges; the dates and the destination. Users can initiate a travel plan and invite their friends and family to join. Collaborators can nominate their suggestions and upvote, downvote and comment on others’ suggestions. 
+Flux is a travel planner that solves two common trip challenges; the dates and the destination. Users can initiate a travel plan and invite participants to join. Collaborators can nominate suggestions and upvote, downvote and comment on others’ suggestions. 
 
-See it live at [Flux](https://state-of-flux.herokuapp.com/).
+Demo Flux [here](https://state-of-flux.herokuapp.com/).
 
 ## Architecture and Technology
 
-<!-- ## Available Scripts
+Flux is built using the MERN stack which consists of MongoDB Atlas as a NoSQL database, Express.js as a framework for Node.js, and React/Redux for state management. Mongoose is used as an Object Data Modeling (ODM) Library for MongoDb and Node.js. A Gmail API is used to interact with users' Gmail inboxes. Flux is styled using SCSS. 
 
-In the project directory, you can run:
+## Available Scripts
 
-### `npm start`
+In the project directory, you can install dependencies by running:
 
-Runs the app in the development mode.\
+```sh
+npm install
+```
+
+Start the server by running:
+
+```sh
+npm run dev
+```
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Notable Features
+## Inviting participants
+Flux allows users to invite participants to join their travel plan. Emails are sent using the Nodemailer module as a transporter combined with the Google server. Start by installing [Nodemailer](https://www.npmjs.com/package/nodemailer) and setting up your backend route using [Express](https://expressjs.com/). Set up oAuth and security using Google Cloud Console and use [Passport and JWT](http://www.passportjs.org/packages/passport-jwt/) to access the current user. [This](https://www.youtube.com/watch?v=-rcRf7yswfM) is a very helpful YouTube tutorial on integrating OAuth2 and Nodemailer.
 
-### `npm test`
+```sh
+const React = require("react");
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+const express = require("express");
+const router = express.Router();
 
-### `npm run build`
+var nodemailer = require('nodemailer');
+var { google } = require('googleapis');
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+const keys = require('../../config/keys');
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+const CLIENT_ID = require('../../config/keys').google_client_id;
+const CLIENT_SECRET = require('../../config/keys').google_client_secret;
+const REDIRECT_URI = require('../../config/keys').google_redirect_uri;
+const REFRESH_TOKEN = require('../../config/keys').google_refresh_token;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
+oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
-### `npm run eject`
+router.post('/:id/send',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+        async function sendMail() {
+            try {
+                const accessToken = await oAuth2Client.getAccessToken();
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+                const transport = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                        type: 'OAuth2',
+                        user: 'stateoffluxapp@gmail.com',
+                        clientId: CLIENT_ID,
+                        clientSecret: CLIENT_SECRET,
+                        refreshToken: REFRESH_TOKEN,
+                        accessToken: accessToken,
+                    },
+                });
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+                const user = req.user.firstName.slice(0, 1).toUpperCase() + req.user.firstName.slice(1);
+                const planId = req.params.id;
+                const email = req.body.email;
+                
+                const mailOptions = {
+                    from: 'FLUX ☀️🌴 <stateoffluxapp@gmail.com>',
+                    to: email,
+                    subject: `${user} wants to go on a trip with you ✈️`,
+                    text: `${user} has invited you to join their travel plan on Flux. Please join the plan at https://state-of-flux.herokuapp.com/#/${planId}.`
+                };
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+                const result = await transport.sendMail(mailOptions);
+                return result;
 
-## Learn More
+            } catch (error) {
+                return error;
+            }
+        }
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+        sendMail()
+            .then(mail => res.json(mail))
+            .catch((error) => console.log(error.message));
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    });
 
-### Code Splitting
+module.exports = router;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Authors
+* Evan Leon - Backend Lead 
+    * [GitHub](https://github.com/Evan-Leon)
+    * [LinkedIn](https://www.linkedin.com/in/evan-leon-737918211/)
+* Jessica Uphoff - Flex & Design Lead
+    * [GitHub](https://github.com/jessicaUP)
+    * [LinkedIn](https://www.linkedin.com/in/jessica-uphoff-b2584b69/)
+* Michelle Roos - Team Lead
+    * [GitHub](https://github.com/helloroos)
+    * LinkedIn - WIP
+* Syldys Khomushku Frontend Lead
+    * [GitHub](https://github.com/syldysnya)
+    * [LinkedIn](https://www.linkedin.com/in/syldysvkhomushku/)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
+ ![team_photo](frontend/src/assets/team_photo.png)
+ <!-- ![team_photo](https://github.com/helloroos/flux/main/team_photo.png?raw=true) -->

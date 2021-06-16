@@ -1,8 +1,8 @@
 import React from 'react';
-import Upvote from './upvote';
 import SuggCommentsContainer from './comments_index_container';
 import CreateCommentContainer from './comment_container';
-import { withRouter } from 'react-router';
+import UpvoteContainer from './upvote_container'
+
 
 class Suggestion extends React.Component {
     constructor(props) {
@@ -14,10 +14,6 @@ class Suggestion extends React.Component {
 
         this.toggleComments = this.toggleComments.bind(this)
     }
-
-    // componentDidUpdate() {
-    //     this.props.fetchSugg(this.props.sugg._id)
-    // }
 
     toggleComments(e) {
         e.preventDefault();
@@ -39,25 +35,18 @@ class Suggestion extends React.Component {
                             <p className='sugg-author'>{sugg.user[0].firstName} {sugg.user[0].lastName}</p>
                             </div>
                         </div>
-                        <div className='create-comment-cont'>
+                    <div className='create-comment-cont'>
                     <button className='button-comments' onClick={this.toggleComments}>
                         Comments
                     </button>
+                        <div className='voting-cont'><UpvoteContainer sugg={this.props.sugg} /></div>
+                        </div>
                         {this.state.commentsVisible ? (
                             <>
                             <CreateCommentContainer sugg={sugg} />
-                                    {/* // createComment={this.props.createComment}
-                                    // currentUser={this.props.currentUser}
-                                    // openModal={this.props.openModal}
-                                    // fetchSugg={this.props.fetchSugg}
-                                    // fetchSuggComments={this.props.fetchSuggComments}/> */}
                             <SuggCommentsContainer sugg={sugg} />
-                                {/* comments={sugg.comments}
-                                fetchSugg={this.props.fetchSugg}
-                                fetchSuggComments={this.props.fetchSuggComments}/> */}
                             </>
                         ) : null }
-                        </div>
                     </div>
             </div>
         )

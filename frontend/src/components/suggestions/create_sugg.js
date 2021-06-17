@@ -31,12 +31,6 @@ class CreateSugg extends React.Component {
         }
     }
 
-    // radioClick(e) {
-    //     let oldEle = document.getElementById(`radio-${value}`);
-    //     oldEle.classList.toggle('checked');
-    //     e.target.classList.toggle('checked');
-    // }
-
     handleClick(e) {
         e.preventDefault();
         let sugg = {
@@ -107,7 +101,7 @@ class CreateSugg extends React.Component {
                             onChange={this.update('budget', 1)}
                             checked={this.handleSelect('$')}
                             />
-                        <label for='radio-1'>$</label>
+                        <label htmlFor='radio-1'>$</label>
                         
                         <input type='radio' 
                             className='radio-btn' 
@@ -117,7 +111,7 @@ class CreateSugg extends React.Component {
                             onChange={this.update('budget', 2)}
                             checked={this.handleSelect('$$')}
                             />
-                        <label for='radio-2'>$$</label>
+                        <label htmlFor='radio-2'>$$</label>
                         <input type='radio' 
                             className='radio-btn'
                             id='radio-3'
@@ -126,7 +120,7 @@ class CreateSugg extends React.Component {
                             onChange={this.update('budget', 3)}
                             checked={this.handleSelect('$$$')}
                             />
-                        <label for='radio-3'>$$$</label>
+                        <label htmlFor='radio-3'>$$$</label>
                     </div>
             
                     { createButton }

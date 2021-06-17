@@ -12,10 +12,10 @@ class SuggComments extends React.Component {
         
         if (comments.length > 0) {
             
-            arrComments = comments.map(comment => {
+            arrComments = comments.map((comment, i) => {
                 
                 return (
-                    <div className='sugg-comment-cont'>
+                    <div key={`comments-${i}`} className='sugg-comment-cont'>
                         <div className='comment-author'>{comment.author[0].firstName} {comment.author[0].lastName}</div>
                         <div className='comment-body'>{comment.body}</div>
                     </div>

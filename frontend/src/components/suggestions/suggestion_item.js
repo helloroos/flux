@@ -36,11 +36,13 @@ class Suggestion extends React.Component {
                             </div>
                         </div>
                     <div className='create-comment-cont'>
-                    <button className='button-comments' onClick={this.toggleComments}>
-                        Comments
-                    </button>
-                        <div className='voting-cont'><UpvoteContainer sugg={this.props.sugg} /></div>
+                        <button className='button-comments' onClick={this.toggleComments}>
+                            Comments
+                        </button>
+                        <div className='voting-cont'>
+                            <UpvoteContainer sugg={this.props.sugg} />
                         </div>
+                    </div>
                         {this.state.commentsVisible ? (
                             <>
                             <CreateCommentContainer sugg={sugg} />

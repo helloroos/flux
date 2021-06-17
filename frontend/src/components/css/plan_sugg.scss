@@ -1,5 +1,5 @@
 .sugg-item-cont {
-  background-color: rgb(255, 255, 255, 0.75);
+  background-color: rgb(255, 255, 255, 0.50);
   border-radius: 15px;
   padding: 10px;
   margin: 10px;
@@ -106,3 +106,14 @@ input[type="radio"]:checked+label {
   width: 370px;
 }
 
+.create-comment-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .voting-cont {
+    display: flex;
+    flex-direction: row;
+  }
+
+}

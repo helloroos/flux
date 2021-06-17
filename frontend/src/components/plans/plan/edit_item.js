@@ -6,12 +6,12 @@ import '../../css/date-range.scss'
 class EditPlan extends React.Component {
     constructor(props) {
         super(props)
-
+        debugger
         this.state = {
-            title: '',
-            description: '',
-            startDate: new Date(),
-            endDate: new Date()
+            title: props.location.state.plan.title,
+            description: props.location.state.plan.description,
+            startDate: props.location.state.plan.startDate,
+            endDate: props.location.state.plan.endDate
         }
 
         this.handleEdit = this.handleEdit.bind(this);
@@ -94,6 +94,7 @@ class EditPlan extends React.Component {
                             months={1}
                             showDateDisplay={false}
                             showMonthAndYearPickers={false}
+                            minDate={new Date()}
                         />
                 </div>
                 <button className='buttons' onClick={this.handleEdit}>

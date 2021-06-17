@@ -119,7 +119,10 @@ class PlanItem extends React.Component {
                         <div className='info-cont'>
                             <p className='plan-title'>{this.props.plan.title}</p>
                             <p className='main-desc'>{this.props.plan.description}</p>
-                            <NavLink to={`/${this.props.plan._id}/edit`}>
+                            <NavLink to={{
+                                pathname: `/${this.props.plan._id}/edit`,
+                                state: {plan: this.props.plan}
+                            }}>
                                 <button className='buttons button-edit'>Edit Plan</button>
                             </NavLink>
                         </div>

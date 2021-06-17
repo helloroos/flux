@@ -127,6 +127,7 @@ class PlanCreateForm extends React.Component {
                             months={1}
                             showDateDisplay={false}
                             showMonthAndYearPickers={false}
+                            minDate={new Date()}
                         />
 
                     </div>

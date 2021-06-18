@@ -6,15 +6,18 @@
    margin-top: 30px;
    
    .footer-cont {
-      display: flex;
-      flex-direction: row;
-      height: 115px;
-      justify-content: space-between;
-      align-items: center;
+      // display: flex;
+      // flex-direction: row;
+      // height: 115px;
+      // justify-content: space-between;
+      // align-items: center;
 
 
   
       .foot-desc {
+        position: absolute;
+        bottom: 0;
+        left: 0;
         font-family: sans-serif;
         width: 450px;
         margin: 20px;
@@ -23,6 +26,9 @@
       }
 
       .teammates {
+        position: absolute;
+        bottom: 0;
+        right: 0;
         display: flex;
         flex-direction: column;
         margin: 20px;

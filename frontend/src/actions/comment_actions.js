@@ -9,9 +9,9 @@ export const receiveComment = comment => ({
     comment
 });
 
-export const removeComment = commentId => ({
+export const removeComment = comment => ({
     type: REMOVE_COMMENT,
-    commentId
+    comment
 });
 
 export const receieveSuggComments = comments => ({
@@ -26,7 +26,7 @@ export const receiveSugg = sugg => ({
 
 export const fetchSuggComments = (suggId) => dispatch => (
     APIUtil.showSuggComments(suggId)
-        .then(sugg => dispatch(receiveSugg(sugg)))
+        .then(comments => dispatch(receieveSuggComments(comments)))
 );
 
 export const createComment = (comment, suggId) => dispatch => (
@@ -34,7 +34,7 @@ export const createComment = (comment, suggId) => dispatch => (
         .then(comment => dispatch(receiveComment(comment)))
 );
 
-export const editComment = (comment) => dispatch => (
-    APIUtil.editComment(comment)
-        .then(comment => dispatch(receiveComment(comment)))
+export const deleteComment = (id) => dispatch => (
+    APIUtil.deleteComment(id)
+        .then(comment => dispatch(removeComment(comment)))
 );

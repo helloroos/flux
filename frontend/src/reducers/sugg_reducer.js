@@ -1,5 +1,5 @@
 // import { REMOVE_COMMENT, RECEIVE_COMMENT, RECEIVE_SUGG_COMMENTS } from "../actions/comment_actions";
-import { RECEIVE_PLAN_SUGGS, RECEIVE_SUGG } from "../actions/sugg_actions";
+import { DELETE_SUGG, RECEIVE_PLAN_SUGGS, RECEIVE_SUGG } from "../actions/sugg_actions";
 
 const suggReducer = (state = [], action) => {
     Object.freeze(state);
@@ -12,6 +12,11 @@ const suggReducer = (state = [], action) => {
         case RECEIVE_SUGG:
             newState.push(action.sugg.data.newSuggestion);
             return newState
+        case DELETE_SUGG:
+            debugger
+            let filtered = newState.filter(el => el._id !== action.sugg.data.suggId)
+            
+            return filtered;
         default:
             return state;
     }

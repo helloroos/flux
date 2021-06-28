@@ -12,7 +12,7 @@ class Suggestion extends React.Component {
             commentsVisible: false
         }
 
-        this.toggleComments = this.toggleComments.bind(this)
+        this.toggleComments = this.toggleComments.bind(this);
     }
 
     toggleComments(e) {
@@ -20,9 +20,16 @@ class Suggestion extends React.Component {
         this.setState({ commentsVisible: !this.state.commentsVisible })
     }
 
+    
     render() {
         if (!this.props.sugg) return null;
-        const { sugg } = this.props
+        const { sugg } = this.props;
+
+        let visibleDelete = false;
+
+        if (this.props.currentUser._id === sugg.user[0]._id) {
+            visibleDelete = true
+        }
         
         return (
             <div className='sugg-item-cont'>
@@ -39,6 +46,9 @@ class Suggestion extends React.Component {
                         <button className='button-comments' onClick={this.toggleComments}>
                             Comments
                         </button>
+                        {this.props.visible && (<button className='delete-sugg' onClick={() => this.props.deleteSugg(sugg._id).then(() => this.props.fetchPlanSuggs(this.props.planId))}>
+                            Delete
+                        </button>)}
                         <div className='voting-cont'>
                             <UpvoteContainer sugg={this.props.sugg} />
                         </div>
@@ -46,7 +56,7 @@ class Suggestion extends React.Component {
                         {this.state.commentsVisible ? (
                             <>
                             <CreateCommentContainer sugg={sugg} />
-                            <SuggCommentsContainer sugg={sugg} />
+                            <SuggCommentsContainer sugg={sugg} visible={visibleDelete}/>
                             </>
                         ) : null }
                     </div>

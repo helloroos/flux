@@ -9,7 +9,8 @@ const mapSTP = (state, ownProps) => {
     return ({
         suggs: state.main.suggs,
         planId: ownProps.match.params.planId,
-        currentUser: state.session.user
+        currentUser: state.session.user,
+        comments: state.main.comments.comments
     })
 }
 

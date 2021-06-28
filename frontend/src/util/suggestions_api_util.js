@@ -15,7 +15,8 @@ export const showPlanSugg = (planId) => {
 };
 
 export const deletePlanSugg = (suggId) => {
-    return axios.get(`/api/suggestions/${suggId}`)
+    
+    return axios.delete(`/api/suggestions/${suggId}`)
 };
 
 export const showSuggComments = suggId => {
@@ -32,6 +33,7 @@ export const editComment = comment => {
 };
 
 export const deleteComment = id => {
+    debugger
     return axios.delete(`/api/comments/${id}`)
 };
 

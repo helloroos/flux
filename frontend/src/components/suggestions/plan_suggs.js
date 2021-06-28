@@ -1,8 +1,6 @@
 import React from 'react';
 import '../css/plan_sugg.scss'
-import Suggestion from './suggestion_item';
-
-
+import SuggestionContainer from './suggestion_container';
 
 class PlanSuggestions extends React.Component {
 
@@ -14,13 +12,17 @@ class PlanSuggestions extends React.Component {
         const { suggs } = this.props;
         
         let reversed = [...suggs].reverse();
-
         let mapped = reversed.map((sugg, i) => {
+            let visible = false;
+
+            if (this.props.currentUser._id === sugg.user[0]._id) {
+                visible = true
+            }
             
             return (
             <div key={`sugg-item-${i}`} className='sugg-section' id={`sugg-${i}`}>
-                <Suggestion key={`sugg-${i}`}
-                    sugg={sugg} />
+                <SuggestionContainer key={`sugg-${i}`}
+                    sugg={sugg} visible={visible}/>
             </div>
         )})
         

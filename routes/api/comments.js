@@ -76,7 +76,7 @@ router.get('/suggestion/:suggestion_id',
 router.delete('/:id', (req, res) => {
     const commentId = req.params.id;
     Comment.deleteOne({ _id: commentId })
-        .then(() => res.status(200).json({ commentdeleted: 'comment successfully deleted' }))
+        .then(() => res.status(200).json({ commentdeleted: 'comment successfully deleted', commentId }))
         .catch(err =>
             res.status(404).json({ nocommentfound: 'No comment found with that id, please try again' })
         );

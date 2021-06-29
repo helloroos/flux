@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-import { fetchSuggComments } from "../../actions/comment_actions";
+import { deleteComment, fetchSuggComments } from "../../actions/comment_actions";
+import { fetchPlanSuggs } from "../../actions/sugg_actions";
 import SuggComments from "./sugg_comments";
 
 
@@ -16,7 +17,9 @@ const mapSTP = (state, ownProps) => {
 };
 
 const mapDTp = dispatch => ({
-    fetchSuggComments: suggId => dispatch(fetchSuggComments(suggId))
+    fetchSuggComments: suggId => dispatch(fetchSuggComments(suggId)),
+    deleteComment: commentId => dispatch(deleteComment(commentId)),
+    fetchPlanSuggs: planId => dispatch(fetchPlanSuggs(planId))
 });
 
 export default withRouter(connect(mapSTP, mapDTp)(SuggComments));

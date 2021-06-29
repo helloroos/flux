@@ -22,6 +22,11 @@ export const receiveSuggErrors = errors => {
     })
 };
 
+export const removePlanSugg = sugg => ({
+    type: DELETE_SUGG,
+    sugg
+})
+
 
 export const fetchSugg = (suggId) => dispatch => (
     SuggApiUtil.showSugg(suggId)
@@ -37,3 +42,8 @@ export const createSugg = (sugg, planId) => dispatch => (
     SuggApiUtil.createSugg(sugg, planId)
         .then(sugg => dispatch(receiveSugg(sugg)))
 );
+
+export const deleteSugg = (id) => dispatch => (
+    SuggApiUtil.deletePlanSugg(id)
+        .then(sugg => dispatch(removePlanSugg(sugg)))
+)

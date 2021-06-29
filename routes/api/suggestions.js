@@ -235,12 +235,8 @@ router.patch('/:id',
 
 router.delete('/:id', async (req, res) => {
     const suggId = req.params.id;
-    const sugg = await Suggestion.findById(suggId)
-    if (!sugg) {
-        return res.status(400).json({nosugg: "no suggestion found"})
-    }
-    Suggestion.findOneAndDelete({ _id: sugg._id })
-        .then(() => res.status(200).json({ suggestiondeleted: 'suggestion successfully deleted' }))
+    Suggestion.deleteOne({ _id: suggId })
+        .then(() => res.status(200).json({ suggestiondeleted: 'suggestion successfully deleted', suggId }))
         .catch(err =>
             res.status(404).json({ nosuggestionfound: 'No suggestion found with that id, please try again' })
         );

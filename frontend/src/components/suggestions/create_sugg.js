@@ -42,6 +42,7 @@ class CreateSugg extends React.Component {
         }
         
         this.props.createSugg(sugg, this.props.planId)
+            .then(() => this.props.fetchPlanSuggs(this.props.planId))
             .then(() => {this.setState({
                 title: '',
                 description: '',

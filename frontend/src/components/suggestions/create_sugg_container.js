@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createSugg } from "../../actions/sugg_actions";
+import { createSugg, fetchPlanSuggs } from "../../actions/sugg_actions";
 import { openModal } from '../../actions/modal_actions';
 import CreateSugg from "./create_sugg";
 import { withRouter } from 'react-router';
@@ -18,7 +18,7 @@ const mapDTP = dispatch => ({
     openModal: modal => dispatch(openModal(modal)),
     createComment: (sugg, planId) => dispatch(createComment(sugg, planId)),
     createSugg: (suggData, planId) => dispatch(createSugg(suggData, planId)),
-    
+    fetchPlanSuggs: planId => dispatch(fetchPlanSuggs(planId))
 });
 
 export default withRouter(connect(mapSTP, mapDTP)(CreateSugg));

@@ -1,5 +1,6 @@
 # Flux
 
+## About
 Flux is a travel planner that solves two common trip challenges; the dates and the destination. Users can initiate a travel plan and invite participants to join. Collaborators can nominate suggestions and upvote, downvote and comment on others’ suggestions. 
 
 Demo Flux [here](https://state-of-flux.herokuapp.com/).

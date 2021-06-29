@@ -80,10 +80,18 @@ class LoginForm extends React.Component {
                         <div className='errors' >{this.handleErrors('Password')}</div>
                             ) : null
                         }
+                        {this.state.errored ? (
+                        <div className='errors' >{this.handleErrors('Incorrect')}</div>
+                            ) : null
+                        }
                         <button className='buttons' onClick={this.handleSubmit}
                                 value='Sign In'>
                             Sign In
                         </button>
+                        {this.state.errored ? (
+                        <div className='errors' >{this.handleErrors('user')}</div>
+                            ) : null
+                        }
                         <button className='buttons' onClick={this.demoLogin}
                                 value='Demo'>
                             Demo

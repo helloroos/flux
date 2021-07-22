@@ -17,13 +17,15 @@ class SuggComments extends React.Component {
         super(props)
 
         this.state = {
-            deleted: false
+            deleted: false,
+           
         }
 
     }
 
     componentDidMount() {
         this.props.fetchSuggComments(this.props.sugg._id)
+            
     }
 
     render() {
@@ -34,11 +36,13 @@ class SuggComments extends React.Component {
         let arrComments;
         if (comments.length > 0) {
             
+            
             arrComments = comments.map((comment, i) => {
-                debugger
+                
                 return (
                     <div key={`comments-${i}`} className='sugg-comment-cont'>
-                        {this.props.visible && (
+                        
+                        {this.props.currentUser._id === comment.author[0] && (
                             <button className='delete-comments' onClick={() => this.props.deleteComment(comment._id).then(this.props.fetchSuggComments(this.props.sugg._id))}>
                                 <i className="fas fa-trash-alt"></i>
                             </button>

@@ -33,7 +33,7 @@ export const editComment = comment => {
 };
 
 export const deleteComment = id => {
-    debugger
+    
     return axios.delete(`/api/comments/${id}`)
 };
 

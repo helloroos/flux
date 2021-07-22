@@ -13,7 +13,7 @@ const suggReducer = (state = [], action) => {
             newState.push(action.sugg.data.newSuggestion);
             return newState
         case DELETE_SUGG:
-            debugger
+            
             let filtered = newState.filter(el => el._id !== action.sugg.data.suggId)
             
             return filtered;

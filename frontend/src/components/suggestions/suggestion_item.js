@@ -26,7 +26,7 @@ class Suggestion extends React.Component {
         const { sugg } = this.props;
 
         let visibleDelete = false;
-
+        
         if (this.props.currentUser._id === sugg.user[0]._id) {
             visibleDelete = true
         }
@@ -56,7 +56,7 @@ class Suggestion extends React.Component {
                         {this.state.commentsVisible ? (
                             <>
                             <CreateCommentContainer sugg={sugg} />
-                            <SuggCommentsContainer sugg={sugg} visible={visibleDelete}/>
+                            <SuggCommentsContainer sugg={sugg} />
                             </>
                         ) : null }
                     </div>
